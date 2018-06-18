@@ -1,0 +1,124 @@
+\section{Theorie}
+\label{sec:theorie}
+
+\subsection{Wärmekapazität}
+Verändert sich die Temperatur eines Körpers um $\symup{Δ} T$, ohne geleistete Arbeit,
+nimmt dieser die Wärmemenge
+\begin{equation}
+      \symup{Δ} Q = m \symup{c} \symup{Δ} T
+      \label{eqn:formel1}
+\end{equation}
+auf. $m$ ist hierbei die Masse des Körpers und $c$ die Wärmekapazität.
+\\
+Die Wärmekapazität kann mit der Masse normiert werden.
+Es folgt die Atom- oder Molwärme $C$, die angibt, welche Wärmemenge $\symup{d}Q$
+ein Grammatom des jeweiligen Stoffes um die Temperatur $\symup{d}T$ verändert.
+Wichtig ist hierbei welche Größe konstant bleibt.
+\\
+Wird das Volumen des Körpers konstant gehalten folgt mit Gleichung \ref{eqn:formel1}
+\begin{align}
+      \symup{C}_\text{V} &= \left(\frac{\symup{d}Q}{\symup{d}T}\right)_\text{V} \:.
+      \label{eqn:formel2}
+      \intertext{Mit der getroffenen Annahme des konstanten Volumens kann der erste Hauptsatz der Thermodynamik \cite{Anleitung}}
+      \symup{d}U = \symup{d}Q + \symup{d}A &= \symup{d}Q - p\symup{d}V = \symup{d}Q - 0
+      \label{eqn:formel3}
+      \shortintertext{eingesetzt werden;}
+      \symup{C}_\text{V} &= \left(\frac{\symup{d}U}{\symup{d}T}\right)_\text{V} \:.
+      \label{eqn:formel4}
+\end{align}
+
+\subsection{Gesetz von Dulong-Petit}
+Die grundlegende Annahme des Dulong-Petitschen Gesetzes ist die Unabhängigkeit
+der Atomwärme von den chemischen Eigenschaften des Stoffes. Jedoch nur wenn im
+festen Aggregatzustand das Volumen konstant ist, gilt
+\begin{align}
+      |\symup{C}_\text{V}| &= 3 \symup{R}
+      \label{eqn:dulongpetit1}
+      \shortintertext{mit der allgemeinen Gaskonstanten \cite{Anleitung}}
+      \symup{R} &= \SI{8.314}{\joule\per\mol\per\kelvin} \:.
+\end{align}
+Die Herleitung erfolgt über die Mittelung der kinetischen und potentiellen Energie der Atome,
+unter besonderer Betrachtung der Freiheitsgrade.
+Mit Hilfe des eindimensionalen harmonischen Oszillators folgt
+die gemittelte innere Energie als
+\begin{equation}
+      \left<u\right> = 2 \left<E_\text{kin}\right> \:.
+\end{equation}
+Mit dem Äquiparitionstheorem
+\begin{equation}
+      \left<E_\text{kin}\right> = \frac{1}{2} \symup{k}T \:,
+\end{equation}
+nachdem ein Atom pro Freiheitsgrad die oben gegebene gemittelte Energie besitzt,
+wenn es im thermischen Gleihgewicht mit der absoluten Temperatur $T$ und der Umgebung ist.
+Wird dies auf ein Mol und 3 Bewegungsfreiheitsgrade erweitert folgt Gleichung
+\eqref{eqn:dulongpetit1}.
+
+\subsection{Quantenmechanische Betrachtung}
+Für hohe Temperaturen stimmt das oben gezeigte Dulong-Petit Gesetz mit den
+experimentell festgestellten Werten überein.
+Für tiefe Temperaturen stimmen Theorie und Experiment nicht mehr überein.
+Dies liegt an der Quantelung der Energie, sodass die Energien der schwingenden Atome
+nicht kontinuierlich verändert werden können. Die diskrete Teilung führt zum Abstand
+\begin{equation}
+      \symup{Δ}u = n \symup{\hbar} ω
+\end{equation}
+der Energieniveaus. $\symup{\hbar}$ ist das Planksche Wirkungsquantum und $n \in \symbb{N}$.
+Die Wahrscheinlichkeiten der einzelnen Niveus sind durch
+die Boltzmann-Verteilung gegeben. Die Herleitung nach \cite{Anleitung} führt zu
+\begin{equation}
+      \left<U_\text{qu}\right> = 3 N_\text{L} \left<u_\text{qu}\right> = 3 N_\text{L} \frac{\symup{\hbar} ω}{\text{exp}\left(\frac{\symup{\hbar}ω}{\symup{k}T}\right) - 1} \:.
+      \label{eqn:uqu1}
+\end{equation}
+$N_\text{L} = \SI{6.02e23}{\per\mol}$ ist die Loschmidtsche Zahl, \cite{Anleitung}.
+Für hohe Temperaturen nähert sich dieser Ausdruck an
+\begin{equation}
+      \left<U_\text{kl}\right> = 3 \symup{R} T
+\end{equation}
+an, somit auch an Gleichung \eqref{eqn:dulongpetit1}.
+
+\subsection{Bestimmung der Wärmekapazität}
+Im Experiment ist es einfacher den Druck statt des Volumens konstant zu halten.
+Wichtig ist jetzt der Zusammenhang zwischen den Wärmekapazitäten bei konstantem Druck oder Volumen
+\begin{equation}
+      \symup{C}_\text{p} - \symup{C}_\text{V} = 9 \symup{α}^2 \symup{κ} \symup{V}_0 T \:.
+      \label{eqn:vergleich}
+\end{equation}
+Dabei ist $\symup{C}_\text{p}$ der experimentell bestimmte Wert und $\symup{C}_\text{V}$ der Theoriewert,
+entweder nach Dulong-Petit oder der Quantenmechanik.
+Mit dieser Voraussetzung kann die spezifische Wärmekapazität mit einem
+Mischungskalorimeter bestimmt werden.
+Betrachtet werden jetzt nur noch Wärmemengen $Q_{\!i}$.
+Die Bedeutungen der Indizes und Variablen sind am Ende des Kapitels aufgeführt.
+\begin{equation}
+      Q_1 = \symup{c}_\text{k} m_\text{k} (T_\text{k} - T_\text{m})
+\end{equation}
+ist die Wärmemenge die ein Körper $k$ abgibt, wenn er von der Temperatur $T_\text{k}$
+auf $T_\text{m}$ abkühlt.
+Geschieht dies in einem wassergefüllten Kalorimeter, wird die Wärmemenge
+\begin{equation}
+      Q_2 = (\symup{c}_\text{w} m_\text{w} + \symup{c}_\text{g} m_\text{g})(T_\text{m} - T_\text{w})
+\end{equation}
+aufgenommen. Mit der Annahme eines abgeschlossenen Systems kann $Q_1 = Q_2$ gesetzt werden.
+Es folgt
+\begin{equation}
+      \symup{c}_\text{k} = \frac{(\symup{c}_\text{w} m_\text{w} + \symup{c}_\text{g} m_\text{g})(T_\text{m} - T_\text{w})}{m_\text{k}(T_\text{k} - T_\text{m})} \:.
+      \label{eqn:wärmekapazität}
+\end{equation}
+Zur Bestimmung von $\symup{c}_\text{g} m_\text{g}$ wird als Körper Wasser genommen.
+Analog zur Rechnung oben folgt
+\begin{equation}
+      \symup{c}_\text{g} m_\text{g} = \frac{\symup{c}_\text{w} m_\text{h}(T_\text{h} - T_\text{m}) - \symup{c}_\text{w} m_\text{c}(T_\text{m} - T_\text{c})}{(T_\text{m} - T_\text{c})} \:.
+      \label{eqn:kaloriemeter}
+\end{equation}
+\begin{align*}
+      &\text{Wert:} &Q &= \text{Wärmemenge} \\
+      &             &\symup{c} &= \text{Wärmekapazität} \\
+      &             &m &= \text{Masse} \\
+      &             &T &= \text{Temperatur} \\
+      &\text{Index:} &\symup{k} &= \text{Körper} \\
+      &              &\symup{w} &= \text{Wasser im Kalorimeter} \\
+      &              &\symup{g} &= \text{Kalorimeter} \\
+      &              &\symup{m} &= \text{Mischtemperatur im Kalorimeter} \\
+      &              &\symup{h} &= \text{heiße Wassermenge} \\
+      &              &\symup{c} &= \text{kalte Wassermenge}
+\end{align*}

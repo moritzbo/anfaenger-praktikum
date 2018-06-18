@@ -1,0 +1,201 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Spezifische Wärmekapazität der Kalorimeter}
+\label{sec:speziwaerme}
+Die Messungen für die Wärmekapazitäten $\symup{c}_\text{Kal}$ werden mit 2
+unterschiedlichen Kalorimetern durchgeführt\footnote{Die spezifische
+Wärmekapazität $\symup{c}_\text{w}$ von Wasser wird hier zu $\SI{4.182}{\joule\per\gram\per\kelvin}$
+gewählt\cite{wasserC}}. Für die weiteren Rechnungen werden die
+folgenden $c_\text{g} m_\text{g}$ - Werte benutzt.
+Mit Formel \eqref{eqn:kaloriemeter} und den Werten aus Tabelle
+\ref{tab:kalwerte} ergeben sich die Werte für $c_\text{g} m_\text{g}$ zu
+\begin{align*}
+  c_\text{g,1} m_\text{g,1} &= \SI{1.56}{\kilo\joule\per\kelvin} \\
+  c_\text{g,2} m_\text{g,2} &= \SI{1.72}{\kilo\joule\per\kelvin} \:.
+\end{align*}
+Daraus resultieren die Werte für die Wärmekapazitäten der Kalorimeter
+\begin{align*}
+  c_\text{k,1} &= \SI{6.598}{\joule\per\gram\per\kelvin}\\
+  c_\text{k,2} &= \SI{6.868}{\joule\per\gram\per\kelvin} \:.
+\end{align*}
+\begin{table}
+ \centering
+ \sisetup{table-format=3.2}
+ \caption{Werte der Kalorimeter.}
+ \label{tab:kalwerte}
+ \begin{tabular}{S[table-format=1.0] S S S S S}
+   \toprule
+   {Kalorimeter} &
+   {$T_\text{h} \: [\si{\kelvin}]$} &
+   {$T_\text{c} \: [\si{\kelvin}]$} &
+   {$T_\text{m} \: [\si{\kelvin}]$} &
+   {$m_\text{h} \: [\si{\gram}]$} &
+   {$m_\text{c} \: [\si{\gram}]$} \\
+   \midrule
+   1 & 363.15 & 293.45 & 324.25 & 482.76 & 236.54 \\
+   2 & 356.65 & 293.65 & 321.55 & 524.69 & 249.83 \\
+   \bottomrule
+ \end{tabular}
+\end{table}
+\\
+\subsection{Wärmekapazität von Blei}
+Die Messung wird jeweils drei Mal durchgeführt.
+Der Literaturwert von Blei beträgt $\symup{c}_\text{B,lit} = \SI{0.129}
+{\joule\per\gram\per\kelvin}$\cite{spezwärm}. Die Werte für $c_\text{k}$ ergeben
+sich nach Formel \eqref{eqn:wärmekapazität} und den Messwerte aus Tabelle
+\ref{tab:pbwerte}.
+\begin{align*}
+  c_\text{k,1} &= \SI{0.176}{\joule\per\gram\per\kelvin} \\
+  c_\text{k,2} &= \SI{0.139}{\joule\per\gram\per\kelvin} \\
+  c_\text{k,3} &= \SI{0.354}{\joule\per\gram\per\kelvin}
+\end{align*}
+Der Fehler des Mittelwerts für die Wärmekapazität von Blei wurde gemäß der Formel
+\begin{equation}
+  \increment \overline{x} = \sqrt{\frac{1}{\symup{N}\left(\symup{N}-1\right)}
+  \sum_{\text{j}=1}^\text{N} \left( x_\text{j} - \overline{x}\right)
+  }
+\end{equation}
+berechnet. Genauso berechnen sich auch später die Fehler für Kupfer und Graphit.
+\\
+\begin{equation*}
+  c_\text{k, Blei} = \SI{0.223(217)}{\joule\per\gram\per\kelvin}
+\end{equation*}
+\\
+\begin{table}
+      \centering
+      \caption{Messwerte für Blei.}
+      \label{tab:pbwerte}
+      \sisetup{table-format=3.2}
+      \begin{tabular}{S[table-format=1.0] S S S S S}
+            \toprule
+            {Messung}
+            & {$m_\text{kal.} \: [\si{\gram}]$}
+            & {$m_\text{körper} \: [\si{\gram}]$}
+            & {$T_\text{heiß} \: [\si{\kelvin}]$}
+            & {$T_\text{kalt} \: [\si{\kelvin}]$}
+            & {$T_\text{misch} \: [\si{\kelvin}]$} \\
+            \midrule
+            1 & 663.38 & 542.32 & 358.15 & 295.75 & 296.65 \\
+            2 & 663.38 & $\text{-}$ & 356.15 & 294.65 & 295.35 \\
+            3 & 667.19 & $\text{-}$ & 354.15 & 294.85 & 296.55 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\newpage
+\subsection{Wärmekapazität von Kupfer}
+Auch hier werden die Messungen drei Mal durchgeführt.
+Die Werte für $\symup{c}_\text{k}$ für Kupfer
+ergibt sich aus Formel \eqref{eqn:wärmekapazität} und den Messwerten aus
+Tabelle \ref{tab:cuwerte} zu
+\begin{align*}
+      c_\text{k,1} &= \SI{0.372}{\joule\per\gram\per\kelvin}\\
+      c_\text{k,2} &= \SI{0.911}{\joule\per\gram\per\kelvin}\\
+      c_\text{k,3} &= \SI{1.682}{\joule\per\gram\per\kelvin}
+\end{align*}
+Der Literaturwert für Kupfer liegt bei $c_\text{Kupfer, lit} = \SI{0.382}{\joule\per\gram\per\kelvin}$\cite{spezwärm}.
+\\
+Der Mittelwert und -fehler für die Kupfermessung ergibt sich wieder zu
+\begin{equation*}
+  c_\text{k,Kupfer} = \SI{0.988(551)}{\joule\per\gram\per\kelvin}\:.
+\end{equation*}
+\\
+\begin{table}
+      \centering
+      \caption{Messwerte für Kupfer.}
+      \label{tab:cuwerte}
+      \sisetup{table-format=3.2}
+      \begin{tabular}{S[table-format=1.0] S S S S S}
+            \toprule
+            {Messung}
+            & {$m_\text{kal.} \: [\si{\gram}]$}
+            & {$m_\text{körper} \: [\si{\gram}]$}
+            & {$T_\text{heiß} \: [\si{\kelvin}]$}
+            & {$T_\text{kalt} \: [\si{\kelvin}]$}
+            & {$T_\text{misch} \: [\si{\kelvin}]$} \\
+            \midrule
+            1 & 604.04 & 237.63 & 353.25 & 313.05 & 313.55 \\
+            2 & 652.72 & $\text{-}$ & 354.15 & 294.55 & 296.45 \\
+            3 & 652.72 & $\text{-}$ & 358.15 & 295.35 & 298.95 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+\\
+\subsection{Wärmekapazität von Graphit}
+Die Messungen werden wieder drei Mal durchgeführt und mit Formel
+\eqref{eqn:wärmekapazität} und den Messwerten aus Tabelle \ref{tab:graphwerte}
+ergeben sich die folgenden Werte für $c_\text{k}$
+\begin{align*}
+      c_\text{k,1} &= \SI{0.451}{\joule\per\gram\per\kelvin}\\
+      c_\text{k,2} &= \SI{0.559}{\joule\per\gram\per\kelvin}\\
+      c_\text{k,3} &= \SI{5.587}{\joule\per\gram\per\kelvin}
+\end{align*}
+Der Literaturwert für Graphit liegt bei $\symup{c}_{\,\text{G,lit}} = \SI{0.715}
+{\joule\per\gram\per\kelvin}$\cite{spezwärm}. Der Mittelwert und die prozentuale Abweichung der Graphitmessung
+ergeben sich zu
+\begin{equation*}
+  c_\text{k,Graphit} = \SI{2.199(861)}{\joule\per\gram\per\kelvin} \:.
+\end{equation*}
+\\
+\begin{table}
+     \centering
+     \caption{Messwerte für Graphit.}
+     \label{tab:graphwerte}
+     \sisetup{table-format=3.2}
+     \begin{tabular}{S[table-format=1.0] S S S S S}
+           \toprule
+           {Messung}
+           & {$m_\text{kal.} \: [\si{\gram}]$}
+           & {$m_\text{körper} \: [\si{\gram}]$}
+           & {$T_\text{heiß} \: [\si{\kelvin}]$}
+           & {$T_\text{kalt} \: [\si{\kelvin}]$}
+           & {$T_\text{misch} \: [\si{\kelvin}]$} \\
+           \midrule
+           1 & 656.36 & 105.21 & 353.45 & 295.75 & 296.15 \\
+           2 & 597.54 & $\text{-}$ & 354.65 & 294.15 & 294.65 \\
+           3 & 597.54 & $\text{-}$ & 356.55 & 294.15 & 298.95 \\
+           \bottomrule
+     \end{tabular}
+\end{table}
+\\
+\subsection{Molwärmebestimmung}
+Die Wärmekapazität $\symup{C}$ eines Stoffes lässt sich mit Formel
+\eqref{eqn:vergleich} berechnen. Die Umformung nach $\symup{C}_\text{V}$
+resultiert in
+\begin{equation}
+  \symup{C}_\text{V} = \symup{C}_\text{p} - 9 \symup{α}^2 \symup{κ} \symup{V}_0 T \:.
+\end{equation}
+Nun kann $\symup{C}_\text{p}$ durch $\symup{c}_\text{k} \cdot \symup{M}$
+ersetzt und das Molvolumen $\symup{V}_0$ durch $\symup{M} \:/\: \rho$ ersetzt
+werden.
+Durch einsetzen der Werte $\alpha$, $\kappa$, $\symup{M}$ und $\rho$
+aus der Tabelle in der Versuchsanleitung\cite{Anleitung} und den restlichen
+Werten aus geeigneten Tabellen in
+\begin{equation}
+  \symup{C}_\text{V} = \symup{c}_\text{k} \symup{M} - 9 \symup{α}^2
+  \symup{κ} \frac{\symup{M}}{\rho} \cdot \symup{T}_\text{m} \:,
+\end{equation}
+folgen die Werte für $\symup{C}_\text{V}$.
+Damit ergeben sich für die Werte und die Abweichungen zum Literaturwert von
+$3R$ für Blei, Kupfer und Graphit.
+Nur $c_\text{k}$ fehlerbehaftet ist, also berechnet sich der Fehler gemäß
+\begin{equation}
+  \increment \symup{C}_\text{V} =
+  \sqrt{\left(\frac{\partial \symup{C}_\text{V}}{\partial \symup{c}_\text{k}} \increment \symup{c}_\text{k}\right)^{\!\!2}}
+  = \symup{M}\cdot\increment\symup{c}_\text{k}\:.
+\end{equation}
+\begin{table}
+  \centering
+  \caption{Werte der Molwärme. $\symup{C}_\text{V}\;\text{in}\;[\si{\joule\per\mol\per\kelvin}]$.}
+  \label{tab:molblei}
+  \begin{tabular}{c c c}
+    \toprule
+    {$\symup{C}_\text{V, Blei} \pm Fehler$}
+    & {$\symup{C}_\text{V, Kupfer} \pm Fehler$}
+    & {$\symup{C}_\text{V, Graphit} \pm Fehler$}
+    \\
+    \midrule
+    44.55 $\pm$ 3.12 & 61.99 $\pm$ 4.39 & 26.36 $\pm$ 2.98 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
