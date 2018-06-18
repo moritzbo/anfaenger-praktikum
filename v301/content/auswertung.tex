@@ -1,0 +1,97 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+\input{content/auswertung_leerlauf.tex}
+
+\subsection{Direkte $U_0$-Messung}
+\label{sec:u0}
+Die Gerätekonstanten lauten
+\begin{align}
+      U_\text{k} &= \SI{1.46}{\volt} \\
+      R_\text{i} &= \SI{5.64}{\ohm} \\
+      R_\text{v} &= \SI{10}{\mega\ohm} .
+\end{align}
+Mit der Formel \eqref{eqn:rmono} für $U_0$ folgt der systematsche Fehler mit
+\begin{equation}
+      \increment U_0 = U_\text{k} \frac{R_\text{i}}{R_\text{v}} = \SI{1.46}{\volt} \cdot \num{5.64e-4} = \SI{8.2344e-4}{\volt},
+\end{equation}
+da die Widerstände bei verschwindenem Strom keinen Beitrag in der Maschenregel haben,
+hier aber ein Strom fließt.
+Es ergibt sich somit $U_0 = \SI{1.4608(0008)}{\volt}$.
+\\
+Die prozentuale Abweichung beträgt $\SI{0,056}{\percent}$, der Fehler ist
+also zu vernachlässigen. Wäre das Voltmeter nicht nur über die Monozelle angeschlossen,
+sondern auch über das Amperemeter, müsste der Innenwiderstand von diesem ebenfalls
+mit einbezogen werden, sonst wäre es ein systematischer Fehler.
+
+
+\subsection{Leistung an der Monozelle}
+\label{sec:leistung}
+Für die Leistung der Monozelle werden
+\begin{align}
+      R_\text{v} = \frac{U_\text{k}}{\symbf{I}}
+      \label{eqn:leistungr}
+      \shortintertext{und}
+      P = \symbf{I} U_\text{k}
+      \label{eqn:leistungp}
+\end{align}
+besimmt. Vgl Tabelle \ref{tab:leistung}.
+In Abbildung \ref{fig:leistung} sind die Messwerte gegen Theoriekurven
+aufgetragen. Dafür wurde
+\begin{equation}
+      U_\text{k} = U_0 + \symbf{I} R_\text{i,m}
+\end{equation}
+in \eqref{eqn:leistungr} und \eqref{eqn:leistungp} eingesetzt.
+Die Parameter sind in Tabelle \ref{tab:leistungkonst} aufgelistet.
+Die Theoriewerte liegen nahe an den Messwerten,
+mit einem anders gewählten $U_0$ oder $R_{i,m}$ ist die Übereinstimmung sichtbar besser.
+Wird der betrachtete Abstand der $R_\text{v}$-Achse in Richtung 0 verschoben,
+ist das Maximum der Leistung bei $R_\text{v} = R_\text{i,m}$ zu sehen. Dann sind die
+Unterschiede zischen den Theoriekurven aber nicht zu erkennen.
+\begin{table}
+      \caption{Parameter der Theorikurven.}
+      \label{tab:leistungkonst}
+      \centering
+      \begin{tabular}{S[table-format=1.0] S[table-format=1.4] S[table-format=1.2]}
+            \toprule
+            {Theoriekurve} & {$U_0 \: [\si{\volt}]$} & {$R_{i,m} \: [\si{\ohm}]$} \\
+            \midrule
+            1 & 1,4608 & 5,64 \\
+            2 & 1,4608 & 6,2  \\
+            3 & 1,5    & 5,64 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+\begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{build/leistung.pdf}
+      \caption{Messwerte und Theoriekurve für die Leistung der Monozelle.}
+      \label{fig:leistung}
+\end{figure}
+\begin{table}
+      \centering
+      \caption{Messwerte der Leistung.}
+      \label{tab:leistung}
+      \begin{tabular}{ S[table-format=1.2] S[table-format=2.1] S[table-format=2.2] S[table-format=1.3]}
+            \toprule
+            $U_\text{k} \: [\si{\volt}]$ & $\symbf{I} \: [\si{\milli\ampere}]$ & $R_\text{v} \: [\si{\ohm}]$ & $P \: [\si{\milli\watt}]$ \\
+            \midrule
+            1,66 & 34,0 & 48,82 & 0,056 \\
+            1,70 & 34,6 & 49,13 & 0,059 \\
+            1,70 & 36,0 & 47,22 & 0,061 \\
+            1,72 & 39,3 & 43,77 & 0,068 \\
+            1,73 & 41,0 & 42,20 & 0,071 \\
+            1,75 & 43,2 & 40,51 & 0,076 \\
+            1,76 & 46,3 & 38,01 & 0,081 \\
+            1,79 & 49,2 & 36,38 & 0,088 \\
+            1,80 & 53,4 & 33,71 & 0,096 \\
+            1,83 & 57,1 & 32,05 & 0,104 \\
+            1,85 & 61,5 & 30,08 & 0,114 \\
+            1,88 & 66,0 & 28,48 & 0,124 \\
+            1,92 & 74,0 & 25,95 & 0,142 \\
+            1,95 & 77,3 & 25,23 & 0,151 \\
+            2,00 & 84,0 & 23,81 & 0,168 \\
+            2,04 & 92,4 & 22,08 & 0,188 \\
+            \bottomrule
+      \end{tabular}
+\end{table}

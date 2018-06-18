@@ -1,0 +1,68 @@
+\section{Durchführung und Aufbau}
+\label{sec:Durchführung}
+Um die Leerlaufspannung $U_0$ der Monozelle zu bestimmen, wird diese an einen
+Spannungsmesser angeschlossen und mit einer geeigneten Skala die
+Leerlaufspannung bestimmt.
+\\
+\\
+Für Teilaufgabe b.) wird mit einer Schaltung wie in Abbildung \ref{fig:schaltung1}
+die Klemmenspannung $U_\text{k}$ gegen den Strom $\symbf{I}$ gemessen.
+Damit wird später die Leerlaufspannung $U_0$ und der Innenwiderstand
+$R_\text{i}$ bestimmt.
+An der Stelle von $R_\text{v}$ wird ein Potentiometer verwendet, welches von $0-\SI{50}{\ohm}$
+reicht.
+\\
+\\
+Im Anschluss wird mit der Schaltung aus Abbildung \ref{fig:schaltung2}
+erneut die Klemmenspannung $U_\text{k}$ gegen
+$\symbf{I}$ gemessen. An die Monozelle wird eine Gegenspannung angelegt.
+Dabei muss die Gegenspannung jedoch $\SI{2}{\volt}$ größer gewählt werden als die
+Leerlaufspannung.
+\\
+\\
+Im folgenden wird die Monozelle gegen einen RC-Generator ausgetauscht und
+es wird wie in Teilaufgabe b) verfahren. Anstatt Gleichstrom werden nun der
+Rechteck- und Sinusausgang des Funktionengenerators verwendet.
+Für die $\SI{0.69}{\volt}$ Rechteckspannung wird ein Potentiometer
+$R_\text{a1}$, welches von $20- \SI{250}{\ohm}$ reicht, eingebaut
+und es wird wieder der Belastungstrom $\symbf{I}$ gegen die Klemmenspannung
+$U_\text{k}$ gemessen.
+Bei dem $\SI{1}{\volt}$ Sinusausgang wird ein Widerstand $R_\text{a2}$ mit
+einem Variationsbereich von $0.1 - \SI{5}{\kilo\ohm}$ eingebaut und es wird
+wieder $\symbf{I}$ in Abhängigkeit von $U_\text{k}$ gemessen.
+
+\begin{figure}
+      \caption{Schaltung für die Bestimmung von $U_0$ und $R_\text{i}$.}
+      \label{fig:schaltung1}
+      \begin{circuitikz}
+            \draw
+            (0,0) -- (6,0) to[variable resistor, l=$R_\text{v}$] (6,5);
+            \draw (2.5,5)  to[ammeter, l=$\si{\ampere}$] (6,5);
+            \draw (0,0)    to[battery1=\SI{1.5}{V}] (0,5) -- (2.5,5);
+            \draw[<->] (1.5, 5) -- (1.5,0) node[midway, left] {$U_\text{k}$};
+            \draw (2.5,0)  to[voltmeter,*-*, l=$\si{\volt}$] (2.5,5);
+
+            \draw (-0.25, 2.2) node{$-$};
+            \draw (-0.25, 2.8) node{$+$};
+      \end{circuitikz}
+\end{figure}
+
+\begin{figure}
+      \caption{Schaltung für die Bestimmung der Leistung der Monozelle.}
+      \label{fig:schaltung2}
+      \begin{circuitikz}
+            \draw (0,0) -- (6,0)
+                  to[dcvsource] (6,2.5)
+                 to[variable resistor, l=$\symup{R}_\text{v}$] (6,5);
+                 \draw (2.5,5) to[ammeter, l=$\si{\ampere}$] (6,5);
+                 \draw (0,0)   to[battery1=\SI{1.5}{V}]
+                 (0,5) -- (2.5,5);
+                 \draw (2.5,0) to[voltmeter,*-*, l=$\si{\volt}$] (2.5,5);
+
+                 \draw (-0.25, 2.2) node{$-$};
+                 \draw (-0.25, 2.8) node{$+$};
+
+                 \draw (6.4, 0.85) node{$-$};
+                 \draw (6.4, 1.65) node{$+$};
+           \end{circuitikz}
+  \end{figure}

@@ -1,0 +1,40 @@
+\section{Diskussion}
+\label{sec:Diskussion}
+\begin{table}
+      \caption{Innenwiderstände der verschiedenen Spannungsquellen.}
+      \label{tab:innenR}
+      \centering
+      \begin{tabular}{c S[table-format=3.1] @{${}\pm{}$} S[table-format=2.1] S[table-format=1.2]}
+            \toprule
+            {Quelle} & \multicolumn{2}{c}{$R_\text{i} \: [\si{\ohm}]$} & {$\increment R_\text{i} \: [\si{\percent}]$} \\
+            \midrule
+            Monozelle &   5.6 &  0.1 & 0.18 \\
+            Rechteck  &  58   &  1   & 1.72 \\
+            Sinus     & 590   & 20   & 3.39 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+\noindent Der Wert des Innenwiderstandes der Monozelle ergibt sich aus der Steigung
+der Ausgleichsgeraden in Abbildung \ref{fig:mono}. Der prozentuale Fehler,
+sowie die Abweichungen zur Ausgleichsgeraden sind klein.
+
+\noindent Bei der Rechteckspannung bringt der Wechsel der Skala des Amperemeters den Sprung
+in den abgebildeten Messwerten \ref{fig:rechteck}. Jedoch haben die beiden Ausgleichsgeraden
+eine sehr ähnliche Steigung.
+
+\noindent Die Ausgleichsgerade der Sinusspannung passt sehr gut zu der ersten Messwertgruppe,
+zudem stimmt der Y-Achsenabschnitt b mit der eingestellten Amplitude von $\SI{1}{\volt}$
+überein.
+
+\noindent Bemerkenswert bei allen drei Innenwiderständen ist, dass sie je einen Unterschied
+von circa einer Zehnerpotenz zueinander haben.
+\\
+\\
+Die Leerlaufspannung der Monozelle liegt in ihrer indirekten Berechnung im Abschnitt
+\ref{sec:monozelle} in guter Nähe zur direkten Messung in Kapitel \ref{sec:u0}.
+Jedoch liegt die Theoriekurve der Leistung mit einem anderen $U_0$ besser zu den
+Messwerten als mit dem errechneten $U_0$. Eine andere Möglichkeit der Anpassung
+dieser Theoriekurve ist der Innenwiderstand. Da die Leerlaufspannung ebenfalls
+von diesem abhängig ist, ist dieser vermutlich mit einem unbekannten Fehler versehen.
+Dieser kann aus den verwendeten analogen Messgeräten für die Spannung und die Stromstärke
+stammen, oder an den Innenwiderständen der Kabel, obwohl diese möglichst kurz gewählt wurden.

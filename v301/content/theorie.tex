@@ -1,0 +1,63 @@
+\section{Theorie}
+\label{sec:theorie}
+
+\subsection{Begrifflichkeiten}
+Unter einer Leerlaufspannung versteht man die Spannung, die anliegt, wenn
+an den Ausgangsklemmen einer Spannungsquelle kein Strom entnommen wird.
+Eine Spannungsquelle ist eine Apparatur, welche eine konstante Leistung über
+einen endlich langen Zeitraum erbringen kann.
+Da Spannungsquellen einen Innenwiderstand besitzen, fällt die Klemmenspannung
+ab, sobald über einen Lastwiderstand $R_\text{a}$ ein endlicher Strom
+$\symbf{I}$ fließt. \cite{Anleitung}
+
+\subsection{Kirchhoff'sche Gesetz}
+Das zweite Kirchhoff'sche Gesetz, auch Maschenregel genannt, besagt:
+\begin{equation}
+      \sum_\text{n} {U_0}_\text{n} \: = \: \sum_\text{m} \symbf{I}_\text{m} R_\text{m}
+      \label{eqn:kirchhoff}
+\end{equation}
+Die Summe der Leerlaufspannungen in einer Masche ist gleich der
+Summe der Spannungsabfälle an den Widerständen.
+Mit Abbildung \ref{fig:ersatzbild}
+folgt der Zusammenhang:
+\begin{equation}
+      U_0 = \symbf{I} R_\text{i} + \symbf{I} R_\text{a}
+\end{equation}
+Daraus folgt für die Leerlaufspannung
+\begin{equation}
+      U_0 = U_\text{k} \left(1 + \frac{R_\text{i}}{R_\text{v}}\right)
+      \label{eqn:rmono}
+\end{equation}
+Das bedeutet, die Klemmenspannung am Abgriff berechnet sich gemäß:
+\begin{align}
+      U_\text{K} &= \symbf{I} R_\text{a} \\
+                  &= U_0 - \symbf{I} R_\text{i}
+      \label{eqn:linreg}
+\end{align}
+
+\begin{figure}
+      \caption{Ersatzschaltbild einer Spannungsquelle mit einem Lastwiderstand.}
+      \label{fig:ersatzbild}
+      \begin{circuitikz}
+            \draw
+            (0,0) to[dcvsource, l=$U_0$] (0,3)
+            to[R, l=$R_\text{I}$] (0,6) -- (4,6)
+            to[R, l=$R_\text{a}$] (4,0) -- (0,0);
+            \draw[<->] (3,0) -- (3,6) node[left, midway] {$U_\text{K}$} ;
+            \draw[dashed] (1,0) -- (1, -1) -- (-2,-1) -- (-2,7)
+            -- (1,7) -- (1,6) -- (1,0);
+
+            \draw (0.4, 1.1) node{$-$};
+            \draw (0.4, 1.9) node{$+$};
+      \end{circuitikz}
+\end{figure}
+
+\subsection{Schaltbilder}
+Der gestrichelt umrandete Teil in Abbildung \ref{fig:ersatzbild} stellt das
+Ersatzschaltbild dar.
+Da es nun um eine reale Schaltung geht, muss berücksichtigt werden, dass
+aufgrund des Innenwiderstandes an der Spannungsquelle keine beliebig große
+Leistung entnommen werden kann. Die Leistung $P$ berechnet sich gemäß
+\begin{equation}
+      P = \symbf{I}^2 R_\text{a}.
+\end{equation}
