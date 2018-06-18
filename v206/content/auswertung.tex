@@ -1,0 +1,248 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+Die Messwerte aller Messparameter sind in der Tabelle \ref{tab:Messwerte} aufgezeigt.
+Die Drücke sind um $\SI{1}{\bar}$ erhöht und die Temperaturen in Kelvin angegeben.
+
+\subsection{Temperaturverläufe}
+Die Graphen der Temperaturverläufe für das heiße und das kalte Reservoir
+sind in Abbildung \ref{fig:temp} dargestellt.
+Die verwendete lineare Ausgleichsrechnung mit der Form
+\begin{equation}
+  T(t) = At^2 + Bt + C
+\end{equation}
+wird über je eine Messwertreihe gelegt.
+Die Parameter stehen in Tabelle \ref{tab:parameter}.
+
+\begin{figure}
+      \includegraphics{build/T.pdf}
+      \caption{Temperaturkurven von T1 und T2 mit Ausgleichsfunktionen.}
+      \label{fig:temp}
+\end{figure}
+
+\begin{table}
+  \centering
+  \caption{Paramter für die Ausgleichsfunktionen}
+  \label{tab:parameter}
+  \begin{tabular}{c c c c c c c}
+    \hline
+    \multicolumn{3}{c}{T1} & \multicolumn{3}{c}{T2} \\
+    \toprule
+    & {$A_1 \: [\si{\kelvin\per\second\squared}]$}
+    & {$B_1 \: [\si{\kelvin\per\second}]$}
+    & {$C_1 \: [\si{\kelvin}]$}
+    & {$A_2 \: [\si{\kelvin\per\second\squared}]$}
+    & {$B_2 \: [\si{\kelvin\per\second}]$}
+    & {$C_2 \: [\si{\kelvin}]$} \\
+    \midrule
+    {Parameter} & $\num{-2.67e-7}$ & 0.028 & 292.33 & $\num{5.05e-6}$ & -0.028 & 296.31 \\
+    {Fehler}    & $\num{1.26e-6}$  & 0.001 & 0.367  & $\num{2.46e-6}$ & 0.003  & 0.715 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}
+  \centering
+  \caption{Spezielle Messtellen für das kalte und das heiße Reservoir.}
+  \label{tab:messstellen}
+  \begin{tabular}{c S[table-format=3.2] S[table-format=3.2] S[table-format=3.2] S[table-format=3.2]}
+    \toprule
+    & {$T_{300} \: [\si{\kelvin}]$}
+    & {$T_{600} \: [\si{\kelvin}]$}
+    & {$T_{900} \: [\si{\kelvin}]$}
+    & {$T_{1140} \: [\si{\kelvin}]$} \\
+    \midrule
+    {$\text{Reservoir}_\text{k}$} & 289,45 & 280,75 & 273,65 & 271,85 \\
+    {$\text{Reservoir}_\text{w}$} & 299.95 & 309.25 & 317,35 & 323,05 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Nun werden 4 spezielle Messstellen für jedes Reservoir gewählt. Diese können
+in Tabelle \ref{tab:messstellen} ausgelesen werden.
+Daraus lassen sich nun die Differenzenquotienten $\symup{d} T / \symup{d} t$
+gemäß
+\begin{equation}
+  \symup{d} T / \symup{d} t = 2 At + B
+\end{equation}
+bestimmen, wobei der Gaußfehler gemäß
+\begin{equation}
+  \increment \dot{T} = \sqrt{\sum_{j=0}^K \left( \frac{\symup{d}f}{\symup{d}y_j}
+  \increment y_j\right)^{\!\! 2}} = \sqrt{4 t^2 (\increment A)^{2} + (\increment B)^{2}}
+  \label{eqn:deltatpunkt}
+\end{equation}
+mit berücksichtigt werden muss.
+\\
+Die Differenzenquotienten an den Stellen ergeben sich dann zu den Werten in
+Tabelle \ref{tab:diffquot}.
+\begin{table}
+  \centering
+  \caption{Differenzenquotienten für $\symup{d} T / \symup{d} t$ der beiden Reservoire.}
+  \label{tab:diffquot}
+  \begin{tabular}{c S[table-format=2.1] @{${}\pm{}$} S[table-format=1.3]
+                  S[table-format=2.1] @{${}\pm{}$} S[table-format=1.3]
+                  S[table-format=2.1] @{${}\pm{}$} S[table-format=1.3]
+                  S[table-format=2.1] @{${}\pm{}$} S[table-format=1.3]}
+    \toprule
+    {Reservoir}
+    & \multicolumn{2}{c}{$\dot{T}_{300} \: [{\num{e-3}}\:\:\si{\kelvin\per\second}]$}
+    & \multicolumn{2}{c}{$\dot{T}_{600} \: [{\num{e-3}}\:\:\si{\kelvin\per\second}]$}
+    & \multicolumn{2}{c}{$\dot{T}_{900} \: [{\num{e-3}}\:\:\si{\kelvin\per\second}]$}
+    & \multicolumn{2}{c}{$\dot{T}_{1140} \: [{\num{e-3}}\:\:\si{\kelvin\per\second}]$} \\
+    \midrule
+    {kalt} &  27.7 & 0.943 &  27.6 & 1.883 &  27.4 & 2.824 &  27.3 & 3.576 \\
+    {warm} & -25.5 & 0.674 & -23.0 & 1.347 & -19.0 & 2.021 & -17.0 & 2.559 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Güteziffern}
+Um die Güteziffern an den Messstellen zu berechnen, wird verwendet, dass
+die Wärmekapazität von Wasser $c_\text{w}=\SI{4.182}{\joule\per\gram\per\kelvin}$
+\cite{wasserC} beträgt, die Behälter sind mit je
+3 Litern Wasser gefüllt und das $c_\text{k} m_\text{k}$ der Behälter
+wird zu $\SI{660}{\joule\per\kelvin}$ abgelesen.
+Die Güteziffern berechnen sich nach Formel \eqref{eqn:guete} und die
+idealen Güteziffern $\nu_\text{ideal}$ ergeben sich nach Formel
+\eqref{eqn:guete2}.
+Die Güteziffern sind in Tabelle \ref{tab:guetewerte} zusammengefasst.
+
+\begin{table}
+  \centering
+  \caption{ideal und reale Güteziffern an den Messstellen.}
+  \label{tab:guetewerte}
+  \begin{tabular}{S[table-format=4.0]
+                  S[table-format=2.2]
+                  S[table-format=1.2]
+                  S[table-format=3.2]
+                  S[table-format=2.2]}
+    \toprule
+    {$t \: [\si{\second}]$}
+    & {$ν_\text{ideal}$}
+    & {$ν_\text{real}$}
+    & {$\increment ν_\text{real}$}
+    & {$\text{Abweichung} \: [\si{\percent}]$} \\
+    \midrule
+    300  & 28.57 & 3.89 &  94.65 & 86.38 \\
+    600  & 10.85 & 3.96 & 189.15 & 63.50 \\
+    900  &  7.26 & 3.8  & 283.69 & 47.66 \\
+    1140 &  6.31 & 3.8  & 359.32 & 39.78 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\newpage
+
+Die großen Abweichungen der realen Güteziffern von den idealen Güteziffern sind
+sehr auffällig.
+Für den Gaußfehler der realen Güteziffern ergibt sich gemäß der Gauß'schen
+Fehlerfortpflanzung
+\begin{equation}
+  \increment ν_\text{real} = \frac{m_\text{w} \symup{c}_\text{w} + m_\text{k} \symup{c}_\text{k}}
+  {N} \increment \dot{T} \:.
+\end{equation}
+Mit dem $\increment \dot{T}$ aus Formel \ref{eqn:deltatpunkt}.
+
+\subsection{Massendurchsatz}
+Zuerst wird die Verdampfungswärme $L$ des Transportgases
+$\ce{Cl2F2C}$ bestimmt.
+Dies geschieht über eine lineare Regression wie in Versuch 203 beschrieben \cite{v203}.
+Dafür wird der natürliche Logarithmus des Drucks im wärmeren Reservoir gegen den
+Kehrwert der Temperatur im warmen Reservoir aufgetragen.
+Die dazugehörige Abbildung ist in Abbildung \ref{fig:steamp} zusehen.
+
+\begin{figure}
+  \includegraphics{build/L.pdf}
+  \caption{Dampfdruckkurve für $\symup{P}$ und $\symup{T}$ im warmen Reservoir.}
+  \label{fig:steamp}
+\end{figure}
+
+Es wird eine Ausgleichsrechnung der Form
+\begin{equation}
+  \ln\left(\frac{p(T)}{p_0}\right)= \frac{A}{R T} + B
+\end{equation}
+verwendet, wobei $\symup{R}$ die universelle Gaskonstante mit
+$R = \SI{8.3144598}{\joule\per\kelvin\per\mol}$\cite{gaskonst} darstellt und $A, B$
+die Koeffizienten beschreiben. Für die folgenden Rechnungen wird
+$R$ wegen der sehr kleinen Unsicherheit der Größenordnung $\num{1e-7}$ als exakt
+angenommen, da es keinen nennenswerten Anteil zum Fehler von $L$ beisteuert.
+\\
+Die Paramter der linearen Ausgleichsrechnung ergeben sich zu
+\begin{align*}
+  \symup{a} &= \SI{17721.75 \pm 1000.48}{\kelvin} \\
+  \symup{b} &= \num{9.29(39)} \:.
+\end{align*}
+\\
+Die Verdampfungswärme pro Masseneinheit wird noch mit der molaren Masse des
+Gases, welche $M = \SI{120.9}{\gram\per\mol}$ beträgt, verrechnet, sodass die
+Verdampfungswärme sich zu
+\begin{equation}
+  L = \SI{147 \pm 8}{\kilo\joule\per\kilo\gram}
+\end{equation}
+bestimmt.
+Die Unsicherheit ergibt sich mit der Gauß'schen Fehlerfortpflanzung nach
+\begin{equation}
+  \increment \symup{L} = \frac{1}{M} \increment \symup{A}
+  \label{eqn:gauss}
+\end{equation}
+Mit dem so erhaltenen Wert für $L$ wird nun der Massendurchsatz gemäß
+\eqref{eqn:massendurchsatz} bestimmt.
+Der Massendurchsatz $\symup{d}m / \symup{d}t$ an der jeweiligen Messstelle ist
+in Tabelle \ref{tab:durchsätzli} aufgeführt.
+
+\begin{table}
+  \centering
+  \caption{Massendruchsatz $\symup{d}m / \symup{d}t$ an den verschiedenen Messstellen.}
+  \label{tab:durchsätzli}
+  \begin{tabular}{c c c}
+    \toprule
+    {$t \: [\si{\second}]$} & {$\dot{m} \: [\si{\gram\per\second}]$}
+    & {$\increment \dot{m} \: [\si{\gram\per\second}]$} \\
+    \midrule
+    300  & -3.2 & 0.257 \\
+    600  & -2.8 & 0.224 \\
+    900  & -2.4 & 0.197 \\
+    1140 & -2.1 & 0.169 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Unsicherheiten entstehen wieder nach Gaußfehler \ref{eqn:gauss}.
+Für $\increment \dot{m}$ gilt dann
+\begin{equation}
+  \increment \dot{m} = \frac{1}{L} \sqrt{\dot{Q}_\text{kalt}^2 (\increment L)^2
+  + (\increment \dot{Q}_\text{kalt})^2}
+\end{equation}
+
+\subsection{Kompressorleistung}
+Zuletzt wird die mechanische Kompressorleistung ermittelt. Dazu wird der Druck
+$p_\text{a}$ des Gases bei einer spezifischen Temperatur $T$ benötigt, um die
+Dichte des Gases bei diesen Randbedingungen über Gleichung \eqref{eqn:rhö} zu
+bestimmen. Bei der Berechnung werden außerdem der Druck des Transportgases
+$\rho_0 = \SI{5.51}{\gram\per\litre}$ bei $\SI{273.15}{\kelvin}$ und der
+Adiabatenkoeffizient $\kappa = 1.14$ benötigt.
+Die errechneten Zwischenergebnisse sind in Tabelle \ref{tab:leistungN}
+dargelegt.
+Der Fehler für die Kompressorleistung ergibt sich dann aus
+\begin{equation}
+  \increment N_\text{mech} = \frac{1}{1 - \kappa} \left(p_\text{warm}
+  \sqrt[\leftroot{-1}\uproot{-1}\scriptstyle \kappa]{\frac{p_\text{kalt}}
+  {p_\text{warm}}} - p_\text{kalt} \right) \frac{1}{\rho} \increment \dot{m} \:.
+\end{equation}
+
+\begin{table}
+      \centering
+      \caption{Kompressorleistung an den 4 Messstellen und Dichte des Gases.}
+      \label{tab:leistungN}
+      \begin{tabular}{c c c}
+            \toprule
+            {$t \: [\si{\second}]$} & {$N_\text{mech} \: [\si{\watt}]$}
+            & {$\rho \: [\si{\gram\per\litre}]$} \\
+            \midrule
+            300  & -48 $\pm$  7 & 21.32 \\
+            600  & -50 $\pm$ 10 & 21.98 \\
+            900  & -48 $\pm$ 13 & 23.10 \\
+            1140 & -44 $\pm$ 17 & 23.81 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
