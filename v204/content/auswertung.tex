@@ -1,0 +1,280 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+Im folgenden sind die Materialeigenschaften der Metalle aufgezeigt. Die Werte
+für $ρ$ und c stammen aus der Anleitung\cite{Anleitung} die
+Werte für $κ$ werden von der Website \cite{wärmeleitung} entnommen.
+\begin{table}
+      \centering
+      \caption{Materialeigenschaften der Metalle.}
+      \label{tab:mateig}
+      \begin{tabular}{c S[table-format=4.0] S[table-format=3.0] S[table-format=3.0] S[table-format=1.1] S[table-format=1.1] S[table-format=1.2]}
+            \toprule
+            {Metall} & {$ρ \: [\si{\kilo\gram\per\cubic\meter}]$} &
+            {$\symup{c} \: [\si{\joule\per\kilo\gram\per\kelvin}]$} &
+            {$κ \: [\si{\watt\per\meter\per\kelvin}]$} &
+            {b\:$[\si{\centi\metre}]$} &
+            {h\:$[\si{\centi\metre}]$} &
+            {A\:$[\si{\centi\metre\squared}]$}
+            \\
+            \midrule
+            Messing(schmal) & 8520 & 385 &  90 & 0.7 & 0.4 & 0.28 \\
+            Messing(breit)  & 8520 & 385 &  90 & 1.2 & 0.4 & 0.48 \\
+            Aluminium       & 2800 & 830 & 220 & 1.2 & 0.4 & 0.48 \\
+            Edelstahl       & 8000 & 400 &  21 & 1.2 & 0.4 & 0.48 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\subsection{Statische Methode}
+\label{sec:statisch}
+Die Temperaturverläufe der statischen Messung sind in Abbildung \ref{fig:statisch}
+dargestellt. Außer bei Edelstahl steigt die Temperatur direkt mit
+Einschalten der Spannung an. Ab $t \approx \SI{300}{\second}$ steigen die Temperaturen
+der Stäbe nahezu linear an. Edelstahl liegt deutlich unter den anderen Kurven und
+steigt nicht direkt an. Die beiden Messingkurven liegen trotz unterschiedlicher
+geometrischer Eigenschaften sehr nahe zusammen.
+\begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{build/statisch.pdf}
+      \caption{Temperaturverläufe der statischen Messung.}
+      \label{fig:statisch}
+\end{figure}
+\newpage
+
+$T_5$ ist nach $t = \SI{700}{\second}$ am höchsten von den aufgetragenen Temperaturen,
+vgl Tabelle \ref{tab:700}, nachdem die Anfangstemperatur an allen Proben gleich war.
+Die Wärmeleitung ist demnach bei Aluminium am besten, da auch die entsprechende Kurve
+am höchsten liegt.
+\begin{table}
+      \centering
+      \caption{Temperaturen bei $t = \SI{700}{\second}$.}
+      \label{tab:700}
+      \sisetup{table-format=2.2}
+      \begin{tabular}{c| S S S S}
+            \toprule
+            {Zeitpunkt}
+            & {$T_1\:[\si{\celsius}]$}
+            & {$T_4\:[\si{\celsius}]$}
+            & {$T_5\:[\si{\celsius}]$}
+            & {$T_8\:[\si{\celsius}]$} \\
+            \midrule
+            $\SI{700}{\second}$ & 43.74 & 41.86 & 47.52 & 33.41 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+Die Ergebnisse von $\frac{\increment\symup{Q}}{\increment t}$,nach Formel
+\ref{eqn:waermemenge}, sind für 5 verschiedene Zeiten in Tabelle
+\ref{tab:waermestrom} aufgetragen, mit den Werten aus Tabelle \ref{tab:mateig}.
+\begin{table}
+      \centering
+      \caption{Wärmeströme für verschiedene Zeiten.}
+      \label{tab:waermestrom}
+      \sisetup{table-format=1.2}
+      \begin{tabular}{S[table-format=3.0] S S S S}
+            \toprule
+            {$t\:[\si{\second}]$}
+            & {$\text{Me}_\text{s}\:[\si{\watt\per\second}]$}
+            & {$\text{Me}_\text{b}\:[\si{\watt\per\second}]$}
+            & {Al\:[$\si{\watt\per\second}$]}
+            & {Ed\:[$\si{\watt\per\second}$]} \\
+            \midrule
+            100 & -0.52 & -0.84 & -1.26 & -0.35 \\
+            300 & -0.30 & -0.49 & -0.60 & -0.35 \\
+            500 & -0.27 & -0.41 & -0.53 & -0.32 \\
+            700 & -0.26 & -0.39 & -0.52 & -0.31 \\
+            900 & -0.26 & -0.39 & -0.52 & -0.30 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+Die Temperaturdifferenzen von Messing und Edelstahl steigen in Abbildung
+\ref{fig:unterschied} beide erst an und fallen dann auf jeweils einen konstanten
+Wert ab. Die Kurve von Messing ist deutlich schneller auf diesem konstanten Wert.
+Die Aluminiumkurve erreicht diesen Wert nur asymptotisch. Dieser liegt höher als
+der von Messing.
+\begin{figure}
+      \centering
+      \includegraphics{build/statisch-unterschied.pdf}
+      \caption{Differenz zwischen den Messstellen.}
+      \label{fig:unterschied}
+\end{figure}
+
+\newpage
+
+\subsection{Dynamische Methode}
+\label{sec:dynamisch}
+Interessant bei der dynamischen Methode sind das Amplitudenverhältnis und die
+Phasenverschiebung zwischen den beiden gemessenen Temperaturen.
+
+Die Minima und Maxima wurden aus den Messwerten bestimmt, indem die lokal größten
+und kleinsten Werte gesucht wurden.
+Für diese wurde der Abstand zwischen den benachbarten Extrema bestimmt und dann
+um die Minima gemittelt.
+Die Phase $Φ$ wurde nach Gleichung \ref{eqn:phase} je Amplitudenpaar bestimmt.
+Nach Gleichung \ref{eqn:kappa} wird die Wärmeleitfähigkeit $κ$ berechnet.
+Die Werte für $A_\text{nah}$ und $A_\text{fern}$ sind aus der jeweiligen Tabelle
+zu nehmen.
+Die Extrema der $T_8$-Kurve aus Abbildung \ref{fig:edelstahldyn} sind nicht so
+eindeutig wie bei allen anderen Kurven, sodass hier die Punkte teils aus der
+Abbildung genommen wurden. Um diesen Fehler zu minimieren, sowie dass nur alle
+$\SI{2}{\second}$ gemessen wurde, werden die Mittelwerte und Fehler für jedes Metall
+nach \ref{eqn:mittelwert} und \ref{eqn:mittelwertfehler} bestimmt.
+
+Die Frequenz wurde nach $f = \sfrac{1}{\symup{T}}$ und die Wellenlänge $λ$ mit
+Gleichung \eqref{eqn:phvelocity} und $v = λ\cdot f$ bestimmt.
+\begin{table}
+      \centering
+      \caption{Mittelwerte von $Φ$ und $κ$, $f$ und $λ$ mit Literaturwerten.}
+      \label{tab:phiundkappa}
+      \begin{tabular}{c S[table-format=1.2] @{${}\pm{}$} S[table-format=1.2]
+                  S[table-format=3.1] @{${}\pm{}$} S[table-format=1.2]
+                  S[table-format=1.4] S[table-format=2.1]}
+                  \toprule
+                  {Material}
+                  & \multicolumn{2}{c}{$Φ\:[\si{\degree}]$}
+                  & \multicolumn{2}{c}{$κ\:[\si{\watt\per\metre\per\kelvin}]$}
+                  & {$f\:[\si{\hertz}]$}
+                  & {$λ\:[\si{\centi\metre}]$} \\
+                  \midrule
+                  Messing   & 1.3  & 0.1  &  76 & 4 & 0.0125 & 16.6 \\
+                  Aluminium & 0.66 & 0.03 & 173 & 6 & 0.0125 & 30.8 \\
+                  Edelstahl & 2.5  & 0.3  &  31 & 7 & 0.005  & 12.8 \\
+                  \bottomrule
+      \end{tabular}
+\end{table}
+
+\begin{figure}
+      \centering
+      \includegraphics[height=6.5cm]{build/messing.pdf}
+      \caption{Temperaturkurve für Messing.}
+      \label{tab:messingdyn}
+\end{figure}
+
+\begin{table}
+      \centering
+      \caption{Minima und Maxima für Messing.}
+      \label{tab:minmax12}
+      \sisetup{table-format=3.0}
+      \begin{tabular}{S S[table-format=2.2] S S[table-format=2.2] S[table-format=1.2] | S S[table-format=2.2] S S[table-format=2.2] S[table-format=1.2] | S[table-format=1.2] S[table-format=2.2]}
+            \toprule
+            \multicolumn{5}{c|}{$T_1$\;-\;fern} & \multicolumn{5}{c|}{$T_2$\;-\;nah} & & \\
+            \hline
+            \multicolumn{2}{c}{Maximum} & \multicolumn{2}{c}{Minimum} & &
+            \multicolumn{2}{c}{Maximum} & \multicolumn{2}{c}{Minimum} & & {$Φ$} & {$κ$} \\
+            \hline
+              {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$A_1\:[\si{\celsius}]$}
+            & {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$A_2\:[\si{\celsius}]$}
+            & {$[\si{\degree}]$}
+            & {$[\si{\watt\per\metre\per\kelvin}]$} \\
+            \midrule
+             72 & 34.00 &  90 & 33.75 & 1.56 &  46 & 41.86 &  84 & 35.43 & 4.67 & 2.04 & 51.88 \\
+            146 & 39.75 & 172 & 39.05 & 1.47 & 126 & 47.67 & 164 & 40.43 & 4.71 & 1.57 & 63.20 \\
+            224 & 44.21 & 254 & 43.13 & 1.42 & 206 & 52.03 & 246 & 44.25 & 4.73 & 1.41 & 68.08 \\
+            302 & 47.72 & 334 & 46.38 & 1.40 & 286 & 55.38 & 326 & 47.36 & 4.72 & 1.26 & 75.77 \\
+            382 & 50.63 & 414 & 49.08 & 1.39 & 366 & 58.23 & 406 & 50.06 & 4.71 & 1.26 & 75.74 \\
+            460 & 53.10 & 494 & 51.39 & 1.38 & 446 & 60.72 & 486 & 52.34 & 4.71 & 1.10 & 85.89 \\
+            540 & 55.20 & 574 & 53.36 & 1.33 & 526 & 62.80 & 566 & 54.30 & 4.60 & 1.10 & 84.71 \\
+            620 & 56.82 & 656 & 54.93 & 1.37 & 606 & 64.20 & 646 & 55.89 & 4.63 & 1.10 & 86.71 \\
+            700 & 58.53 & 736 & 56.53 & 1.36 & 686 & 66.10 & 726 & 57.54 & 4.66 & 1.10 & 85.61 \\
+            780 & 59.97 & 816 & 57.88 & 1.35 & 766 & 67.62 & 806 & 58.89 & 4.67 & 1.10 & 85.17 \\
+            858 & 61.21 &     &       &      & 846 & 68.85 &     &       &      & 0.94 &       \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\begin{figure}
+      \centering
+      \includegraphics[height=8cm]{build/aluminium.pdf}
+      \caption{Temperaturkurve für Aluminum.}
+      \label{fig:aluminiumdyn}
+\end{figure}
+
+\begin{table}
+      \centering
+      \caption{Minima und Maxima für Aluminum.}
+      \label{tab:minmax56}
+      \sisetup{table-format=3.0}
+      \begin{tabular}{S S[table-format=2.2] S S[table-format=2.2] S[table-format=1.2] | S S[table-format=2.2] S S[table-format=2.2] S[table-format=1.2] | S[table-format=1.2] S[table-format=3.2]}
+            \toprule
+            \multicolumn{5}{c|}{$T_5$\;-\;fern} & \multicolumn{5}{c|}{$T_6$\;-\;nah} & & \\
+            \hline
+            \multicolumn{2}{c}{Maximum} & \multicolumn{2}{c}{Minimum} & &
+            \multicolumn{2}{c}{Maximum} & \multicolumn{2}{c}{Minimum} & & {$Φ$} & {$κ$} \\
+            \hline
+              {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$A_5\:[\si{\celsius}]$}
+            & {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$A_6\:[\si{\celsius}]$}
+            & {$[\si{\degree}]$}
+            & {$[\si{\watt\per\metre\per\kelvin}]$} \\
+            \midrule
+             56 & 40.23 &  88 & 37.55 & 3.23 &  44 & 46.97 &  84 & 37.09 & 6.72 & 0.94 & 118.89 \\
+            132 & 47.78 & 168 & 43.48 & 3.30 & 124 & 54.08 & 164 & 42.59 & 6.84 & 0.63 & 179.26 \\
+            212 & 52.37 & 250 & 47.33 & 3.31 & 204 & 58.45 & 244 & 46.23 & 6.87 & 0.63 & 179.02 \\
+            292 & 55.53 & 330 & 50.21 & 3.30 & 284 & 61.49 & 324 & 49.06 & 6.85 & 0.63 & 178.90 \\
+            372 & 58.08 & 410 & 52.61 & 3.29 & 364 & 64.02 & 404 & 51.49 & 6.82 & 0.63 & 179.42 \\
+            452 & 60.31 & 490 & 54.71 & 3.27 & 444 & 66.25 & 484 & 53.61 & 6.79 & 0.63 & 178.82 \\
+            532 & 62.19 & 570 & 56.48 & 3.18 & 524 & 68.14 & 564 & 55.41 & 6.65 & 0.63 & 176.82 \\
+            612 & 63.47 & 650 & 57.84 & 3.23 & 604 & 69.28 & 644 & 56.84 & 6.69 & 0.63 & 180.01 \\
+            692 & 65.15 & 730 & 59.37 & 3.23 & 684 & 71.15 & 724 & 58.39 & 6.72 & 0.63 & 178.54 \\
+            772 & 66.52 & 810 & 60.65 & 3.23 & 764 & 72.52 & 804 & 59.67 & 6.71 & 0.63 & 178.52 \\
+            852 & 67.69 &     &       &      & 844 & 73.67 &     &       &      & 0.63 &        \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{build/edelstahl.pdf}
+      \caption{Temperaturkurve für Edelstahl.}
+      \label{fig:edelstahldyn}
+\end{figure}
+
+\begin{table}
+      \centering
+      \caption{Minima und Maxima für Edelstahl.}
+      \label{tab:minmax78}
+      \sisetup{table-format=3.0}
+      \begin{tabular}{S S[table-format=2.2] S S[table-format=2.2] S[table-format=2.2] | S S[table-format=2.2] S S[table-format=2.2] S[table-format=1.2] | S[table-format=1.2] S[table-format=2.2]}
+            \toprule
+            \multicolumn{5}{c|}{$T_7$\;-\;nah} & \multicolumn{5}{c|}{$T_8$\;-\;fern} & & \\
+            \hline
+            \multicolumn{2}{c}{Maximum} & \multicolumn{2}{c}{Minimum} & &
+            \multicolumn{2}{c}{Maximum} & \multicolumn{2}{c}{Minimum} & & {$Φ$} & {$κ$} \\
+            \hline
+              {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$A_7\:[\si{\celsius}]$}
+            & {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$t\:[\si{\second}]$}
+            & {$T\:[\si{\celsius}]$}
+            & {$A_8\:[\si{\celsius}]$}
+            & {$[\si{\degree}]$}
+            & {$[\si{\watt\per\metre\per\kelvin}]$} \\
+            \midrule
+             94 & 50.04 & 208 & 38.52 & 7.65 & 194 & 33.05 & 224 & 33.03 & 1.39 & 3.14 & 52.87 \\
+            312 & 57.61 & 410 & 44.72 & 7.51 & 394 & 38.59 & 436 & 38.38 & 1.14 & 2.58 & 29.37 \\
+            512 & 61.88 & 610 & 48.41 & 7.52 & 584 & 42.73 & 642 & 42.22 & 1.06 & 2.26 & 22.98 \\
+            712 & 65.00 & 810 & 51.24 & 7.50 & 774 & 45.95 & 846 & 45.19 & 1.01 & 1.95 & 19.92 \\
+            912 & 67.49 &     &       &      & 970 & 48.46 &     &       &      & 1.82 &       \\
+            \bottomrule
+      \end{tabular}
+\end{table}

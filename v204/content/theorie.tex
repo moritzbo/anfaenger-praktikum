@@ -1,0 +1,71 @@
+\section{Theorie}
+\label{sec:theorie}
+Existiert in einem Körper ein Temperaturungleichgewicht,
+findet ein Wärmetransport in Richtung des kälteren Wärmereservoirs statt.
+Dies kann als eine Variation des 2. Hauptsatzes der Thermodynamik aufgefasst
+werden.
+Hier wird nun angenommen, dass der Wärmetransport allein durch Phononen, welche
+als elementare Anregung eines elastischen Feldes verstanden werden können,
+und freie Elektronen geschieht.
+Die Wärmemenge, welche durch einen Stab der Länge $\symup{L}$ mit der
+Querschnittsfläche $\symup{A}$, der Dichte $ρ$ und der spezifischen
+Wärmekapazität c, fließt berechnet sich gemäß
+\begin{equation}
+  \label{eqn:waermemenge}
+  \symup{d} Q = - \kappa \symup{A} \frac{\partial \symup{T}}{\partial \symup{x}}
+  \symup{d} t \:,
+\end{equation}
+wobei $κ$ die materialabhängige Wärmeleitfähigkeit ist.
+Damit gilt für den Wärmestrom
+\begin{equation}
+  j_\text{w} = - κ \frac{\partial \symup{T}}{\partial \symup{x}} \:.
+  \label{eqn:waermestrom}
+\end{equation}
+Unter Zuhilfenahme der der Kontinuitätsgleichung lässt sich
+\begin{equation}
+  \label{eqn:wlg}
+  \frac{\partial \symup{T}}{\partial \symup{t}} = \left(\frac{κ}
+  {ρ \symup{c}}\right) \frac{\partial{^2} \symup{T}}{\partial \symup{x}^2}
+  \:,
+\end{equation}
+die Wärmeleitungsgleichung\footnote{Die vollständige Wärmeleitungsgleichung
+ist eine Differentialgleichung in alle drei Raumdimensionen $(x,y,z)$.},
+herleiten \cite{Anleitung}.
+Sie beschreibt die Temperaturverteilung innerhalb des Körpers mit der Zeit.
+Der Faktor $\left(\sfrac{κ}{ρ \symup{c}}\right) = σ_\text{T}$ wird
+Temperaturleitfähigkeit genannt und gibt an, wie schnell sich die Temperatur
+innerhalb des Körpers ausgleicht.
+\\
+Für die dynamische Methode wird eine Temperaturwelle, durch Erwärmen und
+Abkühlen des Körpers, erzeugt. Diese hat die Form
+\begin{equation}
+  \label{eqn:wärmewelle}
+  T (x,t) = T_\text{max} \: \symup{exp} \left( -\sqrt{\frac{ω ρ \symup{c}}
+  {2 κ}} \: \symup{x} \right) \cos\left( ω t -
+  \sqrt{\frac{ω ρ \symup{c}}{2 κ}} \symup{x} \right) \:.
+\end{equation}
+Für die Phasengeschwindigkeit der Welle muss die Dispersionsrelation
+\begin{equation}
+  \label{eqn:phvelocity}
+  \symup{v}_\text{Phase} = \frac{ω}{k} = ω \:/\:
+  \sqrt{\frac{ω ρ \symup{c}}{2 κ}} = \sqrt{\frac{2 κ ω}
+  {ρ \symup{c}}}
+\end{equation}
+gelten.
+\\
+Der Dämpfungsfaktor wird aus dem Amplitudenverhältnis $\symup{A}_\text{nah}$
+und $\symup{A}_\text{fern}$ an den beiden Messstellen $\symup{x}_\text{nah}$
+und $\symup{x}_\text{fern}$ bestimmt.
+Die Wärmeleitfähigkeit $κ$ lautet mit
+\begin{align}
+      ω &= \frac{2 \symup{π}}{\symup{T}}
+      \shortintertext{und}
+      Φ &= \frac{2 \symup{π} \increment t}{\symup{T}}
+      \label{eqn:phase}\\
+      κ &= \frac{ρ \symup{c} \left(\increment\symup{x} \right)^2}
+      {2 \increment t \: ln \left(\symup{A}_\text{nah}/\symup{A}_\text{fern}\right)}\:.
+      \label{eqn:kappa}
+\end{align}
+Der Abstand der beiden Messstellen zueinander ist dabei $\increment \symup{x}$
+und $\increment t$ ist die Phasenverschiebung der Temperaturwelle an den
+beiden Messstellen.
