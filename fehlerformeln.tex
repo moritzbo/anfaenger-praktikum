@@ -1,0 +1,47 @@
+\begin{equation}
+	\increment f_{\%} = \frac{|\text{Soll} \: - \: \text{Ist}|}{\text{Soll}} \cdot \SI{100}{\percent}
+	\label{eqn:prozfehler}
+\end{equation}
+
+\begin{equation}
+	\overline{x} = \frac{1}{N} \sum_{i=0}^{N} x_i
+	\label{eqn:mittelwert}
+\end{equation}
+
+\begin{equation}
+	\symup{σ} = \sqrt{\overline{x^2} - {\bar{x}}^2}
+	\label{eqn:standardabweichung}
+\end{equation}
+
+\begin{equation}
+	\increment\overline{x} = \sqrt{
+	\frac{1}{N(N-1)}\sum_{k=0}^{N}
+	\left( x_k - \overline{x} \right)^2}
+	\label{eqn:mittelwertfehler}
+	% scipy.stats sem ist dat hier
+\end{equation}
+
+\begin{equation}
+	\increment f = \sqrt{\sum_{j=0}^K \left( \frac{\symup{d}f}{\symup{d}y_j}
+	\increment y_j\right)^{\!\! 2}}
+	\label{eqn:fehler}
+\end{equation}
+
+\begin{align}
+      F(x,y) &= x \pm y     &\to &\increment F           = \sqrt{ (\increment x)^2 + (\increment y)^2} \\
+      F(x,y) &= x \cdot y   &\to &\frac{\increment F}{F} = \sqrt{ \left(\frac{\increment x}{x}\right)^{\!\!2} + \left(\frac{\increment y}{y}\right)^{\!\!2}} \\
+      F(x,y) &= \frac{x}{y} &\to &\frac{\increment F}{F} = \sqrt{ \left(\frac{\increment x}{x}\right)^{\!\!2} + \left(\frac{\increment y}{y}\right)^{\!\!2}} \\
+      F(x,y) &= x^n         &\to &\frac{\increment F}{F} = n \cdot \frac{\increment x}{x}
+\end{align}
+
+jedes y hat den Fehler σ, N ist Anzahl der Messwerte
+\begin{align}
+      m &= \frac{\overline{xy} - \overline{x} \cdot \overline{y}}
+      {\overline{\left(x^2\right)} - \left(\overline{x}\right)^2}
+      &σ_m^2 &= \frac{σ^2}{N\left( \overline{\left(x^2\right)} - \left(\overline{x}\right)^2 \right)}
+      \label{linregm}
+      \\
+      b &= \overline{y} - m \overline{x}
+      &σ_b^2 &= \frac{σ^2 \overline{\left(x^2\right)}}{N\left( \overline{\left(x^2\right)} - \left(\overline{x}\right)^2 \right)}
+      \label{linregm}
+\end{align}
