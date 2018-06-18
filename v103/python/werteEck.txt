@@ -1,0 +1,3 @@
+# Laenge  # hoehe  # breite  # MasseStab  # MasseGewicht
+# cm      # cm     # cm      # g          # g
+  60        1.2      1         605          2355.5

@@ -1,0 +1,155 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Flächenträgheitsmomente}
+
+Die Flächenträgheitsmomente der beiden Stäbe berechnen sich nach Gleichung
+\eqref{eqn:flaechentraegheit}.
+
+\subsubsection{Eckiger Stab}
+
+Die gemessenen Werte des eckigen Stabes stehen in Tabelle \ref{tab:werte}.
+Somit ist
+\begin{align}
+  I_{\text{eckig}}
+  &= \int_0^a \int_{-b/2}^{b/2} {b'}^2 \, \symup{d}b' \, \symup{d}a' \\
+  &= \frac{a}{3} \left( \frac{b^3}{8} - \left( - \frac{b^3}{8} \right)\right)\\
+  &= \frac{ab^3}{12} \\
+  &= \SI{1.44e-9}{\meter\tothe{4}}.
+\end{align}
+Mit dem Fehler nach \eqref{eqn:fehler} ist
+\begin{equation}
+  I_{\text{eckig}} = \SI{1.44(02)e-09}{\meter\tothe{4}}.
+  \label{eqn:ieckig}
+\end{equation}
+
+\subsubsection{Runder Stab}
+
+Der Durchmesser des runden Stabes ist ebenfalls in Tabelle \ref{tab:werte}
+notiert. Damit folgt
+\begin{align}
+  I_{\text{rund}}
+  &= \int_0^{2\symup{π}} \int_0^{d/2} r^3 \sin(φ)^2 \,\symup{d}r \,\symup{d}φ\\
+  &= \frac{\symup{π}}{4} \left( \frac{d^4}{16}\right) \\
+  &= \frac{\symup{πd^4}}{64} \\
+  &= \SI{4.9e-10}{\meter\tothe{4}}.
+\end{align}
+Mit dem Fehler nach \eqref{eqn:fehler} folgt
+\begin{equation}
+  I_{\text{rund}} = \SI{4.9(1)e-10}{\meter\tothe{4}}.
+  \label{eqn:irund}
+\end{equation}
+
+\subsection{Einseitig befestigter runder Stab}
+Um den Elastizitätsmodul der beiden Stäbe zu berechnen, wird die Biegung
+$D(x)$ gegen den Ausdruck $\symup{L}x^2 - \frac{x^3}{3}$, für die
+einseitige Einspannung, aufgetragen.
+Die Biegung $D(x)$ wird gemäß
+\begin{equation}
+  D (x) = D_0 (x) - D_{\text{G}} (x)
+  \label{eqn:auslenkung}
+\end{equation}
+berechnet. Dies beugt Ungenauigkeiten in der Messung der Null- und
+Auslenkungslage vor.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/rundeinseitig.pdf}
+  \caption{$D(x)$ gegen $\symup{L}x^2 - \frac{x^3}{3}$}
+  \label{fig:plot1}
+\end{figure}
+
+Die lineare Regression der Form $f(x) = \symup{a}x + \symup{b}$
+liefert folgende Parameter:
+\begin{align*}
+  \symup{a} &= \SI{0.0829(0009)}{\per\milli\meter\squared}\\
+  \symup{b} &= \SI{0.1484(0356)}{\milli\meter}.
+\end{align*}
+Durch den Vergleich der linearen Regression mit Formel
+\eqref{eqn:auflage1seite} erhält man für den Elastizitätsmodul:
+\begin{equation}
+  \symup{E} = \frac{m \cdot g}{2 \cdot \symbf{I}_{\text{rund}} \cdot a}.
+  \label{eqn:emodulrund}
+\end{equation}
+Die angehängte Masse mit der Eigenmasse des Stabes zusammen ergeben
+$\SI{1143}{\gram}$.
+Somit berechnet sich der Elastizitätsmodul
+mit dem Fehler nach \eqref{eqn:fehler} zu
+\begin{equation*}
+  \symup{E}_{\, \text{rund}} = \SI{137.7 \pm 1.5 e+9}{\newton\per\meter\squared}.
+\end{equation*}
+
+\subsection{Einseitig befestigter eckiger Stab}
+Die Auslenkungen wurden wie beim runden Stab, \eqref{eqn:auslenkung}, berechnet.
+Die lineare Regression der Form $f(x) = \symup{a}x + \symup{b}$
+liefert folgende Parameter:
+\begin{align*}
+  \symup{a} &= \SI{0.0714(0009)}{\per\milli\meter\squared}\\
+  \symup{b} &= \SI{0.4315(0375)}{\milli\meter}.
+\end{align*}
+
+Wie beim runden Stab kann mit Umstellen der Formel \eqref{eqn:auflage1seite}
+der Elastizitätsmodul berechnet werden:
+\begin{equation}
+  \symup{E} = \frac{m \cdot g}{2 \cdot \symbf{I}_{\text{eckig}} \cdot a}
+  \label{eqn:emoduleckig}
+\end{equation}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/quadrateinseitig.pdf}
+  \caption{$D(x)$ gegen $\symup{L}x^2 - \frac{x^3}{3}$}
+  \label{fig:plot2}
+\end{figure}
+
+Die Gesamtmasse, aus angehängter Masse und Eigenmasse des Stabes
+zusammengesetzt, ergeben $\SI{2960.5}{\gram}$.
+Somit berechnet sich der Elastizitätsmodul,
+mit dem Fehler nach \eqref{eqn:fehler}, zu
+\begin{equation*}
+  \symup{E}_{\, \text{eckig}} = \SI{141.2 \pm 1.9 e+9}{\newton\per\meter\squared}.
+\end{equation*}
+
+\subsection{Zweiseitig befestigter eckiger Stab}
+Im folgenden wird wieder der eckige Stab, derselbe aus der
+Auswertung für den einseitig eingespannten Stab, benutzt.
+Am Mittelpunkt des Stabes wurde eine Masse von $\SI{4694,1}{\gram}$ angehängt.
+
+Zuerst wird der Bereich des Stabes für $0 \leq x \leq \symup{L}/2$
+betrachtet (rechts). Die relative Auslenkung wird hierfür gegen
+$3\symup{L}^2x - 4x^3$ aufgetragen.
+Die lineare Regression der Form $f(x) = \symup{a}x + \symup{b}$
+liefert folgende Parameter:
+\begin{align*}
+  \symup{a}_{r} &= \SI{4.6(65)e-9}{\per\milli\meter\squared}\\
+  \symup{b}_{r} &= \SI{-0.16(02)}{\milli\meter}.
+\end{align*}
+Der Elastizitätsmodul berechnet sich also mit \eqref{eqn:fehler} und mit der
+Formel für den Elastizitätsmodul, \eqref{eqn:auflage2seiterechts} umgestellt,
+zu:
+\begin{align*}
+  \symup{E}_{r} = \SI{1.62(23)e8}{\newton\per\meter\squared}.
+\end{align*}
+\begin{figure}
+  \centering
+  \includegraphics{build/quadrat_zweiseitig_rechts.pdf}
+  \caption{$D(x)$ gegen $3\symup{L}^2x - 4x^3$}
+  \label{fig:plotrechts}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/quadrat_zweiseitig_links.pdf}
+  \caption{$D(x)$ gegen $4x^3 − 12\symup{L}x^2 + 9\symup{L}^2x − \symup{L}^3$}
+  \label{fig:plotlinks}
+\end{figure}
+Für die linke Seite, mit $\symup{L}/2 \leq x \leq \symup{L}$, liefert die
+lineare Regression der Form $f(x) = \symup{a}x + \symup{b}$ folgende Parameter:
+\begin{align*}
+  \symup{a}_{l} &= \SI{9.75(5)e-10}{\per\milli\meter\squared}\\
+  \symup{b}_{l} &= \SI{-0.72(02)}{\milli\meter}.
+\end{align*}
+Der Elastizitätsmodul berechnet sich also mit \eqref{eqn:fehler} und mit der
+Formel für den Elastizitätsmodul, nach \eqref{eqn:auflage2seitelinks}, zu:
+\begin{align*}
+  \symup{E}_{l} = \SI{7.7(4)e8}{\newton\per\meter\squared}.
+\end{align*}

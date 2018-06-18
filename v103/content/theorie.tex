@@ -1,0 +1,128 @@
+\section{Theorie}
+\label{sec:theorie}
+Die Biegung der elastischen Stäbe erfolgt durch eine Krafteinwirkung.
+Die Spannung, Kraft pro Flächeneinheit, ist eine charakteristische Größe
+zur Beschreibung der Phänomene.
+Diese wird in Schub-, die zur Oberfläche parallel stehende Kraft, oder
+Normalspannung $\symup{σ}$, auch Druck genannt, aufgeteilt.
+Der Druck setzt sich aus den Kraftkomponenten senkrecht zur Oberfläche
+zusammen.
+
+\subsection{Hookesches Gesetz}
+Das Hookesche Gesetz
+\begin{equation}
+   \symup{σ} = \symup{E} \: \frac{\increment \symup{L}}{\symup{L}}.
+   \label{eqn:hookges}
+\end{equation}
+ist der lineare Zusammenhang zwischen $\symup{σ}$, dem Druck,
+und der relativen Änderung des betrachteten Körpers.
+Dieses gilt jedoch nur bei kleinen relativen Änderungen
+$\increment\symup{L} / \symup{L}$.
+E ist der materialspezifische Elastizitätsmodul und in
+\eqref{eqn:hookges} die Proportionalitätskonstante.
+
+\subsection{Biegung bei einseitiger Auflage}
+Die Biegung ist eine spezielle Form der Deformation, bei
+der schon eine kleine Kraft F zu großen
+Auslenkungen führen kann. Dies liegt an dem, am Stab,
+angreifenden Drehmoment
+\begin{equation}
+   \symup{M}_{\symup{F}} = \symup{F} (\symup{L}-x),
+\end{equation}
+welches den Stab aus seiner Ruhelage auslenkt.
+Die oberen Schichten des Stabes werden bei dieser Biegung gestreckt und
+die unteren gestaucht.
+Dies führt zu einer Schicht die in ihrer Ausdehnung bleibt, die neutrale
+Faser.
+Die endgültige Biegung des Stabes an jeder Stelle x lässt
+sich aus dem Gleichgewicht der Drehmomente bestimmen:
+\begin{equation}
+   \symup{M}_{\symup{σ}} = \symup{M}_{F} \, .
+   \label{eqn:drehmoment}
+\end{equation}
+Wobei $\symup{M}_{\symup{σ}}$ das Drehmoment beschreibt,
+welches durch die herrschenden Zug- und Druckspannungen verursacht wird.
+Berechnet wird $\symup{M}_{\symup{σ}}$ mit der Normalspannung $\symup{σ}(y)$
+und y, dem Abstand des betrachteten Punktes von der neutralen Faser.
+Integriert wird über den Querschnitt Q des jeweiligen Stabes,
+\begin{equation}
+   \symup{M}_\text{σ} =
+   \int_{\symup{Q}} \symup{y} \symup{σ}(\symup{y}) \, \symup{d}q.
+\end{equation}
+$\symup{σ}$ wird hier analog zu \eqref{eqn:hookges} berechnet.
+Betrachtet wird aber die kurze Änderung der Länge im Abstand y zur
+neutralen Faser.
+Demnach gilt
+\begin{equation}
+  \symup{σ}(y) = \symup{E} \frac{\delta \symup{x}}{\increment \symup{x}},
+\end{equation}
+wobei
+\begin{equation}
+  \delta \symup{x} = \symup{y} \frac{\increment \symup{x}}{\symup{R}}
+\end{equation}
+über die Geometrie des Problems und die Kleinwinkelnäherung hergeleitet
+werden kann. Das führt zu
+\begin{equation}
+  \symup{σ}(\symup{y}) = \symup{E} \: \frac{\symup{y}}{\symup{R}}
+\end{equation}
+mit
+\begin{equation}
+  \frac{1}{\symup{R}} \approx \frac{\symup{d^2 D}}{\symup{dx^2}}.
+\end{equation}
+Setzt man all dieses in Gleichung \eqref{eqn:drehmoment} ein, folgt
+\begin{equation}
+  \symup{E} \, \frac{\symup{d^2 D}}{\symup{dx^2}}
+  \int_{\symup{Q}} y^2 \, \symup{dq}
+  = \symup{F}(\symup{L} \: - \: x).
+  \label{eqn:drehelast}
+\end{equation}
+Durch Zuhilfenahme des Flächenträgheitsmoments
+\begin{equation}
+   \symbf{I} \coloneq \int_{\text{Q}} y^2 \, \symup{d}q(y)
+\end{equation}
+\label{eqn:flaechentraegheit}
+kann diese vereinfacht werden. Für einen
+einseitig eingespannten Stab wird somit die folgende Formel benutzt:
+\begin{equation}
+   \symup{D}(x) = \frac{\symup{F}}{2\symup{E} \symbf{I}}
+   \left(\symup{L}x^2 - \frac{x^3}{3} \right)
+   \text{\; (für 0 $\leq$ x $\leq$ L).}
+   \label{eqn:auflage1seite}
+\end{equation}
+
+\subsection{Biegung bei zweiseitiger Auflage}
+Um den Elastizitätsmodul für einen zweiseitig eingespannten
+Stab zu berechnen, muss der Drehmomentansatz abgeändert werden, sodass
+jede Seite betrachtet werden kann.
+Zunächst wird der Teil des Stabes mit
+\begin{equation*}
+  0 \leq x \leq \frac{\symup{L}}{2}
+\end{equation*}
+betrachtet. Hierfür ist
+\begin{equation}
+  \symup{M}_{\symup{F}} = - \frac{\symup{F}}{2} x.
+\end{equation}
+Gleichung \eqref{eqn:drehelast} lässt sich, mit einsetzen und integrieren, nach
+\begin{equation}
+  \symup{D}(x) = \frac{\symup{F}}
+  {48 \, \symup{E} \symbf{I}}
+  \left( 3 \symup{L}^2 x - 4 x^3 \right)
+  \label{eqn:auflage2seiterechts}
+\end{equation}
+umformen. Die erste Integrationskonstante wird über die horizontale Steigung
+im Mittelpunkt des Stabes bestimmt.
+Die zweite wird durch das Festlegen des Nullniveaus,
+im Auflagepunkt, eliminiert. Der zweite Teil des Stabes wird mit
+\begin{equation*}
+  \frac{\symup{L}}{2} \leq x \leq \symup{L}
+\end{equation*}
+charakterisiert. Das durch die angehängte Masse wirkende Drehmoment ist jetzt
+\begin{equation}
+  \symup{M}_{\symup{F}} = - \frac{\symup{F}}{2} (\symup{L} - x).
+\end{equation}
+Mit der Vorgehensweise vom ersten Teil folgt
+\begin{equation}
+   \symup{D}(x) = \frac{\symup{F}}{48\symup{E}\symbf{I}}
+   \left(4x^3 - 12\symup{L}x^2 + 9\symup{L}^2 x - \symup{L}^3\right).
+   \label{eqn:auflage2seitelinks}
+\end{equation}
