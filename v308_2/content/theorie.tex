@@ -1,0 +1,101 @@
+\section{Theorie}
+\label{sec:theorie}
+\subsection{Das Magnetfeld}
+Wenn elektrische Ladungen bewegt werden, erzeugen sie ein magnetisches Feld
+$\symbf{B}$.
+Sobald ein Leiter mit Strom durchflossen wird, erzeugt dieser ein magnetisches
+Feld. Die magnetischen Feldlinien sind immer geschlossen. Das Feld ist also ein
+Rotationsfeld. Dabei bilden die Feldlinien konzentrische Kreise um den Leiter.
+Die Rotationsrichtung ist durch die \enquote{rechte Hand Regel} gegeben, wobei
+die Feldlinien im rechten Winkel zur Stromrichtung eine Rechtsschraube
+beschreiben.
+Die Magnetfeldstärke $\symbf{B}$ eines stromdurchflossenen Leiters lässt
+sich mit dem Gesetz von Biot-Savart bestimmen.
+\begin{equation}
+  \symup{d}\symbf{B} =
+  \frac{\mu_0 \symbf{I}}{4 \symup{\pi}}
+  \frac{\symup{d}\vec{s} \times \vec{r}}{r^3}
+\label{eqn:biotleiter}
+\end{equation}
+Durch Integration folgt daraus
+\begin{equation}
+  \symbf{B}(\symbf{r}) = \frac{\mu_0}{4 \symup{\pi}}
+    \int_C \frac{I \symup{d} \symbf{s} \times \symbf{r}}{r^3}\,.
+  \label{eqn:biotsavart}
+\end{equation}
+\\
+Um ein homogenes Magnetfeld zu erhalten, schaltet man zwei Kreispulen so in
+Reihe, dass ihre Symmetrieachsen aufeinanderfallen. Wählt man den Abstand $x$
+der beiden Spulen zueinander genau gleich dem Spulenradius $\symup{R}$, ist das Feld
+innerhalb der beiden Spulen weitesgehend homogen bis auf Randeffekte.
+Dieser Aufbau wird Helmholtzspulenpaar genannt.
+Das Feld im inneren erhällt man durch Superposition der Einzelfelder der Spulen.
+\begin{align}
+  B(0) &= B_1(x) + B_1(-x) \\
+       &= \frac{\mu_0 \symbf{I} R^2}{\left(R^2 +x^2\right)^{3/2}}
+\end{align}
+\\
+Der Betrag der magnetischen Flussdichte einer langen Spule auf der
+Symmetrieachse in x-Richtung lässt sich mit Hilfe von Gleichung
+\eqref{eqn:biotsavart} und
+\begin{equation}
+  \symup{B} = \mu_\text{r} \mu_0 \symbf{I} \frac{n}{l}
+\end{equation}
+zu
+\begin{equation}
+  B_x(x) = \frac{\mu_0 n I}{2} \left( \frac{x-x_1}{\sqrt{(x-x_1)^2+R^2}}
+  + \frac{x-x_2}{\sqrt{(x-x_2)^2+R^2}} \right)
+  \label{eqn:spuleGenau}
+\end{equation}
+berechnen\footnote{Die genaue Rechnung kann unter \cite{solenoid} im 
+Literaturverweis nachvollzogen werden.}.
+Der magnetische Fluss der idealen Helmholtzspule lässt sich gemäß
+\begin{equation}
+  B_x(x) = \frac{\mu_0 \symbf{I}}{2 r} \left( \frac{1}
+  {(\gamma^2+\gamma+5/4)^{3/2}} + \frac{1}{(\gamma^2-\gamma+5/4)^{3/2}}
+  \right)
+  \label{eqn:helmholz}
+\end{equation}
+berechnen. Dabei ist $\gamma$ das Verhältnis des betrachteten Ortes mit dem
+Spulenradius, also $\gamma = x / r$, $\mu_0$ ist die magnetische Feldkonstante
+mit $\mu_0 = 4 \symup{\pi}\cdot\num{e-7}$ und $\symbf{I}$ ist der Strom,
+welcher die Spulen durchfließt\cite{helm}. $\mu_\text{r}$ bezeichnet die
+Fähigkeit eines Stoffes ein Magnetfeld zu verändern, wenn es innerhalb einer
+Spule platziert wird. Die Materialien können das Feld abschwächen
+($\mu_\text{r,Zink}=0.99$) oder verstärken ($\mu_\text{r, Eisen}=8000$)
+\cite{muR}.
+
+\subsection{Die Hallsonde}
+Die Hallsonde ist ein Messinstrument um die magnetische Flussdichte von
+verschiedenen Leitern zu bestimmen.
+An dem Sensor der Sonde befindet sich ein Leiterplättchen an welches ein
+Steuerstrom angelegt wird. Hält man die Hallsonde nun senkrecht zu den
+Feldlinien in das Feld wirkt die Lorentz-Kraft
+\begin{equation}
+  \symup{F}_\text{L} = \symup{q} \symbf{v} \times \symbf{B}
+\end{equation}
+auf die Ladungen. Dies resultiert in einem Verschiebungsstrom. Dieser bezweckt
+die sogenannte Hallspannung. Sie ist ein Maß für die Stärke eines Magnetfeldes.
+
+\subsection{Hysterese}
+Ferromagnetische Stoffe wie zum Beispiel Eisen bestehen im wesentlichen aus
+winzigen, sogenannten Weiß'schen Bezirken, welche ohne ein äußeres Feld
+statistisch gerichtet sind. Sobald ein Feld von außen angelegt wird,
+\enquote{klappen} diese nacheinander sprungartig um bis alle in die selbe
+Richtung wie das angelegte Feld zeigen. Wenn das Feld nun abgeschaltet wird, \enquote{klappen} die
+Bezirke wieder zurück, es bleibt aber eine Restmagnetisierung im Material.
+Das heißt die magnetischen Eigenschaften eines ferromagnetischen Stoffes hängen
+von seiner Vorgeschichte ab.
+Dieses Verhalten sammt Vorgeschichte werden durch die Hysteresekurve
+dargestellt.
+Die Hysteresekurve eines Materials zeigt an, wie es sich in einem äußeren
+Magnetfeld verhält.
+Dabei sind drei wichtige Merkmale zu erkennen:
+Die Sättigungsmagnetisierung, welche den extremalsten Wert der Feldstärke
+darstellt, die der Ferromagnet bei einem gegebenen Wert der Stromstärke
+erreichen kann.
+Dann die Koerzitivfeldstärke bzw. Koerzitivkraft. Dies ist die Feldstärke die
+benötigt wird um einem zuvor bis zur Sättigungsmagnetisierung aufgeladenen
+ferromagnetischen Stoff, vollständig zu entmagnetisieren.
+Zuletzt die Remanenz oder Restmagnetisierung, welche zurückbleibt wenn man das
+äußere Feld abschaltet\cite{Anleitung}.

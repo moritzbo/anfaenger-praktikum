@@ -1,0 +1,273 @@
+\newpage
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{ausgedehnte Spulen}
+Die Theoriewerte und Sollwerte für den Innenraum der lange Spule mit
+$l = \SI{16}{\centi\meter}$ und $\symbf{I} = \SI{1}{\ampere}$ sind in
+Tabelle \ref{tab:ergebnisSpulen} aufgezeigt. Die Soll -und Messwerte
+wurden nach Formel \eqref{eqn:spuleGenau} berechnet.
+Die Messwerte für die lange Spule können der Tabelle \ref{tab:MesswerteKL}
+entnommen werden. Erkennbar ist, dass die gemessenen Werte sich nahe an den
+Theoriewerten halten. Innerhalb der Spule ist das Magnetfeld in guter Näherung
+konstant und an den Rändern fällt dieses stark ab und konvergiert für große x
+gegen Null.
+Die Messwerte der kurzen Spule mit $l = \SI{5.5}{\centi\meter}$ Länge, welche
+mit einem Strom von $\SI{1}{\ampere}$ durchflossen wird, sind auch in Tabelle
+\ref{tab:MesswerteKL} dargelegt. Die Theoriewerte wurden auch mit Formel
+\eqref{eqn:spuleGenau} berechnet.
+Die Messwerte folgen im Grunde genommen den Theoriewerten, sie sind nur
+verschoben.
+Die magnetische Feldstärke im inneren ist nicht konstant und fällt an den
+Rändern der Spule schnell ab.
+Sowohl bei der kurzen als auch bei der langen Spule beginnen die Wicklungen erst bei
+$x = \SI{5}{\centi\meter}$.
+\begin{figure}
+  \includegraphics{build/spulen.pdf}
+  \caption{Mess -und Theoriewerte der langen Spule als Grafik.}
+  \label{fig:spuleL}
+\end{figure}
+
+\begin{figure}
+  \includegraphics{build/spule_kurz.pdf}
+  \caption{Mess -und Theoriewerte der kurzen Spule als Grafik.}
+  \label{fig:spuleK}
+\end{figure}
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse der Spulen.}
+  \label{tab:ergebnisSpulen}
+  \begin{tabular}{S S S S}
+    \toprule
+    & {$\text{Sollwert}_\text{innen} \: [\si{\milli\tesla}]$}
+    & {$\text{Theoriewert}_\text{innen} \: [\si{\milli\tesla}]$}
+    & {$\text{Abweichung} \:/\: [\si{\percent}]$}\\
+    \midrule
+    $\text{lange Spule}$ & 2.330 & 2.253 & 3.36\\
+    $\text{kurze Spule}$ & 1.935 & 1.689 & 14.56\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Mit prozentualer Abweichung ist hier die Abweichung zwischen den Theoriewerten
+und den Messwerten gemeint.
+\begin{table}
+  \centering
+  \caption{Messwerte der kurzen und langen Spule.}
+  \label{tab:MesswerteKL}
+  \sisetup{table-format=1.3}
+  \begin{tabular}{S[table-format=2.0] S| |S[table-format=2.1] S}
+    \toprule
+    \multicolumn{2}{c}{lange Spule}
+    & \multicolumn{2}{c}{kurze Spule} \\
+    \hline
+    {$x_L \: [\si{\centi\meter}]$}
+    & {$\symbf{B}_L \: [\si{\milli\tesla}]$}
+    & {$x_K \: [\si{\centi\meter}]$}
+    & {$\symbf{B}_K \: [\si{\milli\tesla}]$}
+    \\
+    \midrule
+    1  & 0.064 & 1    & 0.032 \\
+    2  & 0.077 & 2    & 0.055 \\
+    3  & 0.113 & 3    & 0.095 \\
+    4  & 0.170 & 4    & 0.175 \\
+    5  & 0.289 & 5    & 0.351 \\
+    6  & 1.016 & 6    & 0.667 \\
+    7  & 1.540 & 6.5  & 0.900 \\
+    8  & 1.920 & 7    & 1.199 \\
+    9  & 2.128 & 7.5  & 1.471 \\
+    10 & 2.240 & 8    & 1.688 \\
+    11 & 2.282 & 8.5  & 1.817 \\
+    12 & 2.307 & 9    & 1.911 \\
+    13 & 2.321 & 9.5  & 1.935 \\
+    14 & 2.327 & 10   & 1.914 \\
+    15 & 2.330 & 10.5 & 1.846 \\
+    16 & 2.319 & 11   & 1.717 \\
+    17 & 2.300 & 11.5 & 1.498 \\
+    18 & 2.130 & 12   & 1.019 \\
+    19 & 2.020 & 13   & 0.541 \\
+    20 & 1.544 & 14   & 0.274 \\
+    21 & 1.053 & 15   & 0.143 \\
+    22 & 0.364 & 16   & 0.080 \\
+    23 & 0.190 &      &       \\
+    24 & 0.099 &      &       \\
+    25 & 0.039 &      &       \\
+    26 & 0.008 &      &       \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\newpage
+
+\subsection{Magnetfeld eines Helmholtzspulenpaares}
+Im folgenden wird die magnetische Feldstärke eines Helmholtzspulenpaares in
+Abhängigkeit von der Position auf der Mittelachse bestimmt.
+Für ein Spulenpaar mit jeweils $n = 100$ Windungen und einem Spulenradius von
+$R = \SI{6.25}{\centi\meter}$ und einem Stromdurchfluss von einmal $\SI{2}{\ampere}$
+und einmal $\SI{4}{\ampere}$, ergeben sich die Werte aus Tabelle
+\ref{tab:helmwerte42}. Die Spulen sind dabei genau ihren Radius von einander
+entfernt. In den Abbildungen \ref{fig:helm2}, \ref{fig:2zoom}, \ref{fig:helm4}
+und \ref{fig:4zoom} sind die Messwert -und Theoriekurven bei
+jeweiliger Spannung geplotet.
+Außerdem wurden zwischen den Spulen nur ein Bereich von $\SI{0.5}{\centi\meter}$
+gemessen, da die Spulen sebst sehr breit waren.
+Für die Messreihe mit $\SI{2}{\ampere}$ ergeben sich folgende Grafiken.
+\begin{figure}
+  \includegraphics{build/helmkombi2.pdf}
+  \caption{B-Feld der Helmholtzspulen bei 2 Ampere.}
+  \label{fig:helm2}
+\end{figure}
+
+\begin{figure}
+  \includegraphics{build/2AiZOOM.pdf}
+  \caption{Nahaufnahme des B-Feldes bei 2 Ampere.}
+  \label{fig:2zoom}
+\end{figure}
+\noindent Der theoretisch zu erwartende maximale Wert für
+$\symbf{I}=\SI{2}{\ampere}$ liegt bei
+\begin{equation*}
+    \symup{B}_\text{theo} = \SI{2.877}{\milli\tesla}
+\end{equation*}
+und wird gemäß Formel \eqref{eqn:helmholz} berechnet.
+Zwischen den Spulen ist das Magnetfeld nahezu konstant. Die Messwerte sind
+jedoch kleiner als die Theoriewerte. Außerhalb der Spulen fällt die
+magnetische Feldstärke, wie zu erwarten, stark ab.
+Die zweite Messung wurde mit $\SI{4}{\ampere}$ wiederholt.
+Hier liegt der maximal zu erwartende Wert für $\symbf{I}=\SI{4}{\ampere}$
+bei
+\begin{equation*}
+  \symup{B}_\text{theo} = \SI{5.755}{\milli\tesla} \,.
+\end{equation*}
+Dieser wurde auch mit Formel \eqref{eqn:helmholz} berechnet.
+Wieder ist das magnetische Feld zwischen den Spulen in guter Näherung konstant.
+Der Theoriewert liegt jedoch wieder über den Messwerten. Außerhalb der Spulen
+verhält sich das Feld wieder wie bei der $\SI{2}{\ampere}$- Messung, fällt also
+stark ab und geht für große $x$ gegen Null.
+\begin{figure}
+  \includegraphics{build/helmkombi4.pdf}
+  \caption{B-Feld der Helmholtzspulen bei 4 Ampere.}
+  \label{fig:helm4}
+\end{figure}
+
+\begin{figure}
+  \includegraphics{build/4AiZOOM.pdf}
+  \caption{Nahaufnahme des B-Feldes bei 4 Ampere.}
+  \label{fig:4zoom}
+\end{figure}
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Helmholtzspule.}
+  \label{tab:helmwerte42}
+  \sisetup{table-format=1.3}
+  \begin{tabular}{S[table-format=1.2] S|S[table-format=1.2] S|S[table-format=2.0] S|S[table-format=2.0] S}
+    \toprule
+    \multicolumn{4}{c|}{Innerhalb} & \multicolumn{4}{c}{Außerhalb}\\
+    \hline
+    \multicolumn{2}{c|}{Für 2 Ampere}
+    & \multicolumn{2}{c|}{Für 4 Ampere}
+    & \multicolumn{2}{c|}{Für 2 Ampere}
+    & \multicolumn{2}{c}{Für 4 Ampere} \\
+    \hline
+    {$x \: [\si{\centi\meter}]$} & {$\symbf{B} \: [\si{\milli\tesla}]$}
+    & {$x \: [\si{\centi\meter}]$} & {$\symbf{B} \: [\si{\milli\tesla}]$}
+    & {$x \: [\si{\centi\meter}]$} & {$\symbf{B} \: [\si{\milli\tesla}]$}
+    & {$x \: [\si{\centi\meter}]$} & {$\symbf{B} \: [\si{\milli\tesla}]$} \\
+    \midrule
+    0.70 & 2.657 & 0.70 & 5.442 & 7  & 1.762 & 7  & 3.579 \\
+    0.75 & 2.658 & 0.75 & 5.440 & 8  & 1.469 & 8  & 2.987 \\
+    0.80 & 2.658 & 0.80 & 5.442 & 9  & 1.194 & 9  & 2.429 \\
+    0.85 & 2.658 & 0.85 & 5.441 & 10 & 0.950 & 10 & 1.967 \\
+    0.90 & 2.658 & 0.90 & 5.442 & 11 & 0.758 & 11 & 1.556 \\
+    0.95 & 2.658 & 0.95 & 5.443 & 12 & 0.605 & 12 & 1.252 \\
+    1.00 & 2.658 & 1.00 & 5.443 & 13 & 0.487 & 13 & 1.005 \\
+    1.05 & 2.658 & 1.05 & 5.443 & 14 & 0.391 & 14 & 0.817 \\
+    1.10 & 2.658 & 1.10 & 5.444 & 15 & 0.316 & 15 & 0.664 \\
+    1.15 & 2.658 & 1.15 & 5.444 & 16 & 0.254 & 16 & 0.545 \\
+    1.20 & 2.657 & 1.20 & 5.443 & 17 & 0.211 & 17 & 0.452 \\
+    1.25 & 2.657 & 1.25 & 5.443 &    &       &    &       \\
+    1.30 & 2.654 & 1.30 & 5.436 &    &       &    &       \\
+  \end{tabular}
+\end{table}
+\newpage
+
+\subsection{Hysterese}
+Wie schon in der Durchführung genannt, wird die Hysterekurve einer mit einem
+ferromagnetischen Stoff gefüllten Ringspule bestimmt, indem die Stromstärke
+$\symbf{I}$ gegen die magnetische Flussdichte $\symbf{B}$ aufgetragen wird.
+Die Hysteresekurve ist in Abbildung \ref{fig:hyst} dargestellt und die
+dazugehörigen Werte in Tabelle \ref{tab:hystwerte} aufgetragen.
+\begin{figure}
+  \includegraphics{build/hysterese.pdf}
+  \caption{Plot der Hysteresekurve.}
+  \label{fig:hyst}
+\end{figure}
+Die Remanenz, auch Restmagnetisierung genannt, liegt vor wenn der Strom
+$\symbf{I} = 0$ ist. Dafür kann man 2 Werte ablesen:
+\begin{align*}
+  \symup{Rm}_+ &= \SI{123.3}{\milli\tesla} \\
+  \symup{Rm}_- &= \SI{-126.9}{\milli\tesla}.
+\end{align*}
+An diesen Stellen kann in guter Näherung ein lineares Verhalten angenommen
+werden.
+Es ergeben sich für die beiden Geradengleichungen der
+Form $\symup{y} = mx + b$
+\begin{align*}
+  \symup{y}_1 &= 220.9\symbf{I} + 123.3 \\
+  \symup{y}_2 &= 192.32\symbf{I} - 126.9.
+\end{align*}
+Die Steigung hat dabei die Einheit $\si{\milli\tesla\per\ampere}$ und die konstante
+die Einheit $\si{\milli\tesla}$.
+Die Koerzitivstromstärken treten bei
+\begin{align*}
+  \symbf{I}_1 &= \SI{-0.5582}{\ampere} \\
+  \symbf{I}_2 &= \SI{0.6598}{\ampere}
+\end{align*}
+auf.
+Daraus folgt für die Breite der Kurve
+\begin{equation*}
+  \symup{D}_{12} = \symbf{I}_2 - \symbf{I}_1 = \SI{1.218}{\ampere}.
+\end{equation*}
+Aus den Messwerten in Tabelle \ref{tab:hystwerte} beziehungsweise dem Graphen
+in Abbildung \ref{fig:hyst} ergibt sich eine Breite von
+$\SI{1.3}{\ampere}$.
+Die Kurve ist also sehr schmal. Außerdem gibt es keine vollständige Sättigung,
+denn die Kurve sollte sich bei $\symup{B}_\text{max, min}$ asymptotisch gegen
+den maximalen beziehungsweise den minimalen Wert approximieren.
+\begin{table}
+      \centering
+      \caption{Messwerte der Hysteresekurve.}
+      \label{tab:hystwerte}
+      \sisetup{table-format=1.3}
+      \begin{tabular}{S[table-format=2.0] S |S[table-format=2.1] S |S[table-format=2.1] S}
+            \toprule
+            {$\symbf{I} \: [\si{\ampere}]$}
+            & {$B \: [\si{\milli\tesla}]$}
+            & {$\symbf{I} \: [\si{\ampere}]$}
+            & {$B \: [\si{\milli\tesla}]$}
+            & {$\symbf{I} \: [\si{\ampere}]$}
+            & {$B \: [\si{\milli\tesla}]$} \\
+            \midrule
+            0  & 6.881 & -0.7 & -0.007 & 0.6 & -0.007 \\
+            1  & 199.8 & -1   & -97.6  & 1   & 65.42 \\
+            2  & 286.5 & -2   & -236.5 & 2   & 238.8 \\
+            3  & 399.1 & -3   & -366.2 & 3   & 366.5 \\
+            4  & 473.1 & -4   & -456.9 & 4   & 454.5 \\
+            5  & 525.4 & -5   & -518.4 & 5   & 514.9 \\
+            6  & 567.3 & -6   & -563.7 & 6   & 561.6 \\
+            7  & 602.7 & -7   & -601.0 & 7   & 597.9 \\
+            8  & 633.2 & -8   & -631.9 & 8   & 629.4 \\
+            9  & 661.0 & -9   & -659.2 & 9   & 655.8 \\
+            10 & 686.5 & -10  & -683.8 & 10  & 680.0 \\
+            9  & 668.7 & -9   & -666.9 & & \\
+            8  & 651.0 & -8   & -649.0 & & \\
+            7  & 630.8 & -7   & -629.2 & & \\
+            6  & 607.0 & -6   & -604.7 & & \\
+            5  & 578.0 & -5   & -576.5 & & \\
+            4  & 542.5 & -4   & -541.6 & & \\
+            3  & 498.8 & -3   & -497.2 & & \\
+            2  & 430.2 & -2   & -431.7 & & \\
+            1  & 302.4 & -1   & -296.2 & & \\
+            0  & 123.3 &  0   & -126.9 & & \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+\newpage
