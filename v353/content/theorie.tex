@@ -1,0 +1,86 @@
+\section{Theorie}
+\label{sec:theorie}
+\subsection{Relaxation}
+Als Relaxation bezeichnet man die Erscheinungen die auftreten, wenn
+ein System aus seinem Ausgangszustand entfernt wird, es dann aber
+nicht-oszillatorisch wieder dahin zurückkehrt. Dieser Vorgang tritt
+beispielsweise bei der Auf- und Entladung eines Kondensators auf.
+\cite{Anleitung}
+
+
+\subsection{Entladung}
+
+Die Ladung Q auf einem Kondensator, kann mit
+\begin{align}
+  Q &= U_\text{C} \symup{C}
+  \label{eqn:kondensator1}
+  \intertext{bestimmt werden. Beim Aufladevorgang sind die Randbedingungen}
+  Q(0) &= \SI{0}{\ampere} \\
+  Q(\infty) &= \symup{C} U_\text{C}
+  \intertext{gegeben. Mit}
+  \frac{\symup{d}Q}{\symup{d}t} &= -I
+  \label{eqn:kondensator2}
+  \shortintertext{und}
+  \frac{U_\text{C}}{\symup{R}} &= I,
+  \label{eqn:kondensator3}
+  \intertext{sowie \eqref{eqn:kondensator1}, folgt}
+  \symup{d}Q &= \int_0^\infty -\frac{Q}{\symup{RC}} \, \symup{d}t.
+  \intertext{Das Ausführen der Integration führt zu:}
+  Q(t) &= Q(0) \: \text{exp}\left(\frac{-t}{\symup{RC}}\right).
+  \intertext{Für die Auswertung \ref{sec:auswertung1} wird nun nach $t$ umgestellt:}
+  -\frac{1}{\symup{RC}} \, t &= \log{\left(\frac{U_\text{C}(t)}{\symup{U}_0}\right)}.
+  \label{eqn:aformel}
+\end{align}
+
+
+\subsection{Relaxation bei periodischer Anregung}
+
+Die angelegte Anregung wird als
+\begin{equation}
+  U(t) = \symup{U}_0 \cos{\symup{ω}t}
+\end{equation}
+angenommen. Wenn $ω < \! \!<  \sfrac{1}{\symup{RC}}$ ist, kann der Kondensator sich
+schnell genung auf- und entladen, sodass $U_\text{C}(t) \approx U(t)$ gilt.
+Wird die Frequenz größer hängt die Kondensatorspannung der Erregerspannung hinterher.
+
+Gesucht sind jetzt die Phase und Amplitude von $U_\text{C}$.
+Nach dem 2. Kirchhoff'schen Gesetz ist
+\begin{equation}
+  U(t) = U_\text{R}(t) + U_\text{C}(t).
+  \label{eqn:kirchhoff}
+\end{equation}
+Als Ansatzfunktion für $U_\text{C}$ wählt man
+\begin{equation}
+  U_\text{C}(t) = A(ω) \cos(ωt + φ).
+\end{equation}
+Die mit den Formeln \eqref{eqn:kondensator1}, \eqref{eqn:kondensator2} und \eqref{eqn:kondensator3}
+vereinfachte Formel,
+\begin{equation}
+  U_0 \cos(ωt) = -Aω\symup{RC} \sin(ωt+φ) + A(ω) \cos(ωt+φ),
+  \label{eqn:relax1}
+\end{equation}
+wird nach $φ$ umgestellt. Dafür werden, geschickt gewählte, explizite Werte,
+zB für $ωt$, eingesetzt.
+\begin{equation}
+  φ(ω) = \arctan(-ω\symup{RC})
+  \label{eqn:cformel}
+\end{equation}
+Für die Bestimmmung der Amplitude A wird \eqref{eqn:relax1} ebenfalls vereinfacht und es folgt:
+\begin{equation}
+  A(ω) = \frac{U_0}{\sqrt{1+ω^2\symup{R}^2\symup{C}^2}}.
+  \label{eqn:bformel}
+\end{equation}
+
+
+\subsection{Integration mittels RC-Kreis}
+
+Der RC-Kreis kann als Integrator für eine Spannung dienen, sprich
+\begin{equation}
+  U_\text{C} \propto \int U(t) \, \symup{d}t,
+\end{equation}
+wenn $ω > \! \! > \sfrac{1}{\symup{RC}}$ gilt.
+Gleichung \eqref{eqn:kirchhoff} kann nun genähert werden und es folgt
+\begin{equation}
+  U_\text{C}(t) = \frac{1}{\symup{RC}} \int_0^t U \left(t'\right) \, \symup{d}t'.
+  \label{eqn:dformel}
+\end{equation}
