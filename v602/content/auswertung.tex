@@ -1,0 +1,173 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Versuchsvorbereitung}
+In Tabelle \ref{tab:vorbereitung} sind die
+Ergebnisse aus den Vorbereitungsaufgaben zu finden.
+Die Literaturwerte $E_k$ wurden aus \cite{vorbereitung} genommen.
+Die ursprünglich verwendeten Werte passten nicht mit dem vorgebenen Wert überein.
+Eventuell liegt es an einer falschen Bezeichnung.
+Es werden die folgenden Formeln zur Umrechnung der Energie verwendet:
+\begin{align}
+      θ &= \arcsin\left(\frac{\text{h\,c}}{2\,d\,\symup{e}_0\,E}\right)
+      \label{eqn:winkel}\\
+      σ &= Z-\sqrt{\frac{E}{\symup{R}_\infty}}\:.
+      \label{eqn:sigma}
+\end{align}
+
+\begin{table}
+      \centering
+      \caption{Tabelle zu den Vorbereitungsaufgaben.}
+      \label{tab:vorbereitung}
+      \begin{tabular}{c
+            S[table-format=2.0]
+            S[table-format=2.3]
+            S[table-format=2.3]
+            S[table-format=1.3]}
+            \toprule
+            {Element}
+            & {Z}
+            & {$E_k\;/\;\si{\kilo\electronvolt}$}
+            & {$θ_k\;/\;\si{\degree}$}
+            & {$σ_k$}\\
+            \midrule
+            $\text{Cu}_α$ & 29 & 8.048 & 22.486 & \\ % 4.674 \\
+            $\text{Cu}_β$ & 29 & 8.905 & 20.222 & \\ % 3.411 \\
+            Zn & 30 &  9.673 & 18.555 & 3.331 \\
+            % Ge & 32 & 11.115 & 16.077 & 3.412 \\
+            Br & 35 & 13.483 & 13.197 & 3.514 \\
+            % Rb & 37 & 15.202 & 11.682 & 3.567 \\
+            Sr & 38 & 16.106 & 11.018 & 3.587 \\
+            Zr & 40 & 17.997 &  9.848 & 3.623 \\
+            % Nb & 41 & 18.985 &  9.331 & 3.638 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\subsection{Bragg Bedingung}
+
+\begin{figure}
+      \centering
+      \includegraphics[height=8cm]{build/bragg.pdf}
+      \caption{Messwerte und Theoriewert bei festem Winkel des Kristalls.}
+      \label{fig:bragg}
+\end{figure}
+
+Bei einem festen Winkel des Kristalls von
+\begin{align}
+      θ &= \SI{14}{\degree}
+      \intertext{wird die gemessene Intensität in Abbildung \ref{fig:bragg}
+            gegen den Winkel des Geiger-Müller-Zählrohrs aufgetragen.
+            Die Messwerte stehen in Kapitel \ref{sec:werte} in Tabelle
+            \ref{tab:bragg}. Es ergibt sich die Abweichung vom Theoriewert}
+      φ &= \SI{28}{\degree}
+      \shortintertext{zu}
+      \increment φ &= \SI{28}{\degree}-\SI{27.6}{\degree} = \SI{0.4}{\degree}\:,
+      \intertext{mit der relativen Abweichung}
+      \increment φ_{\%} &= \frac{|\text{Soll} \: - \: \text{Ist}|}{\text{Soll}} \cdot \SI{100}{\percent}
+      \label{eqn:prozfehler}\\
+       &= \frac{\SI{28}{\degree}-\SI{27.6}{\degree}}{\SI{28}{\degree}}\cdot\SI{100}{\percent}
+        = \SI{1.43}{\percent}\:.
+\end{align}
+
+\subsection{Emissionsspektrum einer Cu-Röntgenröhre}
+
+Die Werte der Abbildung \ref{fig:kopplung} stehen ebenfalls in Tabelle \ref{tab:bragg}.
+Der Theoriewert der $K_α$-Linie liegt bei
+\begin{align}
+      θ_\text{t}&=\SI{22.486}{\degree}\:,
+      \intertext{vgl. Tabelle \ref{tab:vorbereitung}, der gemessene Wert liegt bei}
+      θ_\text{m}&=\SI{22.2}{\degree}\:.
+      \intertext{Die relative Abweichung nach Gleichung \eqref{eqn:prozfehler} ergibt}
+      \increment θ_α &= \SI{1.27}{\percent}\:.
+      \intertext{Für die $K_β$-Linie folgt:}
+      θ_\text{t}&=\SI{20.222}{\degree}\\
+      θ_\text{m}&=\SI{20.2}{\degree}\:.
+      \intertext{Die relative Abweichung ist hier}
+      θ_β &= \SI{0.11}{\percent}\:.
+\end{align}
+
+Der Bremsberg beginnt bei $θ=\SI{5}{\degree}$ und steigt bis $θ=\SI{10}{\degree}$ an.
+In Abbildung \ref{fig:emissionlog} in Kapitel \ref{sec:anhang} Anhang ist dies gut zu sehen,
+danach fallen die Werte und nähern sich wieder der 0 an.
+Die theoretische minimale Wellenlänge ist nach Gleichung \eqref{eqn:lambdamin}
+\begin{align}
+      λ_\text{min,t} &= \SI{3.54e-11}{\meter}\\
+      \intertext{mit den Konstanten aus \cite{scipyconst}, wie in allen anderen
+      Rechnungen.
+      Mit den Messwerten und Gleichung \eqref{eqn:lambdamin}
+      folgt}
+      λ_\text{min,m} &= \SI{3.51e-11}{\meter}\:.
+      \intertext{Mit der Gitterkonstanten}
+      d &= \SI{201.4e-12}{\meter} \label{eqn:gitterkonstante}
+      \intertext{folgt die Energie $E$ mit Gleichung \eqref{eqn:BraggE} zu}
+      E &= \SI{35.317}{\kilo\electronvolt}\:.
+      \label{eqn:energiemax}
+      \intertext{Der relative Fehler zum gegebenen Wert}
+      E_\text{t} &= \SI{35}{\kilo\electronvolt}
+      \intertext{beträgt nach Gleichung \eqref{eqn:prozfehler}}
+      \increment U_{\%} &=\SI{0.9}{\percent}\:.
+\end{align}
+
+\begin{figure}
+      \centering
+      \includegraphics[height=8cm]{build/emission.pdf}
+      \caption{Messwerte bei 2:1 Kopplung.}
+      \label{fig:kopplung}
+\end{figure}
+
+Die Werte der \enquote{full width at half maximum} Auswertung werden aus der
+Tabelle \ref{tab:bragg} genommen.
+Die Werte in Tabelle \ref{tab:energieaufloesung} folgen aus Geraden und Schnittpunkt
+Bestimmung, sowie Gleichung \eqref{eqn:BraggE}.
+\begin{align}
+      y&=m\cdot x-b\\
+      E&=\frac{\frac{\text{max}}{2}-b}{m}
+\end{align}
+\begin{table}
+      \centering
+      \caption{Energieauflösungsvermögen der Apperatur.}
+      \label{tab:energieaufloesung}
+      \begin{tabular}{c S[table-format=2.3]
+                  S[table-format=4.2]
+                  S[table-format=2.3]
+                  S[table-format=4.2]
+                  S[table-format=3.2]}
+            \toprule
+            {Linie}
+            & {$θ_1\;/\;\si{\degree}$}
+            & {$E_1\;/\;/\si{\kilo\electronvolt}$}
+            & {$θ_2\;/\;\si{\degree}$}
+            & {$E_2\;/\;/\si{\electronvolt}$}
+            & {$\increment E\;/\;/\si{\electronvolt}$}\\
+            \midrule
+            $K_β$ & 19.849 & 9065.45 & 20.334 & 8857.78 & 207.67 \\
+            $K_α$ & 22.091 & 8184.58 & 22.673 & 7985.13 & 199.45 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+Der Mittelwert nach
+\begin{align}
+      \bar{x} &= \frac{1}{N} \sum_{i=0}^{N} x_i
+      \label{eqn:mittelwert}
+      \intertext{und dem Fehler nach}
+      \increment\overline{x} &= \sqrt{
+      \frac{1}{N(N-1)}\sum_{k=0}^{N}
+      \left( x_k - \overline{x} \right)^2}
+      \label{eqn:mittelwertfehler}
+      \intertext{führt zu}
+      \increment\left(\increment E\right) &= \SI{204(4)}{\electronvolt}\:.
+      \intertext{ Die Energien der $K_α$ und $K_β$-Linien sind mit der Gleichung
+      \eqref{eqn:BraggE} und den Winkeln von oben zu}
+      E_{α,\symup{m}} &= \SI{8.146}{\kilo\electronvolt}\\
+      E_{α,\symup{t}} &= \SI{8.048}{\kilo\electronvolt}\\
+      E_{β,\symup{m}} &= \SI{8.914}{\kilo\electronvolt}\\
+      E_{β,\symup{t}} &= \SI{8.905}{\kilo\electronvolt}\:.
+      \intertext{bestimmt worden. Die Abschirmkonstanten $σ_k$ werden nach}
+      σ_1 &= Z_\text{Cu} - \sqrt{\frac{E_β}{R_\infty}} = 3.398
+      \label{eqn:sigma1}
+      \shortintertext{und}
+      σ_2 &= Z_\text{Cu} - 2\sqrt{\frac{R_\infty(z_\text{Cu}-σ_1)^2-E_α}{R_\infty}} =13.97
+\end{align}
+mit unseren Messwerten bestimmt.
+Die Formeln folgen aus den Gleichungen \eqref{eqn:bindE} und \eqref{eqn:kalpha}.

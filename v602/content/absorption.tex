@@ -1,0 +1,69 @@
+\subsection{Absorption}
+Aus den Abbildungen \ref{fig:zink}, \ref{fig:brom}, \ref{fig:strontium},
+\ref{fig:zirkonium} und \ref{fig:quecksilber} im Anhang werden die Winkel
+der K-Absorptionskante abgelesen und mit Gleichung \eqref{eqn:BraggE} in die
+entsprechenden Energien umgeformt. Die Abschirmkonstanten $σ_\text{k}$ werden
+nach Formel \eqref{eqn:bindE} bestimmt.
+In Abbildung \ref{fig:abkanten} sind die Punktepaare $\left(\text{Z}^2\middle|E_\text{k}\right)$
+eingetragen. Die Ausgleichsrechnung, mit scipy, nach
+\begin{align}
+    E_\text{k} &= m\cdot x+b
+    \shortintertext{liefert}
+    m &= \SI{12.04(16)}{\electronvolt}\\
+    b &= \SI{-1.2(2)e3}{\electronvolt}\:.
+\end{align}
+
+\begin{table}
+    \centering
+    \caption{Werte der Absorptionsmessungen.}
+    \label{tab:absorptionmessung}
+    \begin{tabular}{c S[table-format=2.0] S[table-format=4.0] S[table-format=2.1]
+        S[table-format=2.2] S[table-format=2.3] S[table-format=1.3] S[table-format=1.3]
+        S[table-format=1.2]}
+        \toprule
+        {Element} & {Z} & {$\symup{Z}^2$} & {$φ_\text{k}\;/\;\si{\degree}$}
+        & {$θ_\text{k}\;/\;\si{\degree}$}
+        & {$E_\text{k}\;/\;\si{\kilo\electronvolt}$}
+        & {$σ_\text{k}$}
+        & {$σ_\text{k,t}$}
+        & {$\incrementσ_\%$} \\
+        \midrule
+        Zink      & 30 &  900 & 37.0 & 18.50 &  9.701 & 3.293 & 3.331 & 1.14 \\
+        Brom      & 35 & 1225 & 26.2 & 13.10 & 13.581 & 3.400 & 3.514 & 3.24 \\
+        Strontium & 38 & 1444 & 22.0 & 11.00 & 16.132 & 3.559 & 3.587 & 0.78 \\
+        Zirkonium & 40 & 1600 & 19.5 &  9.75 & 18.176 & 3.442 & 3.623 & 5.00 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Für Quecksilber wird $σ_\text{L}$ mit \eqref{eqn:sigmaL} berechnet.
+Es folgen aus Abbildung \ref{fig:quecksilber} die Winkel und Energien in Tabelle
+\ref{tab:queckabsorp}. Die Theoriewerte stammen aus \cite{vorbereitung}.
+Mit der Sommerfeld'schen Feinstrukturkonstanten
+\begin{align}
+    α &= \num{7.2973525664e-3}\:,
+    \shortintertext{von \cite{sommer}, ergeben sich}
+    σ_\text{L} &= 2.42 \\
+    σ_\text{L,t} &= 3.58\:.
+\end{align}
+Der Prozentuale Fehler nach \eqref{eqn:prozfehler} ist
+$\increment σ_\text{L,\%} = \SI{32.4}{\percent}$\:.
+
+\begin{table}
+    \centering
+    \caption{Werte der Absorptionsmessung für Quecksilber.}
+    \label{tab:queckabsorp}
+    \begin{tabular}{c S[table-format=2.1]
+        S[table-format=2.1] S[table-format=2.2] S[table-format=2.3]}
+        \toprule
+        {Linie}
+        & {$φ\;/\;\si{\degree}$}
+        & {$θ\;/\;\si{\degree}$}
+        & {$E\;/\;\si{\kilo\electronvolt}$}
+        & {$E_\text{t}\;/\;\si{\kilo\electronvolt}$} \\
+        \midrule
+        $\symup{L}_\text{II}$  & 25.2 & 12.6 & 14.11 & 14.215 \\
+        $\symup{L}_\text{III}$ & 29.6 & 14.8 & 12.05 & 12.290 \\
+        \bottomrule
+    \end{tabular}
+\end{table}

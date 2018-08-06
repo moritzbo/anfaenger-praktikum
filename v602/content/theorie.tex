@@ -1,0 +1,145 @@
+\section{Theorie}
+\label{sec:theorie}
+Die Theorie folgt der Versuchsanleitung, \cite{Anleitung}.
+\subsection{Röntenstrahlung}
+Bei Röntgenstrahlung handelt sich um hochfrequente elektromagnetische Wellen,
+üblicherweise in einem Wellenlängenbereich von mehreren $\SI{10}{\pico\meter}$.
+Elektronen werden durch den glühelektrischen Effekt
+\footnote{siehe glühelektrischer Effekt, \cite{Anleitung504}} erzeugt,
+und in Richtung der Anode beschleunigt. Sobald die Elektronen auf das
+Coulomb-Potential des Kerns treffen, werden sie stark abgebremst.
+Dieser Bremsvorgang führt dazu, dass Strahlung emittiert wird, welche sich als
+Bremsstrahlung identifizieren lässt.
+Es wird zwischen 2 Spektren unterschieden: Ein nahezu kontinuierliches Spektrum,
+welches dadurch entsteht, dass die abgegebene Energie von der kompletten Abgabe
+bis hin zu gequantelten Teilen reicht. Diese Art der Strahlung wird
+Bremsstrahlung genannt. Die minimale auftretende Wellenlänge berechnet sich nach
+\begin{equation}
+  λ_\text{min} = \frac{\symup{h}\cdot\symup{c}}{e_0\:U}
+  \label{eqn:lambdamin}
+\end{equation}
+und ergibt sich bei der vollständigen Abbremsung der Elektronen.
+\\
+Das diskrete Spektrum kommt zustande indem das Anodenmaterial
+ionisiert wird. Die dadurch entstehende Lücke auf einer inneren Schale wird
+durch ein weniger stark gebundenes Elektron wieder aufgefüllt. Die so entstehende
+Energiedifferenz
+\begin{equation}
+  ΔΕ = ΔE_m\:-\:ΔE_n
+\end{equation}
+entspricht der Differenz der Schalenenergien.
+Diese Energien sind diskret und äußern sich in Form von scharfen Peaks im Spektrum
+und sind charakteristisch für jedes Element.
+Die Bezeichnung der Linien folgt aus der Schale in welches das Elektron fällt
+und aus der es kommt.
+Das beobachtete Spektrum ist das sogenannte Emissionsspektrum.
+
+\subsection{Abschirmung}
+Da bei Atomen mit mehreren Elektronen die Valenzelektronen die einfallenden
+Elektronen vom positiven Kern fernhalten, verringert sich die Bindungsenergie
+des Elektrons der n-ten Schale auf
+\begin{equation}
+  E_n = -R_\infty\: z_\text{eff}^2 \cdot \frac{1}{n^2}\:.
+  \label{eqn:bindE}
+\end{equation}
+Dabei ist $z_\text{eff} = z\:-\:σ$ die effektive Kernladungszahl und $σ$
+die Abschirmkonstante der jeweiligen Schale. $R_\infty$ bezeichnet die Rydberg-Konstante mit
+$R_\infty = \SI{13.6}{\electronvolt}$.
+\\
+Hiermit wird die Energie der $K_α$ Linie, nach Gleichung \eqref{eqn:bindE}, zu
+\begin{equation}
+  E_{\text{K}_α} = R_\infty \left( z\:-\:σ_1 \right)^2 \cdot \frac{1}{1^2}\:-\:
+                 R_\infty \left( z\:-\:σ_2 \right)^2 \cdot \frac{1}{2^2}
+  \label{eqn:kalpha}
+\end{equation}
+berechnet.
+\\
+\subsection{Absorptionsspektrum}
+Besitzt die Röntgenstrahlung eine Energie kleiner als
+$\SI{1}{\mega\electronvolt}$, sind bei der Absorption der Compton-Effekt und der
+photoelektrische Effekt dominant.
+Steigt die Photonenenergie über die Bindungsenergie der nächst inneren Schale,
+steigt der Absorptionskoeffizient schlagartig an. Dieses rapide Ansteigen wird
+als Absorptionskante bezeichnet und ihre Lage berechnet sich nach
+\begin{equation}
+  \symup{h}ν_\text{abs} = E_n\:-\:E_\infty\:.
+  \label{eqn:enu}
+\end{equation}
+Aufgrund der Feinstruktur der Absorptionskanten muss die Bindungsenergie
+$E_\text{n,j}$ mit der Sommerfeld'schen Feinstrukturformel
+aus \cite{Anleitung}
+berechnet werden.
+\\
+Die Abschirmkonstante $σ_L$ beschreibt, wie
+stark das Coulombpotential des Kerns durch die gebundenen Elektronen
+abgeschwächt wird.
+Sie berechnet sich nach
+\begin{equation}
+  σ_L = Z\:-\:\left(
+                \frac{4}{α} \sqrt{ \frac{\increment E_\text{L}}{R_\infty}}
+                -\frac{5\increment E_\text{L}}{R_\infty}\right)^{\frac{1}{2}}
+        \left(1 + \frac{19}{32}α^2\frac{\increment E_L}{R_\infty}\right)^{\frac{1}{2}}\:,
+        \label{eqn:sigmaL}
+\end{equation}
+mit der Sommerfeld'schen Feinstrukturkonstanten $α$ und der Energiedifferenz der
+Schalen $\increment E_L$.
+Die Energie der Röntgenbremsstrahlung wird experimentell mittels der
+Braggreflektion bestimmt. Dabei wird das Röntgenlicht an einem Gitter gebeugt
+und interferiert. Bei einem bestimmten Winkel, dem sogenannten Glanzwinkel,
+tritt konstruktive Interferenz auf, welche nach
+\begin{align}
+  E &= \frac{\symup{h}\symup{c}}{λ}
+  \shortintertext{und}
+   nλ &= 2d\sin{θ}
+  \shortintertext{die Energie E gemäß}
+  E &= \frac{\symup{h}\,\symup{c}}{2\,d\,\symup{e}_0\,\sin(θ)}
+\label{eqn:BraggE}
+\end{align}
+besitzt. Die Abbildung \ref{fig:braggy} stellt dies dar.
+Für die K-Linien können die Abschirmkonstanten $σ_1$ und $σ_2$ aus der
+Energiedifferenz $\increment E_\text{K} = E_{K_α}\:-\:E_{K_β}$ der beiden Linien
+errechnet werden.
+
+\newpage
+
+\begin{figure}
+    \caption{Braggreflektion an einem Kristall.\protect\footnotemark}
+    \label{fig:braggy}
+    \begin{center}
+      \begin{circuitikz}
+        \draw (-0.3,0) -- (5.3,0);
+        \draw (-0.3,1) -- (5.3,1);
+        \draw (-0.3,2) -- (5.3,2);
+        \draw[<->, very thick] (5,1) -- (5,2);
+        \node at (5.3,1.5) {$\text{d}$};
+        \coordinate (a) at (0,0);
+        \coordinate (b) at (1,0);
+        \coordinate (c) at (2,0);
+        \coordinate (d) at (3,0);
+        \coordinate (e) at (4,0);
+        \coordinate (f) at (5,0);
+        \coordinate (g) at (0,1);
+        \coordinate (h) at (1,1);
+        \coordinate (i) at (2,1);
+        \coordinate (j) at (3,1);
+        \coordinate (k) at (4,1);
+        \coordinate (l) at (5,1);
+        \coordinate (m) at (0,2);
+        \coordinate (n) at (1,2);
+        \coordinate (o) at (2,2);
+        \coordinate (p) at (3,2);
+        \coordinate (q) at (4,2);
+        \coordinate (r) at (5,2);
+
+        \foreach \point in {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r} %schwarze punkte
+        \fill [black,opacity=1] (\point) circle (2pt);
+        \draw[->,very thick] (0,4) -- (2.5,2); %pfeile
+        \draw[->,very thick] (2.5,2) -- (5,4);
+        \node at (3.2,2.3) {$θ$};
+        \node at (1.8,2.3) {$θ$};
+        \draw (3.5,2) arc (0:38.65980825:1);
+        \draw (1.5,2) arc (180:180-38.65980825:1);
+      \end{circuitikz}
+    \end{center}
+\end{figure}
+\footnotetext{Die Skizze wurde mit Tikz erstellt.}
