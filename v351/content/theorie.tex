@@ -1,0 +1,111 @@
+\section{Theorie}
+\label{sec:theorie}
+\subsection{Fourier'sche Theorem}
+Das Fouriersche Theorem besagt, falls die Reihe
+\begin{equation}
+  f(t) =
+  \frac{1}{2} a_0 +
+  \sum_{n=1}^\infty
+  \left(
+  a_n \cos\left(\frac{2\symup{π}n}{\symup{T}}t \right) +
+  b_n \sin\left(\frac{2\symup{π}n}{\symup{T}}t \right)
+  \right)
+  \label{eqn:fouriertheorem}
+\end{equation}
+gleichmäßig konvergiert, beschreibt sie eine periodische Funktion
+\cite{Anleitung} $f(t)$.
+Die Koeffizienten $\symup{a}_n$ und $\symup{b}_n$
+werden gemäß
+\begin{align}
+  a_n &= \frac{2}{\symup{T}}
+  \int_0^\text{T} f(t)
+  \cos\left(\frac{2\symup{π}n}{\symup{T}}t \right) \, \symup{d}t
+  \label{eqn:akoeffizient}\\
+  b_n &= \frac{2}{\symup{T}}
+  \int_0^\text{T} f(t)
+  \sin\left(\frac{2\symup{π}n}{\symup{T}}t \right) \, \symup{d}t
+  \label{eqn:bkoeffizient}
+\end{align}
+berechnet \cite{Anleitung}.
+
+\subsection{Fourier-Transformation}
+Bei der Fourier-Transformation kann man eine Funktion, ob periodisch oder nicht,
+in ihre Fourierkoeffizienten zerlegen. Die Fourier-Transformation berechnet
+man gemäß:
+\begin{equation}
+  g(ν) = \int_{-\infty}^{\infty} f(t) \, \symup{e}^{\symup{i} ν t} \, \symup{d}t
+  \label{eqn:fouriertrafo}
+\end{equation}
+Ist die betrachtete Funktion $f(t)$ nicht periodisch, so ist $g(ν)$ eine nicht
+weiter spezifikierbare Funktion. Wenn $f(t)$ periodisch ist, ist $g(ν)$ eine
+Reihe von δ-Distributtionen, die, wie die Fourierreihe, konvergiert.
+Bei diesem Versuch führt das Oszilloskop die
+Fourier-Transformation gemäß \ref{eqn:fouriertrafo} durch und der Betrag von
+$g(ν)$ berechnet sich gemäß:
+\begin{equation}
+  |g| = \sqrt{\symfrak{Re}^2(g)+\symfrak{Im}^2(g)}
+  \label{eqn:betrag}
+\end{equation}
+
+\subsection{Fourieranalyse}
+Bei der Fourieranalyse zerlegt man Schwingungen in ihre Fourierkoeffizienten,
+welche somit die ursprüngliche Funktion approximieren.
+Da die Approximation im Experiment nur endlich genau ist,
+kommt es zu Abweichungen im Schwingungsmuster, welche als Gibbs'sches Phänomen
+bezeichnet werden, vgl \ref{sec:gibb}.
+Für gerade Funktionen bei denen $f(t) = f(-t)$ gilt, sind die Amplituden
+$\symup{b}_n = 0$. Für ungerade Funktionen, das heißt $f(t) = -f(-t)$, werden
+alle $\symup{a}_n = 0$.
+Da bei der Analyse die Resonanzspannung $\symup{U}_{\text{res}}$ proportional
+zu den Amplituden der Oberwellen $\symup{A}_{\text{Oberwelle}}$ steht, können
+sämtliche Oberwellen gemäß
+\begin{equation}
+    \frac{ν_{\text{res}}}{n}
+\end{equation}
+angeregt werden, wobei $\enquote{n}$ die Anregung der n-ten Oberwelle beschreibt.
+Die Resonanzfrequenz ist gemäß
+\begin{equation}
+  ν_{\text{res}} = \frac{1}{2\symup{π}\sqrt{\symup{LC}}}
+\end{equation}
+definiert. Dabei ist $\symup{L}$ die Induktivität und $\symup{C}$ die
+Kapazität, welche durch die Bauteileigenschaften festgelegt sind. Durch die
+Resonanzfrequenz können sehr kleine
+Fourierkomponenten bestimmt werden, da bei der Resonanzfrequenz, wie der Name
+schon andeutet, das System in Resonanz gebracht wird, und die größtmögliche
+Amplitude auftritt.
+
+\subsection{Fouriersynthese}
+Bei der Synthese kann eine Schwingung aus ihren errechneten Fourier-Koeffizienten
+zusammengesetzt werden.
+Dies geschieht mit einem Oberwellengenerator, welcher phasenfeste Schwingungen
+generiert, zum Beispiel sinusförmig. Die Frequenzen sind ganzzahlige Vielfache
+der Eigenfrequenz ν.
+
+\subsection{Gibbs'sches Phänomen}
+\label{sec:gibb}
+Als Gibbs'sche Phänomen werden die Überschwingungen bezeichnet,
+welche durch Approximation an eine unstetige Stelle $t_0$ einer Funktion
+$f(t)$ auftreten. Da das Fourier'sche Theorem eine unendliche Reihe beschreibt,
+ist es unvermeidlich diese Abweichungen zu umgehen, wie in
+\eqref{fig:rechteck} deutlich zu sehen. Die Anzahl an angelegten
+Oberschwingungen kann die Abweichungen verringern.
+
+\subsection{Abtasttheorem}
+Bei der Fourieranalyse kann die zu untersuchende Funktion nur durch diskrete
+Messpunkte, und nicht kontinuierlich, aufgezeichnet werden.
+Wenn die zeitliche Differenz des Werteaufzeichnens viel größer als die
+Periodendauer T ist, treten Fehler in der Darstellung der Spannungspeaks auf.
+Das Abtasttheorem besagt nun, wenn die Abtastfrequenz $ν_{\text{Abtast}}$
+größer ist als das doppelte vorkommende Frequenzmaximum der Funktion $f(t)$,
+wird der Fehler vernachlässigbar klein.
+\begin{equation}
+  ν_{\text{Abtast}} > 2ν_{\text{max}}
+  \label{eqn:abtast}
+\end{equation}
+\section{Fehlerrechnung}
+Der Mittelwert eines Datensatzes, mit N Werten, berechnet sich nach
+\begin{equation}
+  \bar{x} = \frac{1}{N} \sum_{i=0}^{N} x_i.
+  \label{eqn:mittelwert}
+\end{equation}
+\newpage

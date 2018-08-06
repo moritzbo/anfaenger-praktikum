@@ -1,0 +1,201 @@
+\subsection{Analyse}
+
+Die Frequenzen sind nur als Abstand gegeben, da so die Genauigkeit beim
+Ablesen verbessert werden kann. Interessant ist hier zudem auch die Konstanz
+der Abstände, da die Oberwellen immer ein Vielfaches der Grundschwingung sein
+sollen.
+Die angegebenen Fehler der Messwerte stammen aus der Skalierung des Oszilloskops.
+Die Abweichung der Messwerte von den Theoriewerten wurde mit
+\begin{equation}
+  \increment \symup{U} = 100- 100 \frac{\symup{U}_\text{M}}{\symup{U}_\text{T}}
+  \label{eqn:abweichungamplitude}
+\end{equation}
+bestimmt.
+
+\subsubsection{Rechteckspannung}
+
+\begin{table}
+  \centering
+  \caption{Messdaten und Theoriewerte der Rechteckspannung}
+  \label{tab:rechteckwerteanalyse}
+  \begin{tabular}{
+    S[table-format=2.0]
+     S[table-format=2.2] @{${} \pm {}$} S[table-format=1.2]
+     S[table-format=2.3] @{${} \pm {}$} S[table-format=1.3]
+     S[table-format=2.3]
+     S[table-format=2.3]
+    }
+    \toprule
+    {Oberwelle}
+    & \multicolumn{2}{c}{Frequenzabstand}
+    & \multicolumn{2}{c}{Messwerte}
+    & {Theoriewerte}
+    & {Abweichung} \\
+    \hline
+    {$\symup{n}$}
+    & \multicolumn{2}{c}{$\increment \symup{f}_\text{r} \:/\: \si{\per\second}$}
+    & \multicolumn{2}{c}{$\symup{U}_\text{M,r} \:/\: \si{\volt}$}
+    & {$\symup{U}_\text{T,r} \:/\: \si{\volt}$}
+    & {$\increment \symup{U}_\text{r} \:/\:\%$} \\
+    \midrule
+     1  &  0    & 0.62 & 12.000 & 0.080 & 11.496 & -4.381 \\
+     3  & 24.68 & 0.62 &  3.560 & 0.020 &  3.832 &  7.101 \\
+     5  & 23.75 & 0.62 &  2.460 & 0.020 &  2.299 & -6.990 \\
+     7  & 23.70 & 0.62 &  1.600 & 0.020 &  1.642 &  2.578 \\
+     9  & 24.37 & 0.62 &  1.290 & 0.010 &  1.277 & -0.988 \\
+    11  & 23.75 & 0.62 &  1.100 & 0.010 &  1.045 & -5.250 \\
+    13  & 23.75 & 0.62 &  0.770 & 0.008 &  0.884 & 12.929 \\
+    15  & 24.37 & 0.62 &  0.808 & 0.008 &  0.766 & -5.424 \\
+    17  & 23.75 & 0.62 &  0.688 & 0.008 &  0.676 & -1.736 \\
+    19  & 24.37 & 0.62 &  0.592 & 0.008 &  0.605 &  2.161 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/rechteckanalyse.pdf}
+  \caption{Mess- und Theoretischewerte der Analyse der Rechteckspannung}
+  \label{fig:rechtanalyse}
+\end{figure}
+Die Unsicherheiten der Messwerte wurden aus der Skalierung am Oszilloskop
+bestimmt, wobei eine Schrittweite des Cursors genau die Unsicherheit ist.
+Der Mittelwert der Frequenzabstände ergibt sich nach \eqref{eqn:mittelwert} zu
+\begin{equation}
+  \increment \symup{f}_\text{r} = \SI{12.0585}{\per\second}.
+\end{equation}
+Für die Theoretischen Werte wird die Amplitude, mit umstellen von
+\eqref{eqn:rechteckko­ef­fi­zi­ent}, als
+\begin{equation}
+  \symup{A}_{0,\text{r}} = \SI{9.029(180)}{\volt}
+\end{equation}
+bestimmt.
+Auffallend bei den Werten ist, dass die Abweichungen nicht sehr unterschiedlich
+sind, das liegt an der großen Skalierung für die hohen Amplituden und dem
+$\enquote{\text{Rauschen}}$ für die kleinen Amplituden. Das
+$\enquote{\text{Rauschen}}$äußerte sich in einer Schwingung der Peaks.
+Die Amplitude der 13ten Oberschwingung lag schon auf dem Oszilloskopbild unter
+der für die 15., ist also kein Tipp- oder Schreibfehler.
+
+\newpage
+
+\subsubsection{Dreieckspannung}
+
+\begin{table}
+  \centering
+  \caption{Messdaten und Theoriewerte der Dreieckspannung}
+  \label{tab:dreieckwerteanalyse}
+  \begin{tabular}{
+    S[table-format=2.0]
+     S[table-format=3.1] @{${} \pm {}$} S[table-format=1.2]
+     S[table-format=3.3] @{${} \pm {}$} S[table-format=1.3]
+     S[table-format=3.3]
+     S[table-format=2.3]
+    }
+    \toprule
+    {Oberwelle}
+    & \multicolumn{2}{c}{Frequenzabstand}
+    & \multicolumn{2}{c}{Messwerte}
+    & {Theoriewerte}
+    & {Abweichung} \\
+    \hline
+    {$\symup{n}$}
+    & \multicolumn{2}{c}{$\increment \symup{f}_\text{d} \:/\: \si{\per\second}$}
+    & \multicolumn{2}{c}{$\symup{U}_\text{M,d} \:/\: \si{\volt}$}
+    & {$\symup{U}_\text{T,d} \:/\: \si{\volt}$}
+    & {$\increment \symup{U}_\text{d} \:/\:\%$} \\
+    \midrule
+     1 & 193.7 & 0.63 & 258.000 & 2.000 & 242.022 &  -6.602 \\
+     3 & 187.5 & 0.63 &  30.000 & 0.200 &  26.891 & -11.560 \\
+     5 & 193.7 & 0.63 &  11.600 & 0.100 &   9.681 & -19.824 \\
+     7 & 193.7 & 0.63 &   5.960 & 0.040 &   4.939 & -20.667 \\
+     9 & 187.5 & 0.63 &   3.360 & 0.020 &   2.988 & -12.453 \\
+    11 & 200.0 & 0.63 &   2.200 & 0.020 &   2.000 &  -9.990 \\
+    13 & 181.2 & 0.63 &   1.320 & 0.020 &   1.432 &  -7.826 \\
+    15 & 193.7 & 0.63 &   0.880 & 0.020 &   1.076 &  18.189 \\
+    17 & 193.7 & 0.63 &   0.664 & 0.008 &   0.837 &  20.711 \\
+    19 & 200.0 & 0.63 &   0.440 & 0.008 &   0.670 &  34.369 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/dreieckanalyse.pdf}
+  \caption{Mess- und Theoretischewerte der Analyse der Dreieckspannung}
+  \label{fig:dreianalyse}
+\end{figure}
+Der Mittelwert der Frequenzabstände ergibt sich nach \eqref{eqn:mittelwert} zu
+\begin{equation}
+  \increment \symup{f}_\text{d} = \SI{96.235}{\per\second}.
+\end{equation}
+Für die Theoretischen Werte wird die Amplitude, mit umstellen von
+\eqref{eqn:dreieckko­ef­fi­zi­ent}, als
+\begin{equation}
+  \symup{A}_{0,\text{d}} = \SI{299(18)}{\volt}
+\end{equation}
+bestimmt.
+Die hohe Abweichung bei den Oberwellen größerer Ordnung liegt an der
+Proportionalität der Amplitude zu $\sfrac{1}{n^2}$. Dadurch sind die Amplituden
+der Oberschwingungen höherer Ordnung, ähnlich zur Rechteckspannung, schwer,
+hier teilweise garnicht mehr vom $\enquote{\text{Rauschen}}$ zu unterscheiden.
+
+\newpage
+
+\subsubsection{Sägezahnspannung}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/saegezahnanalyse.pdf}
+  \caption{Mess- und Theoretischewerte der Analyse der Sägezahnspannung}
+  \label{fig:saegeanalyse}
+\end{figure}
+\begin{table}
+  \centering
+  \caption{Messdaten und Theoriewerte der Sägezahnspannung}
+  \label{tab:sägezahnwerteanalyse}
+  \begin{tabular}{
+    S[table-format=2.0]
+     S[table-format=2.2] @{${} \pm {}$} S[table-format=1.2]
+     S[table-format=3.1] @{${} \pm {}$} S[table-format=1.1]
+     S[table-format=3.3]
+     S[table-format=2.3]
+    }
+    \toprule
+    {Oberwelle}
+    & \multicolumn{2}{c}{Frequenzabstand}
+    & \multicolumn{2}{c}{Messwerte}
+    & {Theoriewerte}
+    & {Abweichung} \\
+    \hline
+    {$\symup{n}$}
+    & \multicolumn{2}{c}{$\increment \symup{f}_\text{s} \:/\: \si{\per\second}$}
+    & \multicolumn{2}{c}{$\symup{U}_\text{M,s} \:/\: \si{\volt}$}
+    & {$\symup{U}_\text{T,s} \:/\: \si{\volt}$}
+    & {$\increment \symup{U}_\text{s} \:/\:\%$} \\
+    \midrule
+     1 &  0    & 0.31 & 232.0 & 2.0 & 215.860 &  -7.477 \\
+     2 & 12.18 & 0.31 & 104.0 & 1.0 & 107.930 &   3.641 \\
+     3 & 12.50 & 0.31 &  68.0 & 0.4 &  71.953 &   5.494 \\
+     4 & 11.87 & 0.31 &  56.4 & 0.4 &  53.965 &  -4.512 \\
+     5 & 11.56 & 0.31 &  47.6 & 0.4 &  43.172 & -10.257 \\
+     6 & 12.18 & 0.31 &  36.4 & 0.2 &  35.977 &  -1.177 \\
+     7 & 12.18 & 0.31 &  29.6 & 0.2 &  30.837 &   4.012 \\
+     8 & 12.18 & 0.31 &  23.6 & 0.2 &  26.982 &  12.536 \\
+     9 & 12.18 & 0.31 &  23.4 & 0.2 &  23.984 &   2.437 \\
+    10 & 11.87 & 0.31 &  22.6 & 0.2 &  21.586 &  -4.697 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Der Mittelwert der Frequenzabstände ergibt sich nach \eqref{eqn:mittelwert} zu
+\begin{equation}
+  \increment \symup{f}_\text{s} = \SI{12.078}{\per\second}.
+\end{equation}
+Für die Theoretischen Werte wird die Amplitude, mit umstellen von
+\eqref{eqn:saegekoeffizient}, als
+\begin{equation}
+  \symup{A}_{0,\text{s}} = \SI{339(7)}{\volt}
+\end{equation}
+bestimmt. Die verschiedenen Vorzeichen des Unterschiedes der Amplituden stammen
+aus der Bewegung der Peaks der Fourier-Analyse, sodass keine genauere Messung
+möglich war.
+
+\newpage
