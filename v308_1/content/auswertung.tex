@@ -1,0 +1,118 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+Die Daten der Spulen sind in Tabelle \ref{tab:spulen} im Anhang zu finden.
+
+\subsection{Lange Spule}
+Die Spule lag im Bereich von $ 0 \leq x \leq \SI{16}{\centi\metre}$ in Abbildung \ref{fig:lang}.
+Der nichtlineare Abfall außerhalb der Spule ist gut zu sehen.
+Die Übereinstimmung mit der Theoriekurve nach \ref{eqn:theoriespule}
+ist mit den eingestellten Werten nicht gut. Wird eine andere Stromstärke gewählt
+ist die Übereinstimmung besser.
+Der doppelte Wert bei $x = \SI{14}{\centi\metre}$ ist eine Folge der zu kurzen
+Hall-Sonde, sodass von zwei Seiten gemessen werden musste. Der Unterschied der
+beiden Werte beträgt $\SI{0.05}{\milli\tesla}$.
+\\
+Zudem kann die allgemein getroffene Annahme eines konstanten Magnetfeldes innerhalb
+einer langen Spule aufgrund der Messwerte im Bereich von 4 bis $\SI{11}{\centi\metre}$
+bestätigt werden. Wird nicht nur der Betrag betrachtet, wie in Abbildung \ref{fig:lang},
+sondern auch die Ausrichtung der Hall-Sonde, stimmt dieses auch für die Richtung des Magnetfeldes,
+es ist $homogen$.
+\begin{figure}
+      \centering
+      \includegraphics{build/lange-spule.pdf}
+      \caption{Messwerte der Langen Spule.}
+      \label{fig:lang}
+\end{figure}
+
+\subsection{Kurze Spule}
+Die kurze Spule liegt in Abbildung \ref{fig:kurz} im Bereich von $0 \leq x \leq \SI{5.5}{\centi\metre}$.
+Die Theoriekurve mit doppelter Stromstärke liegt sichtbar besser zu den Messwerten.
+Der nicht lineare Abfall außerhalb der Spule ist dennoch gut zu erkennen.
+Die leichte Verschiebung der Maxima kann daran liegen, dass der Anfang des Spulendrahtes
+nicht genau bei $x = \SI{0}{\centi\metre}$ war. Aufgrund der Bauweise der Spule
+ist es jedoch auch nicht genau zu sehen.
+\\
+Deutlich ist der Unterschied zur langen Spule darin zu sehen, dass kein Plateau in der Mitte
+der Spule entsteht.
+Die geringen Abweichungen zur $\SI{2}{\ampere}$-Theoriekurve können daran liegen,
+dass das Magnetfeld nicht genau auf der Symmetrieachse genommen wurde,
+sondern leicht verschoben dazu.
+\begin{figure}
+      \centering
+      \includegraphics{build/kurze-spule.pdf}
+      \caption{Messwerte der kurzen Spule.}
+      \label{fig:kurz}
+\end{figure}
+
+\subsection{Hysterese-Kurve}
+Die Werte aus Tabelle \ref{tab:hysterese} sind direkt aus den Messwerten genommen.
+Die Sättigungsmagnetisierung wird an beiden Enden der Kurve mit
+$\SI{696}{\milli\tesla}$ erreicht.
+Die Werte für Remanenz und Koerzitivstromstärke sind genauer,
+da diese während des Messvorgangs gezielt aufgenommen wurden.
+\\
+Das Auftragen des gemessenen B-Feldes gegen ein H-Feld würde lediglich die
+Skalierung ändern, da die Stromstärke linear eingeht.
+\begin{table}
+      \centering
+      \caption{Werte der Hysteresekurve}
+      \label{tab:hysterese}
+      \begin{tabular}{S[table-format=3.1] S[table-format=3.1] S[table-format=1.1]}
+            \toprule
+            {Sättigung}
+            & {Remanenz}
+            & {Koerzitivstromstärke} \\
+            \hline
+            {$[\si{\milli\tesla}]$}
+            & {$[\si{\milli\tesla}]$}
+            & {$[\si{\ampere}]$} \\
+            \midrule
+             696.4 &  125.9 &  0.6 \\
+            -696.6 & -123.8 & -0.7 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\begin{figure}
+      \centering
+      \includegraphics{build/hysterese.pdf}
+      \caption{Hysteresekurve der Ringspule.}
+      \label{fig:hysterese}
+\end{figure}
+\newpage
+
+\subsection{Helmholtz-Spulenpaar}
+Die Theoriewerte wurden nach Gleichung \ref{eqn:helmtheorie} bestimmt.\\
+Die Werte für $\SI{7}{\centi\metre}$ Abstand im Inneren des Paares sind in
+Abbildung \ref{fig:helm7} nahezu auf einer Höhe,
+das homogene Feld innerhalb des Spulenpaares kann also bestätigt werden.
+Der Abfall ist bei allen Messungen gut zu erkennen.
+\\
+Für 8 und $\SI{9}{\centi\metre}$ Abstand ist in den Abbildungen \ref{fig:helm8}
+und \ref{fig:helm9} zu erkennen, dass das Magnetfeld im
+Inneren aus den Einzelmagnetfeldern der Spulen zusammengesetzt ist.
+Durch Innenwiderstände der Drähte und Kabeln ist die Stromstärke zur zweiten Spule
+hin gefallen, deswegen ist das Magnetfeld dort minimal kleiner.
+\\\\
+Der Betrag des Magnetfeldes sinkt je weiter die Spulen auseinandergestellt werden.
+Das Magnetfeld jeder einzelnen Spule fällt nicht linear ab,
+sondern eher wie im äußeren Bereich.
+Dort überlagern sich beide Magnetfelder jedoch immernoch.
+\begin{figure}
+      \centering
+      \includegraphics{build/helmholtz-7.pdf}
+      \caption{Messwerte des Helmholtzspulenpaares bei 7 cm Abstand.}
+      \label{fig:helm7}
+\end{figure}
+\begin{figure}
+      \centering
+      \includegraphics{build/helmholtz-8.pdf}
+      \caption{Messwerte des Helmholtzspulenpaares bei 8 cm Abstand.}
+      \label{fig:helm8}
+\end{figure}
+\begin{figure}
+      \centering
+      \includegraphics{build/helmholtz-9.pdf}
+      \caption{Messwerte des Helmholtzspulenpaares bei 9 cm Abstand.}
+      \label{fig:helm9}
+\end{figure}
