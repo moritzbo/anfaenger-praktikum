@@ -1,0 +1,56 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Einzelspalt}
+\begin{align}
+      \shortintertext{Das Beugungsbild wird mit den Werten aus Tabelle \ref{tab:einzel} in
+      Kapitel \ref{sec:werte} Werte dargestellt.
+      Aus der Ausgleichsrechnung für den Einzelspalt, Gleichung \eqref{eqn:einzelspalt},
+      ergibt sich mit Scipy als Programm, eine Spaltbreite $b$ von}
+      b &= \SI{72.6(14)e-6}{\meter}\:.
+      \shortintertext{mit dem Abstand zwischen Schirm und Gitter}
+      s &= \SI{32.5}{\centi\meter}\:.
+\end{align}
+
+\begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{build/einzelspalt1.pdf}
+      \caption{Intensitätsverteilung für den Einzelspalt, mit Gleichung.}
+      \label{fig:einzel2}
+\end{figure}
+
+\subsection{Doppelspalt}
+Die Beugungsbilder werden mit den Werten aus den Tabellen \ref{tab:doppel1} und
+\ref{tab:doppel2} aus dem Kapitel \ref{sec:werte} Werte dargestellt.
+Aus der Ausgleichsrechnung für den ersten Doppelspalt nach Gleichung
+\eqref{eqn:doppelspalt} ergibt sich eine Spaltbreite $b$ von
+\begin{align}
+  b &= \SI{18e-5}{\meter}
+  \intertext{und ein Spaltabstand von}
+  s &= \SI{1e-5}{\meter}\:.
+\end{align}
+
+\begin{figure}
+      \centering
+      \includegraphics{build/doppelspalt1_1.pdf}
+      \caption{Fit für den ersten Doppelspalt.}
+      \label{fig:doppel1_1}
+\end{figure}
+
+Aus der Ausgleichsrechnung für den zweiten Doppelspalt ergibt sich eine Spaltbreite $b$ von
+\begin{align}
+  b &= \SI{15e-5}{\meter}
+  \intertext{und ein Spaltabstand von}
+  s &= \SI{1}{\milli\meter}\:.
+\end{align}
+
+\begin{figure}
+      \centering
+      \includegraphics{build/doppelspalt2_1.pdf}
+      \caption{Fit des zweiten Spaltes.}
+      \label{fig:doppel2_1}
+\end{figure}
+
+Da die Messwerte für den zweiten Doppelspalt zu sehr verteilt
+liegen, um die einzelnen Maxima auszuwerten, wurde nur die Einhüllende gefittet.
+Verglichen mit der Beugungsfigur des Einzelspaltes, ist die Einhüllende, also der Teil des
+Einfachspaltes, klar erkennbar.
