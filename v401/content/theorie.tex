@@ -1,0 +1,88 @@
+\section{Theorie, nach \cite{Anleitung}}
+\label{sec:theorie}
+\subsection{Allgemeines}
+Das Michelson-Interferometer beruht auf dem Prinzip der Interferenz
+und dient dazu, Wellenlängen und Brechungsindizes
+zu bestimmen.
+Dabei wird jeweils eine Weglängenänderungen vorgenommen, wodurch an der
+Photodiode Interferenzmaxima vorbeilaufen und detektiert werden.
+Dies passiert bei der Wellenlängenmessung durch Spiegeleinstellungen und bei
+der Messung des Brechungsindexes durch ein Gas.
+Voraussetzung für Interferenz ist die Kohärenz des Lichtes. Das bedeutet, dass
+die Phasenkonstanten $δ_\text{i}$ keine statistischen Funktionen sein dürfen,
+sondern zeitlich konstant sein müssen. Hier wird ein Diodenlaser\footnote{light
+amplification by stimulated emission of radiation} verwendet um kohärentes Licht
+zu erzeugen.
+
+\subsection{Interferenz}
+Interferenzerscheinungen treten dann auf, wenn zwei Wellen zueinander
+phasenverschoben sind.
+Da wegen der hohen Frequenz des Lichtes die Feldstärke nicht
+direkt gemessen werden kann, wird stattdessen die Intensität $\symbf{I},$
+die proportional zum Amplitudenquadrat ist, gemessen.
+\\
+Es tritt konstruktive Interferenz auf, wenn der Wegunterschied der Teilstrahlen
+$\symup{Δ}s$ ein geradzahliges Vielfaches von $λ\:/\:2$ ist, und destruktive
+Interferenz, wenn der Wegunterschied ein ungeradzahliges Vielfaches von
+$λ\:/\:2$ ist.
+\begin{align}
+  \symup{Δ}\symbf{I}_\text{max}\:\text{für}\;\symup{Δ}s &= 2n\frac{λ}{2} = n \cdot λ\\
+  \symup{Δ}\symbf{I}_\text{min}\:\text{für}\;\symup{Δ}s &=
+  \left( 2n + 1 \right)\: \frac{λ}{2}
+\end{align}
+Wichtig ist, dass der Wegunterschied $\symup{Δ}s$ nicht größer als die Kohärenzlänge
+$l$ ist, weil sonst keine Interferenz mehr messbar ist.
+Sie berechnet sich gemäß
+\begin{equation}
+  l = N \cdot λ \:.
+\end{equation}
+
+\subsection{Bestimmung der Wellenlänge}
+Um aus der Versuchsanordnung die Wellenlänge der Lichtquelle zu bestimmen wird
+angenommen, dass es sich um ebene Wellen der Form
+\begin{align}
+  \vec{\symup{E}}_1 &= \vec{\symup{E}}_0 \exp \left( \symup{ikx} \right) \\
+  \vec{\symup{E}}_2 &= \vec{\symup{E}}_0 \exp \left( \symup{ikx}
+                      \: + \: 2\symup{d} \: + \: \symup{π} \right)
+\end{align}
+handelt.
+Auf einem Schirm werden Minima und Maxima als Streifenmuster erkennbar.
+Mit einem Zählwerk wird die Anzahl $Z$ der an der Photodiode pro $\symup{Δd}$
+vorbeiziehenden Maxima bestimmt.
+Die Wellenlänge bestimmt sich dann gemäß
+\begin{equation}
+  \symup{λ} = \frac{2 \symup{Δd}}{\symup{z}}\:.
+  \label{eqn:lambda}
+\end{equation}
+
+\subsection{Bestimmung des Brechungsindexes}
+Die gleiche Apparatur wie zur Messung der Wellenlänge kann auch verwendet werden
+um den Brechungsindex eines Gases zu ermitteln. Dafür wird die evakuierte
+Messzelle der Breite $b$ mit dem jeweiligen Gas befüllt, was durch die
+Veränderung der optischen Weglänge zu Interferenz führt. Beim Einfüllen des
+Gases erhöht sich der Druck im Inneren um $\symup{Δ}p$, welches den
+Brechungsindex um $\symup{Δ}n$ erhöht. Daraus folgt dann
+\begin{equation}
+  b \cdot \symup{Δ}n = z \frac{λ}{2}\:.
+  \label{eqn:deltan}
+\end{equation}
+Da es sich nur um kleine Drücke handelt, gilt die ideale Gasgleichung
+\begin{equation}
+  \symup{p\,V} = \symup{R\,T}\:.
+  \label{eqn:gasgleichung}
+\end{equation}
+Wird der Druck von $p$ auf $p'$ verändert, ergibt sich folgender
+Zusammenhang für $\symup{Δn}$:
+\begin{equation}
+  \symup{Δn}(p,p') = \frac{f}{2}\,\symup{N}_\text{L}\,
+  \frac{\symup{T}_0}{\symup{p}_0}\,\frac{1}{T}\,(p-p')\;.
+\end{equation}
+Dabei entspricht $\symup{p_0}$ dem Normdruck, $\symup{T_0}$ der
+Normtemperatur und $\symup{N}_\text{L}$ der Loschmidtschen Zahl.
+Für den Brechungsindex $n$ gilt somit
+\begin{equation}
+      \symup{n} \left(p_0, T_0 \right) = 1 + \frac{f}{2} \: \symup{N}_\text{L}
+      = 1 + \symup{Δ}n \left(p,p' \right) \frac{\symup{T}}{\symup{T_0}}
+      \frac{p_0}{p-p'}\:.
+      \label{eqn:brechindex}
+\end{equation}

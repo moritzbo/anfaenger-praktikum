@@ -1,0 +1,48 @@
+\newpage
+\section{Auswertung}
+\label{sec:Auswertung}
+Die Werte der Messungen mit entsprechenden Umrechnungen sind in den Tabellen
+\ref{tab:wellenlaenge} und \ref{tab:vakuum} im Kapitel \ref{sec:werte} Werte aufgeführt.
+
+\subsection{Wellenlänge}
+Die Wegunterschiede der ersten Messreihe werden durch die
+Hebelübersetzung aus Kapitel \ref{sec:Aufbau} geteilt. Die Wellenlängen pro
+Messung werden nach Formel \eqref{eqn:lambda} berechnet. Mit dem Mittelwert
+\begin{align}
+      \bar{λ} &= \frac{1}{\symup{N}} \sum_{i=0}^{\symup{N}} λ_i
+      \label{eqn:mittelwert}
+      \intertext{und dem Fehler des Mittelwertes}
+      \increment \overline{x} &=
+      \sqrt{\frac{1}{\symup{N}(\symup{N}-1)}
+      \sum_{k=1}^{\symup{N}} \left(x_k-\overline{x}\right)^2}
+      \label{eqn:mittelwertfehler}
+      \intertext{folgt für die Wellenlänge der Laserdiode}
+      λ &= \SI{638(22)}{\nano\metre}\:.
+\end{align}
+
+\subsection{Brechungsindex}
+Zuerst wird die Änderung des Brechungsindexes nach Formel \eqref{eqn:deltan} bestimmt.
+Der Fehler berechnet sich wieder mit den Formeln \eqref{eqn:mittelwert} und
+\eqref{eqn:mittelwertfehler} zu
+\begin{equation}
+      \symup{Δ}n = \num{0.2145(22)e-3}\:.
+\end{equation}
+Mit Formel \eqref{eqn:brechindex} und
+\begin{align}
+      T &= \SI{295.15}{\kelvin} \\
+      T_0 &= \SI{273.15}{\kelvin} \\
+      p-p' &= \SI{0.8}{\bar} \\
+      p_0 &= \SI{1.0132}{\bar}\:,
+\end{align}
+sowie $\symup{Δ}n$ ergibt sich
+\begin{equation}
+      n_\text{\,Luft} = \num{1.000294(3)}\:.
+\end{equation}
+
+Der Fehler von $n$ ergibt sich nach
+\begin{equation}
+       \increment f = \sqrt{\sum_{j=0}^K \left( \frac{\symup{d}f}{\symup{d}y_j}
+       \increment y_j\right)^{\!\! 2}}
+       = \frac{\symup{T}}{\symup{T_0}} \frac{p_0}{p-p'} \,\increment\left(\symup{Δ}n\right)
+       \label{eqn:fehler}
+\end{equation}
