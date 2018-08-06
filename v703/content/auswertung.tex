@@ -1,0 +1,140 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+\subsection{Charakteristik des Zählrohres}
+
+Die Messergebnisse der Charakteristik-Messreihe stehen in Tabelle \ref{tab:charakteristik}
+im Kapitel \ref{sec:tabellen}, in Abbildung \ref{fig:impfehler} sind die
+Counts pro Sekunde gegen die angelegte Spannung aufgetragen.
+Der Fehler des jeweiligen Wertes ist $\sqrt{N}$.
+Die Werte der linearen Ausgleichsrechnung nach
+\begin{align}
+    y &= m\cdot x+b
+    \shortintertext{im Intervall $390-\SI{610}{\volt}$ sind}
+    m &= \SI{0.017(6)}{\per\volt\per\second}\\
+    b &= \SI{205(3)}{\per\second}\:.
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/impulse.pdf}
+    \caption{Impulsmessung mit Fehlerbalken.}
+    \label{fig:impfehler}
+\end{figure}
+
+Es ergibt sich aus den Wertepaaren
+\begin{align}
+    N_{\SI{390}{\volt}} &= \SI{210.2(19)}{\per\second} \\
+    N_{\SI{490}{\volt}} &= \SI{212.4(19)}{\per\second}
+\end{align}
+die prozentuale Steigung
+\begin{align}
+    m_\% &= \SI{100}{\percent}\cdot\frac{N_{\SI{490}{\volt}}-N_{\SI{390}{\volt}}}{N_{\SI{490}{\volt}}}
+            = \SI{0.94(5)}{\percent}\:,
+    \intertext{mit dem Fehler nach}
+    \increment m_\% &= \sqrt{\sum_{j=1}^2 \left( \frac{\symup{d}m}{\symup{d}N_j} \increment y_j\right)^{\!\! 2}}
+    \label{eqn:gaussfehler}\\
+    &= \frac{\SI{100}{\percent}}{N_{\SI{490}{\volt}}}
+    \sqrt{
+        \left(
+            1 - \frac{N_{\SI{490}{\volt}} - N_{\SI{390}{\volt}}}{N_{\SI{390}{\volt}}}
+        \right)^{\!\!2} (\increment N_{\SI{490}{\volt}})^2
+        + \left(
+            \frac{\increment N_{\SI{390}{\volt}}}{N_{\SI{490}{\volt}}}
+        \right)^{\!\!2}
+    }\:.
+\end{align}
+
+\subsection{Erholungszeit}
+
+Die genommen Wertepaare stehen in Tabelle \ref{tab:nachentladung}.
+Mit dem Mittelwert nach
+\begin{align}
+    \overline{x} &= \frac{1}{N} \sum_{i=0}^{N} x_i
+    \label{eqn:mittelwert}
+    \shortintertext{und dem Fehler}
+    \increment\overline{x} &= \sqrt{
+	\frac{1}{N(N-1)}\sum_{k=0}^{N}
+	\left( x_k - \overline{x} \right)^2}
+	\label{eqn:mittelwertfehler}
+    \shortintertext{folgt}
+    \overline{T_\text{e}} &= \SI{2.3(7)}{\milli\second}\:.
+\end{align}
+
+\begin{table}
+    \centering
+    \begin{subtable}{0.48\textwidth}
+        \caption{Messwerte der Nachentladung.}
+        \label{tab:nachentladung}
+        \sisetup{table-format=3.1}
+        \begin{tabular}{c | S S S S}
+            \toprule
+            {$U\;/\;\si{\volt}$} & 350 & 400 & 450 & 500 \\
+            {$T_e\;/\;\si{\milli\second}$} & 0.4 & 2.6 & 2.5 & 3.6 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+    \begin{subtable}{0.48\textwidth}
+        \caption{Messwerte der Totzeit.}
+        \label{tab:totzeit}
+        \sisetup{table-format=3.0}
+        \begin{tabular}{c | S S S S S}
+            \toprule
+            {$U\;/\;\si{\volt}$} & 400 & 450 & 500 & 550 & 600 \\
+            {$T_t\;/\;\si{\micro\second}$} & 160 & 175 & 175 & 200 & 210 \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+    \caption{Messwerte der Zeitmessungen.}
+\end{table}
+
+
+\subsection{Totzeit}
+
+Die Messwerte der Totzeitmessung mit dem Oszilloskop stehen in Tabelle \ref{tab:totzeit}.
+Für die Zwei-Quellen-Methode werden in die Formel \eqref{eqn:zweiquellen} die
+Messwerte bei $U=\SI{450}{\volt}$ eingesetzt:
+\begin{align}
+    T_{t,2}
+    &\approx \frac{(\num{213.9(19)})
+                    - (\num{468.0(28)})
+                    +  (\num{265.6(21)})}
+                {2 \cdot (\num{213.9(19)}) \cdot (\num{265.6(21)})}
+                \si{\second}
+    = \SI{101(34)}{\micro\second}\:.
+    \intertext{Der Fehler folgt mit der Fehlerfortpflanzung nach Gauß,
+        Gleichung \eqref{eqn:gaussfehler}, zu}
+    \increment T_{t,2}
+    &= \sqrt{
+        (\increment N_1)^{2} \left(
+                \frac{1}{2 N_1 N_2} - \frac{T_{t,2}}{N_1}
+            \right)^{\!\!2}
+        + \left(
+                \frac{\increment N_{1+2}}{2 N_1 N_2}
+            \right)^{\!\!2}
+        + (\increment N_2)^{2} \left(
+                \frac{1}{2 N_1 N_2} - \frac{T_{t,2}}{N_2}
+            \right)^{\!\!2}
+    }\:.
+\end{align}
+Für die Oszilloskop-Messung folgen mit den Formeln
+\eqref{eqn:mittelwert} und \eqref{eqn:mittelwertfehler}
+\begin{equation}
+    \overline{T}_\text{t,O} = \SI{184(9)}{\micro\second}\:.
+\end{equation}
+
+
+\subsection{Ladungsmenge}
+
+Die Werte aus Tabelle \ref{tab:charakteristik} werden mit Gleichung \eqref{eqn:ladung},
+umgestellt zu
+\begin{align}
+    ΔQ &= \frac{\bar{\symbf{I}} \cdot Δt}{N}\:,
+    \intertext{bestimmt. Mit dem Fehler nach Gleichung \eqref{eqn:gaussfehler} folgt}
+    \increment(ΔQ) &=
+    \frac{\bar{\symbf{I}}\cdotΔt}
+         {N_{\SI{1}{\second}}^{\,2}}
+    \cdot\increment N_{\SI{1}{\second}}\:.
+\end{align}
+Zur Bestimmung der Ladungsmenge $\increment Q$, wird für $N$ die Anzahl der Zählungen pro Sekunde
+mit dem entsprechenden $\increment t$ verwendet, da dies die Messzeit des Stromes $\symbf{\bar{I}}$ ist.
