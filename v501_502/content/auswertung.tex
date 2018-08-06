@@ -1,0 +1,107 @@
+\section{Auswertung zu Versuch 501}
+\label{sec:Auswertung1}
+\subsection{Empfindlichkeit}
+Zuerst wird die Äquidistanzliniennummer $n$ gegen die jeweilige gemessene
+Ablenkspannung $U_d$, je Beschleunigungsspannung, gezeichnet und mit
+\begin{equation}
+      U_d=a\cdot n+b
+\end{equation}
+angenähert. Die Empfindlichkeit ist der Kehrwert der Steigung $a$.
+Es ergeben sich mit den Werten aus Tabelle \ref{tab:leucht}
+aus Kapitel \ref{sec:werte} Werte die Werte in Tabelle \ref{tab:empfindlichkeit}.
+\begin{table}
+      \centering
+      \caption{Werte der Empfindlichkeitsbestimmung.}
+      \label{tab:empfindlichkeit}
+      \begin{tabular}{S[table-format=3.0]
+            S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]
+            S[table-format=1.3] @{${}\pm{}$} S[table-format=1.3]}
+            \toprule
+            {$U_B\;/\;\si{\volt}$}
+            & \multicolumn{2}{c}{$a\;/\;\SI{e-3}{\meter\per\volt}$}
+            & \multicolumn{2}{c}{$b\;/\;\SI{e-2}{\meter}$} \\
+            \midrule
+            500 & 0.669  & 0.003  & 2.218 & 0.006 \\
+            450 & 0.73   & 0.02   & 2.52  & 0.05 \\
+            400 & 0.853  & 0.004  & 2.752 & 0.007 \\
+            350 & 0.964  & 0.006  & 3.31  & 0.01 \\
+            300 & 1.1125 & 0.0009 & 3.37  & 0.01 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\begin{figure}
+      \includegraphics{build/fitefeld.pdf}
+      \caption{Messwerte und Fits.}
+      \label{fig:fitefeld}
+\end{figure}
+
+\begin{figure}
+      \centering
+      \includegraphics{build/empfindlichkeit.pdf}
+      \caption{Linearer Fit der Empfindlichkeit.}
+      \label{fig:afit5}
+\end{figure}
+
+Mit den Werten aus Tabelle \ref{tab:empfindlichkeit} und einer linearen
+Ausgleichsrechnung wird die Empfindlichkeit $\sfrac{D}{U_d}$ bei den
+einzelnen Beschleunigungsspannungen gegen $\sfrac{1}{U_B}$
+aufgetragen. Der Abstand zwischen zwei Äquidistanzlinien beträgt $D = \SI{6}{\milli\meter}$.
+Damit folgen die Fitwerte
+\begin{align}
+      a &= \SI{0.347(11)}{\meter}\\
+      b &= \SI{-2.7(29)e-5}{\meter\per\volt}\:.
+      \intertext{Die Materialkonstante M der Kathodenstrahlröhre berechnet sich gemäß}
+      M &= \frac{pL}{2d} = \SI{0.3575}{\meter} \:,
+      \shortintertext{mit Ablenkplattenlänge}
+      p &= \SI{1.9}{\centi\meter}\:,
+      \intertext{dem Abstand des Schirms zu den Ablenkplatten}
+      L &= \SI{14.3}{\centi\meter}
+      \shortintertext{und dem Plattenabstand}
+      d &= \SI{0.38}{\centi\meter}\:.
+\end{align}
+
+Die prozentuale Abweichung des Fitwertes zum Materialwert berechnet sich nach
+\begin{equation}
+      \% = \frac{|\text{Soll} \: - \: \text{Ist}|}{\text{Soll}} \cdot 100
+      =\frac{|{0.3575\:-\:0.347}|}{0.3575} \cdot 100 = \SI{2.9}{\percent}\:.
+      \label{eqn:prozfehler}
+\end{equation}
+
+\subsection{Kathodenstrahl-Oszillograph}
+Von den genommenen Werten waren bei den verwendeten Frequenzen stehende Wellen zu
+sehen, bei den weiteren lediglich stehende Knoten.
+Es ergeben sich die Werte für die Frequenzverhältnisse nach Gleichung
+\eqref{eqn:frequenz} zu denen in Tabelle \ref{tab:frequenz}.
+
+\begin{table}
+      \centering
+      \caption{Werte für die Frequenzbestimmung.}
+      \label{tab:frequenz}
+      \begin{tabular}{S[table-format=1.1]
+            S[table-format=3.2]
+            S[table-format=2.2]}
+            \toprule
+            {Verhältnis}
+            & {$ν_\text{sä}\:/\:\si{\hertz}$}
+            & {$ν_\text{sin}\:/\:\si{\hertz}$} \\
+            \midrule
+            0.5 & 39.93 & 79.86 \\
+            1   & 79.8  & 79.8  \\
+            2   & 159.7 & 79.85 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\begin{align}
+      \intertext{Mit dem Mittelwert nach}
+      \bar{x} &= \frac{1}{N} \sum_{i=0}^{N} x_i
+      \label{eqn:mittelwert}
+      \intertext{und der Abweichung mit}
+      \increment \overline{x} &= \sqrt{
+      \frac{1}{\symup{N}(\symup{N}-1)} \sum_{k=1}^{\symup{N}}
+      \left( x_k - \overline{x} \right)^2}
+      \label{eqn:mittelwertfehler}
+      \shortintertext{ergibt sich}
+      ν_\text{sin} &= \SI{79.84(2)}{\hertz}\;.
+\end{align}

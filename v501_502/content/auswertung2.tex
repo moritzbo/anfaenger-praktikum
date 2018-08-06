@@ -1,0 +1,45 @@
+\section{Auswertung zu Versuch 502}
+\label{sec:Auswertung2}
+Zunächst wird das B-Feld gegen $\sfrac{\symup{D}}{(\symup{L}^2-\symup{D}^2)}$
+gefittet. Dabei werden die Daten aus Tabelle
+\ref{tab:bwerte} verwendet. In Abbildung \ref{fig:Bfit} sind die Werte sowie
+die Fitfunktionen dargestellt.
+\begin{figure}
+      \centering
+      \includegraphics[height=8cm]{build/b_feld1.pdf}
+      \caption{B-Feld gegen $\frac{\symup{D}}{\symup{L}^2+\symup{D}^2}$.}
+      \label{fig:Bfit}
+\end{figure}
+
+Es wird ein linearer Fit verwendet,  die Steigung $a$ ist somit
+\begin{align}
+      a_{250} &= \SI{13.6(3)e3}{\per\tesla\per\meter}\:, &b_{250} &= \SI{0.05(3)}{\per\meter}\:,\\
+      a_{350} &= \SI{11.4(3)e3}{\per\tesla\per\meter}\:, &b_{350} &= \SI{0.06(3)}{\per\meter}\;.
+      \intertext{Ein Umstellen der Gleichung \eqref{eqn:ablenkungm}
+      resultiert in dem Zusammenhang}
+      \frac{\symup{e}_0}{\symup{m}_0} &= 8 \: U_B \,
+      \left(\frac{\frac{D}{L^2-D^2}}{B}\right)^{\!2}
+      \intertext{für die spezifische Elementarladung.
+      Aus der Ausgleichsrechnung wird die Steigung als Proportionalitätskonstante
+      genommen, was die Gleichung zu}
+      \frac{\symup{e}_0}{\symup{m}_0} &= 8 a^2 U_\text{B}
+\end{align}
+vereinfacht.
+\\~\\
+Die beiden Werte für die spezifische Elektronenladung, die für die beiden
+Beschleunigungsspannungen herauskommen sind dann
+\begin{align}
+  \left(\frac{\symup{e}_0}{\symup{m}_0}\right)_{250} &= \SI{-3.69e11}{\coulomb\per\kilo\per\gram} \\
+  \left(\frac{\symup{e}_0}{\symup{m}_0}\right)_{350} &= \SI{-3.62e11}{\coulomb\per\kilo\per\gram}\:.
+  \intertext{Der Mittelwert nach \eqref{eqn:mittelwert} und \eqref{eqn:mittelwertfehler} liefert}
+  \overline{\left(\frac{\symup{e}_0}{\symup{m}_0}\right)} &= \SI{-3.65(4)e11}{\coulomb\per\kilo\per\gram}\:.
+\end{align}
+\subsection{Horizontalkomponente des Erdmagnetfeldes}
+Die totale Magnetfeldstärke des Helmholtzspulenpaares berechnet sich gemäß
+Gleichung \eqref{eqn:helmholtz}.
+Um die Horizontalkomponente zu berechnen muss die totale Intensität durch den
+Cosinus des Inklinationswinkels geteilt werden.
+\begin{equation}
+  B_\text{hor} = \frac{B_\text{total}}{\cos{\SI{80}{\degree}}}
+  = \SI{59.49}{\micro\tesla}
+\end{equation}
