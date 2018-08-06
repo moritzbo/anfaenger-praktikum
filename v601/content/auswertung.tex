@@ -1,0 +1,175 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+\subsection{Freie Weglänge und Dampfdruck}
+Um die freie Weglänge $\bar{w}$ zu bestimmen, wird Gleichung \eqref{eqn:wbar}
+herangezogen.
+Durch Umformungen erhält man die Formeln für die Werte in
+Tabelle \ref{tab:barsätwerte}.
+
+\subsection{Bestimmung der differentiellen Energieverteilung}
+\subsubsection{Bei $\SI{26.1}{\celsius}$}
+Bei der Messung bei Zimmertemperatur muss zunächst die x-Achse kalibriert werden.
+Für die aufgenommene Abbildung 1 aus dem Anhang bestimmt sich der Mittelwert der
+Intervalllängen
+\begin{align}
+    \overline{x} &= \frac{1}{N} \sum_{i=0}^{N} x_i
+    \label{eqn:mittelwert}
+    \intertext{mit dem Fehler}
+    \increment\overline{x} &= \sqrt{\frac{1}{N(N-1)}\sum_{k=0}^{N}\left( x_k - \overline{x} \right)^2}
+    \label{eqn:mittelwertfehler}
+    \shortintertext{zu}
+    \bar{x}_\text{Intervalle} &= \SI{4.850(027)}{\centi\meter}\:.
+    \intertext{Daraus kann nun die Kalibrierung für die x-Achse zu}
+    x_\text{scale} &= \frac{\SI{2}{\volt}}{\bar{x}} \pm
+    \frac{\SI{2}{\volt}}{\increment \bar{x}} \\
+    &= \SI{0.4142(0023)}{\volt\per\centi\meter}
+\end{align}
+bestimmt werden. Der Fehler ist so klein, dass er im weiteren nicht beachtet wird.
+
+Außerdem wird die y-Achse in relativen Einheiten kalibriert um letztendlich auf
+eine Steigung zu schließen.
+Dafür wird das Maximum der Kurve bei $\SI{0}{\volt}$ auf den Wert 1
+gesetzt.
+Die Kalibrierung ist demnach
+\begin{equation}
+  y_\text{scale} = \SI{0.065}{\centi\meter\tothe{-1}}\:.
+\end{equation}
+Dies muss bei der Bestimmung der integralen Energieverteilung berücksichtigt
+werden.
+\\
+Die integrale Energieverteilung wird aus einem Graphen gewonnen in dem die
+Mittelung über alle Abstände gegen die Bremsspannung aufgetragen wird. Mit den
+Werten aus Tabelle \ref{tab:zimmwerte} ergibt sich die Abbildung \ref{fig:IntZim}.
+
+
+Die Differenz zwischen der eingestellten Beschleunigungsspannung von
+$\SI{11}{\volt}$ und dem Maximum des Graphen ist das Kontaktpotential bei
+Zimmertemperatur.
+Es berechnet sich gemäß
+\begin{align}
+    K &= \SI{11}{\volt}\:-\: U_\text{max}
+    \shortintertext{zu}
+    K &= \SI{2.752}{\volt}\:.
+\end{align}
+Anhand dieser Kurve kann auch erklärt werden, dass die Franck-Hertz Kurve
+verschoben ist. Das Kontaktpotential verschiebt das Maximum nach links,
+so dass es vor dem Wert der Beschleunigungsspannung liegt.
+
+\subsubsection{Bei $\SI{153}{\celsius}$}
+Analog wird die Kurve bei $T = \SI{153}{\celsius}$ ausgewertet.
+Die Kalibrierung der x-Achse ergibt sich wieder aus der aufgenommenen Kurve
+Nummer 2.
+Der Mittelwert samt Mittelwertfehler ergibt sich zu
+\begin{align}
+    \bar{x}_\text{Intervalle} &= \SI{4.940(0043)}{\centi\meter}\:.
+    \intertext{Die Kalibrierung ergibt sich analog zu der Messung bei
+    Zimmertemperatur nach}
+    x_\text{scale} &= \frac{\SI{2}{\volt}}{\bar{x}} \pm \frac{\SI{2}{\volt}}{\increment \bar{x}}
+    \shortintertext{zu}
+    &= \SI{0.4049(0035)}{\volt\per\centi\meter}\:.
+    \intertext{Die y-Achsen-Kalibrierung folgt wie bei der Messung bei Zimmertemperatur zu}
+    z_\text{scale} &= \SI{0.077}{\centi\meter\tothe{-1}}\:.
+\end{align}
+
+Abbildung \ref{fig:153} ist der Graph bezüglich der Messwerte von Tabelle
+\ref{tab:153-werte}.
+Es ist klar erkennbar, dass schon bevor die $\SI{4.9}{\volt}$ erreicht sind,
+die Kurve auf Null absinkt. Das liegt daran, dass es Elektronen gibt welche
+mit höherer Anfangsgeschwindigkeit aus dem Glühdraht austreten und somit ihre
+Anregungsenergie früher erreichen.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[height=4.9cm]{build/Energieverteilung.pdf}
+    \caption{$E_\text{int}$ bei Zimmertemperatur.}
+    \label{fig:IntZim}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[height=4.9cm]{build/intE-153.pdf}
+    \caption{$E_\text{int}$ bei $\SI{153}{\celsius}$.}
+    \label{fig:153}
+  \end{subfigure}
+  \caption{Plots für die differentiellen Energieverteilungen.}
+\end{figure}
+
+Zur Probe wird der Term
+\begin{equation}
+  U_\text{gegen} - K - \SI{4.9}{\electronvolt} = \SI{3.348}{\electronvolt}
+\end{equation}
+berechnet. Bei diesem Wert befindet sich, wie in Abbildung \ref{fig:153}
+erkennbar das Maximum der Kurve, das bedeutet der Wendepunkt.
+
+\subsection{Die Franck-Hertz Kurve bei $\SI{177}{\celsius}$}
+Für die aufgenommene Kurve Nummer 3 aus dem Anhang ergibt sich
+die Kalibrierung der x-Achse durch die Mittelung der Intervalllängen,
+mit dazugehörigem Mittelwertfehler.
+Der Mittelwert mit Fehler ergibt sich zu
+\begin{align}
+    \bar{x} &= \SI{21.15(24)}{\milli\meter}\:. \\
+    \intertext{Die Kalibrierung mit Fehler ergibt sich aus}
+    x_\text{scale} &= \frac{\SI{5}{\volt}}{\SI{21.15(24)}{\milli\meter}}
+    \shortintertext{zu}
+    &= \SI{2.364(026)}{\volt\per\centi\meter}\:.
+\end{align}
+Um die Anregungsenergie eines Hg-Atoms zu bestimmen, werden zwei verschiedene
+Ansätze verwendet. Einmal wird immer der Abstand zweier benachbarter Maxima
+vermessen und bei der anderen Methode wird die Energie nach
+\begin{align}
+  ΔE &= \frac{E_{n}\:-\:E_0}{n} & n &= 1,2,3,\dotsc
+\end{align}
+bestimmt.
+Die Messergebnisse beider Messungen sind in Tabelle \ref{tab:francky}
+zusammmengefasst.
+\\
+Die Literaturwerte\cite{LitFH} für die Franck-Hertz Kurve sind
+\begin{align}
+     λ &= \SI{253}{\nano\meter} \\
+     E_n &= \SI{4.9}{\electronvolt}\:.
+    \intertext{Die Wellenlänge bestimmt sich aus}
+     λ &= \frac{\symup{h}\,ν}{\symup{e}_0\,U_A}\:.
+ \end{align}
+Mit dem Mittelwert nachFormel \eqref{eqn:mittelwert}
+und dem Mittelwertsfehler nach \eqref{eqn:mittelwertfehler}
+ergeben sich die Werte
+\begin{align}
+    λ_1&=\SI{233.5(113)}{\nano\meter} &E_{n,1} &= \SI{5.37(26)}{\electronvolt} \\
+    λ_2&=\SI{237.5(30)}{\nano\meter}  &E_{n,2} &= \SI{5.22(07)}{\electronvolt}
+\end{align}
+nach Methode getrennt.
+
+\subsection{Ionisierungsenergie}
+Auf der durch den XY-Schreiber aufgenommenen Kurve kann die
+Beschleunigungsspannung, bei welcher die Hg-Atome ionisiert werden, abgelesen
+werden.
+Die Messung wurde bei einer Temperatur von etwa $\SI{103.2}{\celsius}$
+durchgeführt.
+Die Kalibrierung der x-Achse beträgt durch den Mittelwert mit Fehler von
+\begin{align}
+  \bar{x} &= \SI{2.436(055)}{\centi\meter} \\
+  x_\text{scale} &= \frac{\SI{5}{\volt}}{\text{Mittelwert \pm \: Fehler}} \\
+  &= \SI{2.05(05)}{\volt\per\centi\meter}\:.
+\end{align}
+Da die linke Flanke bis zum Maximum nicht linear ansteigt, wird eine Tangente
+an den Graphen angelegt.
+Der Abstand zwischen dem Startpunkt der Nullstelle der Tangente beträgt
+$\SI{10.2}{\centi\meter}$ und skaliert mit dem Faktor
+$\SI{2.05}{\volt\per\centi\meter}$ errechnet sich der Abstand zu
+$\SI{20.938}{\volt}$.
+\begin{align}
+  U_\text{ion} &= \left(U_\text{ion} + K\right)_\text{mess} \:-\: K_{\SI{20}{\celsius}} \\
+\intertext{Die gemessene Ionisierungspannung ist die Summe aus berechneter Spannung und Kontaktpotential}
+  U_\text{ion,mess} + K &= \SI{20.938}{\volt} \\
+  \intertext{Mit dem Kontaktpotential bei $\SI{20}{\celsius}$}
+  K_{\SI{20}{\celsius}} &= \SI{2.752}{\volt} \\
+  \intertext{ergibt sich eine Ionisationsspannung von}
+  U_\text{ion} &= \SI{18.21}{\volt}\:.
+  \intertext{Die prozentuale Abweichung zum Literaturwert \cite{Ionlit} von}
+  U_\text{ion, lit} &= \SI{10.438}{\electronvolt}
+  \shortintertext{beträgt}
+  \increment U_\text{ion} &= \frac{|\text{Soll} - \text{Ist}|}{\text{Soll}} \cdot 100
+  = \SI{74.46}{\percent}\:.
+\end{align}
