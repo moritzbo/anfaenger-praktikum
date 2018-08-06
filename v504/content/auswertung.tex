@@ -1,0 +1,147 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Kennlinien}
+Die Grenzwerte, die jeweiligen Sättigungströme, der Kennlinien folgen aus dem Plot
+\ref{fig:kennlinien} und den Wertetabelle \ref{tab:kennlinienwerte} im Kapitel \ref{sec:werte} Werte zu:
+\begin{table}
+      \centering
+      \caption{Sättigungsströme der Kennlinien.}
+      \label{tab:kennliniendaten}
+      \begin{tabular}{S[table-format=1.2]S[table-format=1.1]S[table-format=1.3]S[table-format=3.2]}
+            \toprule
+            {Heizspannung}&{Heizstrom}&{Sättigungsstrom}&{Temperatur}\\
+            {$U_\text{h}\:/\:\si{\volt}$}
+            & {$I_\text{h}\:/\:\si{\ampere}$}
+            & {$I_s\:/\:\si{\milli\ampere}$}
+            & {$T\:/\:\si{\kelvin}$}\\
+            \midrule
+            4.35 & 2.0 & 0.095 & 1935.59 \\
+            4.60 & 2.1 & 0.2   & 1992.58 \\
+            4.95 & 2.2 & 0.45  & 2059.12 \\
+            5.40 & 2.3 & 0.82  & 2133.80 \\
+            5.65 & 2.4 & 1.5   & 2184.74 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\begin{figure}
+      \centering
+      \includegraphics{build/kennlinie.pdf}
+      \caption{Kennlinien bei verschiedenen Strömen.}
+      \label{fig:kennlinien}
+\end{figure}
+
+\subsection{Kathodentemperaturen}
+Die Temperaturen der Kathode werden mit Formel \eqref{eqn:temp},
+umgestellt zu
+\begin{align}
+      T &= \sqrt[4]{\frac{I_h U_h - \symup{N}_\text{WL}}{\symup{A η σ}}}\:,
+      \intertext{und mit den Konstanten}
+      \symup{N}_\text{WL} &= \SI{0.9}{\watt}\\
+      \symup{A} &= \SI{0.35}{\centi\meter\squared}\\
+      \symup{η} &= 0.28\:,
+      \intertext{aus \cite{Anleitung},}
+      \symup{σ} &= \SI{5.670367e-08}{\watt\per\meter\squared\per\kelvin\tothe4}\:,
+\end{align}
+aus \cite{scipyconst}, bestimmt.
+Die Temperaturen stehen in Tabelle \ref{tab:kennliniendaten} weiter oben.
+\\~\\
+\subsection{Austrittsarbeit}
+Die Formel \eqref{eqn:richardson} wird nach $Φ$ umgestellt,
+\begin{align}
+      \symup{e}_0 Φ &= -\frac{\symup{k}_\text{B} T}{\symup{e}_0} \;\ln\!
+      \left(\frac{I_\text{s} \symup{h}^3}
+      {4 \symup{π} A\, \symup{e}_0 \symup{m}_\text{e} \symup{k}^2_\text{B} T^2}\right)
+      \intertext{mit den Konstanten aus \cite{scipyconst}}
+      \symup{e}_0 &= \SI{1.6021766208e-19}{\coulomb}
+      \label{eqn:e0}\\
+      \symup{m}_\text{e} &= \SI{9.10938356e-31}{\kilo\gram}
+      \label{eqn:me}\\
+      \symup{k}_\text{B} &= \SI{1.38064852e-23}{\joule\per\kelvin}
+      \label{eqn:kb}\\
+      \symup{h} &= \SI{6.62607004e-34}{\joule\second}
+      \label{eqn:h}
+\end{align}
+ergeben sich für die Heizströme, sortiert nach der Nachkommastelle des Stroms:
+
+\begin{table}
+      \centering
+      \caption{Werte der Austrittsarbeit.}
+      \label{tab:austrittsarbeit}
+      \sisetup{table-format=1.8}
+      \begin{tabular}{S S S S S}
+            \toprule
+            {$Φ_0\:/\:\si{\electronvolt}$}
+            & {$Φ_1\:/\:\si{\electronvolt}$}
+            & {$Φ_2\:/\:\si{\electronvolt}$}
+            & {$Φ_3\:/\:\si{\electronvolt}$}
+            & {$Φ_4\:/\:\si{\electronvolt}$} \\
+            \midrule
+            3.54097903 & 3.52737583 & 3.51292842 & 3.54309726 & 3.52286087 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\begin{align}
+      \intertext{Der Mittelwert}
+      Φ_m &=\SI{3.529(6)}{\electronvolt}
+      \intertext{bestimmt sich nach}
+      \overline{Φ} &= \frac{1}{5} \sum_{i=0}^{5} Φ_i
+      \intertext{mit dem Fehler}
+      \increment\overline{Φ} &= \sqrt{ \frac{1}{5(5-1)}
+      \sum_{k=1}^5 \left(Φ_k - \overline{Φ} \right)^2}\:.
+      \intertext{Die prozentuale Abweichung zum Literaturwert}
+      Φ_\text{Wolfram} &= \SI{4.54}{\electronvolt}\:,
+      \intertext{aus \cite{wolframlit}, beträgt}
+      \incrementΦ &= \frac{4.54-3.529}{4.54}\cdot\SI{100}{\percent}
+      = \SI{22.3}{\percent}\:.
+\end{align}
+
+\subsection{Maximalstrom: $\SI{2.5}{\ampere}$}
+\subsubsection{Raumladungsdichte}
+Die Theoriekurve für die Raumladungsdichte in der Abbildung \ref{fig:25a} wurde mit
+Formel \eqref{eqn:langmuir} und den Konstanten \eqref{eqn:e0}, \eqref{eqn:me},
+\begin{align}
+      ε_0 & = \SI{8.854187817620389e-12}{\ampere\second\per\volt\per\meter}\\
+      \intertext{aus \cite{scipyconst} und dem Anoden-Kathodenabstand}
+      a &= \SI{3}{\centi\metre}
+      \intertext{bestimmt. Der Exponent ergibt sich mit Scipy zu}
+      y &= \num{1.501(4)}\:.
+      \shortintertext{Der Theoriewert ist}
+      y_{\,\text{T}} &= 1.5\:.
+\end{align}
+
+\begin{figure}
+      \centering
+      \includegraphics{build/25a.pdf}
+      \caption{Anlaufstrom und Raumladungsdichte bei $\SI{2.5}{\ampere}$.}
+      \label{fig:25a}
+\end{figure}
+
+\subsubsection{Anlaufstrom}
+Die eingestellten Werte der Spannung werden mit
+\begin{align}
+      U_{\symup{k}} &= U_m + I_m \cdot R_i
+      \intertext{in die tatsächlichen Spannungen umgerechnet. $m$ bezeichnet die Messwerte
+      und $R_i$ den Innenwiderstand des Nanoamperemeters:}
+      R_i &= \SI{1}{\mega\ohm}\:.
+      \intertext{Die Stromachse wird in Abbildung \ref{fig:25a} logarithmiert, sodass ein linearer Fit nach}
+      \ln(I) &= m V + b
+      \shortintertext{mit}
+      m &= \num{3.6(2)}\\
+      b &= \num{5.5(1)}
+      \intertext{angewandt werden kann. Die entsprechenden Werte sind in Tabelle
+      \ref{tab:25werte} im Kapitel \ref{sec:werte} Werte. Die Temperatur der Diode kann mit Umstellen
+      des Exponentens der Formel \eqref{eqn:langmuir} zu}
+      T &= \frac{\symup{e}_0}{\symup{k}_{\symup{B}} m} = \SI{3260(150)}{\kelvin}
+      \intertext{mit dem Fehler nach der Fehlerfortpflanzung}
+      \increment f &= \sqrt{\sum_{j=0}^K \left( \frac{\symup{d}\!f}{\symup{d}y_j}
+      \increment y_j\right)^{\!\! 2}} = \frac{\symup{e}_0}{\symup{k}_\text{B} m^2}
+      \shortintertext{und}
+      \symup{k}_\text{B} &= \SI{1.38064852e-23}{\joule\per\kelvin}\:,
+\end{align}
+aus \cite{scipyconst} berechnet werden.
+
+Der Spannungsabfall am Innenwiderstand muss bei der Verwendung des Nanoamperemeters
+berücksichtigt werden, da die Verhältnisse hier anders liegen und es nicht mehr
+vernachlässigbar ist.
