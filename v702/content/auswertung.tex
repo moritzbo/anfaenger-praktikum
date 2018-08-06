@@ -1,0 +1,142 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+\subsection{Nullmessung}
+In der Nullmessung wurden
+\begin{align}
+    N &= 484
+    \intertext{Counts gemessen. Mit dem Fehler $\sqrt{N}$ ergibt sich}
+    N &= \num{484(22)}\:.
+    \intertext{Der jeweilige Untergrund für die weiteren Messungen ist nach}
+    N_{\increment t} &= \left(N \pm \sqrt{N}\right)
+    \cdot \frac{\increment t}{\SI{800}{\second}}
+    \intertext{für Rhodium}
+    N_{\SI{20}{\second}} &= \num{12.1(6)}
+    \intertext{und für Indium}
+    N_{\SI{240}{\second}} &= \num{145.2(66)}\:.
+\end{align}
+Wir haben den jeweils größten Fehler, aufgerundet verwendet.
+
+\subsection{Auswertung für Indium}
+Zuerst wird die Nullmessung beachtet und von den Messwerten subtrahiert.
+Die Kurve in Abbildung \ref{fig:indfit} wurde mit den logarithmierten
+Werten aus Tabelle \ref{tab:indwerttab} erstellt.
+Die Fitparameter ergeben sich mit einer Geradengleichung der Form
+\begin{align}
+  f &= -m\cdot x+b\\
+\shortintertext{zu}
+  m &= \SI{0.190(9)e-3}{\per\second}\\
+  b &= \num{8.068(20)}\:.
+\end{align}
+Dabei ist die Steigung $m$ gerade der Exponent $λ$ der Gleichung \eqref{eqn:zerfallskurve}.
+Die Exponentialdarstellung der Messwerte für Indium ist Abbildung \ref{fig:indplot}.
+Der Fehler ist mit der Gaußschen Fehlerfortpflanzung
+\begin{align}
+      \increment f &= \sqrt{\sum_{j=0}^K \left( \frac{\symup{d}f}{\symup{d}y_j}
+      \increment y_j\right)^{\!\! 2}}
+      \label{eqn:fehler}
+      \intertext{im logarithmierten}
+      \increment N_\text{log} &= \frac{\increment N}{N}
+      \label{eqn:logfehler}
+      \shortintertext{sonst}
+      \increment N &= \sqrt{N\,}\:.
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\paperwidth]{build/Indiumfit.pdf}
+    \caption{Zerfallskurve für Indium mit Fit.}
+    \label{fig:indfit}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\paperwidth]{build/Indiumwerte.pdf}
+    \caption{Messwerte für Indium mit Zerfallsgesetz.}
+    \label{fig:indplot}
+\end{figure}
+
+Es ergibt sich eine Halbwertszeit gemäß Gleichung \eqref{eqn:halbwert} von
+\begin{align}
+  T_\text{h} &= \frac{\ln(2)}{\SI{0.190(9)e-3}{\per\second}} \\
+      &= \SI{3.64(18)e3}{\second} \\
+      &= \SI{60.7(3)}{\minute}\:.
+  \intertext{Der Fehler folgt aus der Fehlerfortpflanzung \eqref{eqn:fehler} zu}
+  \increment T_\text{h} &= -\frac{\ln(2)}{λ^2}\cdot \incrementλ\:.
+  \label{eqn:halbwertfehler}
+  \intertext{Die prozentuale Abweichung zum Literaturwert \cite{litInd} beträgt}
+  \increment T_\text{h} &= \frac{|\SI{54.28}{\minute} - \SI{60.7}{\minute}|}{\SI{54.28}{\minute}}\cdot 100
+                 =\SI{11.83}{\percent}\:.
+\end{align}
+
+\subsection{Auswertung für Rhodium}
+Die Zerfallskurve von Rhodium ist in Abbildung \ref{fig:rhodkurve} dargestellt
+und wurde mit den Daten aus Tabelle \ref{tab:rhodwerttab} erstellt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\paperwidth]{build/Rhodium.pdf}
+    \caption{Messkurve für Rhodium.}
+    \label{fig:rhodkurve}
+\end{figure}
+
+Zunächst wird die Kurve in zwei Abschnitte aufgespalten. Der erste Abschnitt
+wird bis etwa $t = \SI{160}{\second}$ gewählt. Ab da ist der Großteil des Isomeres mit der
+kleineren Halbwertszeit zerfallen, sodass die Kurve nahezu linear abfällt. Dies
+liegt daran, dass die Halbwertszeit des $\ce{^{104}_{45}Rh}$
+wesentlich länger ist als die Messzeit.
+
+Die Parameter des linearen Fits der Form
+\begin{align}
+    y &= -m\cdot x + b\\
+    \shortintertext{sind}
+    m_\text{l} &= \SI{1.93(17)e-3}{\per\second}\\
+    b_\text{l} &= \num{5.30(8)}\:.
+\end{align}
+Die Fehlerbalken wurden gemäß Formel \eqref{eqn:logfehler} bestimmt.
+Für die Berechnung des Fits für das Isomer mit kurzer Halbwertszeit werden die
+theoretischen Werte der langen Halbwertszeitzerfälle von der Gesamtanzahl abgezogen,
+jedoch nur links des blauen Striches in Abbildung \ref{fig:rhodkurve}:
+\begin{equation}
+    N_\text{kurz}(t) = N_\text{ges}(t) - N_\text{lang}(t)
+     = N_\text{ges}(t) - \exp(-m\cdot t + b)
+\end{equation}
+berechnet.
+Die Kurve der kurzen Halbwertszeit liegt somit tiefer als aller Zerfälle.
+Auch hier wird eine lineare Ausgleichsrechnung durchgeführt. Beide Fits sind in
+Abbildung \ref{fig:rhfitl} zusehen. Die Parameter sind
+\begin{align}
+    m_\text{k} &= \SI{2.13(11)e-2}{\per\second}\\
+    b_\text{k} &= \num{7.39(12)}\:.
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\paperwidth]{build/shortfit.pdf}
+    \caption{Beide Fits zusammengetragen.}
+    \label{fig:rhfitl}
+\end{figure}
+
+Zum Schluss werden, um die Summenkurve zu bestimmen, beide Exponentialfunktionen
+gemäß
+\begin{align}
+  N_\text{sum}(t) &= N_\text{kurz}(t) + N_\text{lang}(t) \\
+\shortintertext{mit}
+  N_\text{lang}(t) &= \exp(b_\text{l} + m_\text{l} \cdot t) \\
+  N_\text{kurz}(t) &= \exp(b_\text{k} + m_\text{k} \cdot t)
+\end{align}
+addiert.
+Die Paramter $m$ und $b$ können den linearen Ausgleichsrechnungen oben entnommen werden.
+Für die beiden Isomere ergeben sich mit Formel \eqref{eqn:halbwert} und dem Fehler
+aus Formel \eqref{eqn:halbwertfehler}
+\begin{align*}
+  T_\text{kurz} &= \SI{32.6(17)}{\second} \\
+  T_\text{lang} &= \SI{359(31)}{\second} = \SI{6.0(5)}{\minute} \:.
+\end{align*}
+Die zu den Literaturwerten aus \cite{litRh} zugehörigen prozentualen Fehler sind
+\begin{align*}
+  \increment T_\text{lang} &= \frac{|\SI{4.3}{\minute} - \SI{6}{\minute}|}{\SI{4.3}{\minute}}\cdot\SI{100}{\percent}
+  = \SI{39.53}{\percent}\\
+  \increment T_\text{kurz} &= \frac{|\SI{42.3}{\second} - \SI{32.6}{\second}|}{\SI{42.3}{\second}}\cdot\SI{100}{\percent}
+  = \SI{22.93}{\percent}\:.
+\end{align*}

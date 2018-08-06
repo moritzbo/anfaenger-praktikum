@@ -1,0 +1,78 @@
+\section{Theorie}
+\label{sec:theorie}
+\subsection{Aktivierung mit Neutronen}
+Die Aktivierung des zu vermessenden Kerns muss direkt vor der Messung geschehen,
+da die Halbwertszeit $T \leq \SI{1}{\hour}$ ist. Die Halbwertszeit $T$ ist die
+Zeit, in der die Hälfte der Kerne der Anfangsmenge zerfallen ist.
+Zur Anregung der Kerne werden Neutronen statt Protonen verwendet,
+da diese nicht vom Kern abgestoßen werden.
+Die Neutronen stammen aus dem Beschuss von $\ce{^{9}_{4}Be}$ mit $α$-Teilchen,
+diese stammen aus dem natürlichen Zerfall von $\ce{^{226}Ra}$.
+Die Erzeugung der Neutronen läuft nach
+\begin{equation}
+    \ce{^{9}_{4}Be + ^{4}_{2}\symup{α} -> ^{12}_{6}C + ^{1}_{0}n}
+\end{equation}
+ab, \cite{Anleitung}.
+Die Neutronen werden zunächst abgebremst, da somit der
+Wirkungsquerschnitt $σ$ vergrößert wird.
+Dieser sagt aus wie wahrscheinlich ein Neutron von einem Kern eingefangen wird.
+Durch eine kleinere Geschwindigkeit
+ist die Energie ebenfalls kleiner, durch elastische Stöße mit möglichst leichten
+Atomen kann dies realisiert werden. In diesem Versuch wird Paraffin verwendet.
+Durch die niedrige Energie verweilen die Neutronen, bildlich gesehen,
+länger in der Nähe des Kerns, der Wirkungsquerschnitt wird dadurch größer.
+
+Ein angeregter Kern wird Zwischenkern, oder auch Compoundkern genannt,
+er befindet sich etwa $\SI{e-16}{\second}$ in diesem Zustand.
+Mit Emission eines $γ$-Quants kehrt der Kern aus dem angeregten Zustand in den
+Grundzustand.
+\begin{equation}
+    \ce{^{m}_{z}A + ^{1}_{0}n -> ^{m+1}_{z}A^* -> ^{m+1}_{z}A + \symup{γ}}
+\end{equation}
+Die Anregung erfolgt durch Einfangen eines Neutrons, dessen
+Energie auf alle Teilchen im Kern gleichmäßig verteilt wird, sowie in die
+Bindungsenergien übergeht.
+
+Mit einem $\ce{\symup{β}-}$-Zerfall zerfällt der Kern zu einem stabilen Kern,
+unter Emission eines Elektrons und eines Anti-Elektron-Neutrino,
+\begin{equation}
+    \ce{^{m+1}_{z}A -> ^{m+1}_{z+1}C + \symup{β}-} + E_\text{kin} + \symup{\bar{ν}}_\text{e}
+\end{equation}
+Der Zerfall findet statt, wenn die Neutronenanzahl zu hoch für einen stabilen
+Kern ist. Bei den verwendeten Isotopen ist das bei einem Neutron mehr der Fall.
+\newpage
+\subsection{Verwendete Messmethode}
+\label{sec:messmethode}
+Da die Messung der Zerfallskurve
+\begin{align}
+    N(t) &= N_0 \symup{e}^{-λt}
+    \label{eqn:zerfallskurve}
+    \intertext{an sich nur mit großen Fehlern messbar ist, wird in diesem Versuch}
+    N_{\increment t}(t) &= N(t) - N(t+\increment t)
+    \intertext{gemessen. Anders geschrieben}
+    N_{\increment t}(t) &= N_0 \left(1-\symup{e}^{-λ\,\increment t}\right) \symup{e}^{-λt}\:.
+    \intertext{Konstant ist der Ausdruck}
+    & N_0 \left(1-\symup{e}^{-λ\,\increment t}\right)\:,
+    \intertext{sodass über die Gesamtformel die Zerfallskonstante $λ$ bestimmt werden kann.
+    $λ$ kann zudem über die Halbwertszeit $T_\text{h}$ bestimmt werden}
+    N(T_\text{h}) &= \frac{N_0}{2} = N_0 \symup{e}^{-λT_\text{h}} \\
+    T_\text{h} &= \frac{\ln(2)}{λ}\:. \label{eqn:halbwert}
+\end{align}
+
+
+\subsection{Zerfälle}
+Das verwendete Indium Präparat zerfällt nach
+\begin{align}
+    \ce{^{115}_{49}In + ^{1}_{0}n &-> ^{116}_{49}In -> ^{116}_{50}Sn + \symup{β}- + \bar{\symup{ν}}_e}\:.
+\end{align}
+Bei Rhodium kann ein instabiles höher energetisches Isomer entstehen, dieses
+zerfällt mit einem $γ$-Quant in das andere Zerfallsprodukt.
+Diese beiden Zerfälle können getrennt werden, da der Übergang des 104i zum 104
+eine kürzere Halbwertszeit hat, als der Übergang von Rhodium zu Palladium.
+\begin{equation}
+    \ce{^{103}_{45}Rh + ^{1}_{0}n}
+    \begin{cases}
+        \xrightarrow{\;\;\SI{10}{\percent}\;\;} \ce{^{104i}_{45}Rh -> ^{104}_{45}Rh + \symup{γ} -> ^{104}_{46}Pd + \symup{β}- + \bar{\symup{ν}}_e} \\
+        \xrightarrow{\;\;\SI{90}{\percent}\;\;} \ce{^{104}_{45}Rh -> ^{104}_{46}Pd + \symup{β}- + \bar{\symup{ν}}_e}
+    \end{cases}
+\end{equation}
