@@ -1,0 +1,284 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+Die Mittelwerte und Standardabweichung jeder Messreihe werden mit Numpy bestimmt.
+Der Fehler der einzelnen Werte durch die bekannten Unsicherheiten, aus \cite{Anleitung}, der verwendeten Bauteile
+folgt aus dem jeweiligen Gauß-Fehler.
+\subsection{Wheatstone}
+\label{sec:wheatstone}
+Der jeweilige unbekannte Widerstand der Wheatstonebrücke wurde nach Gleichung \eqref{eqn:wheat} bestimmt.
+$R_4$ ist hierbei $\SI{1000}{\ohm} - R_3$.
+Der Gauß-Fehler aus Tabelle \ref{tab:widerstand-werte} beträgt für den unbekannten Widerstand
+\begin{align}
+      \increment R_\text{x} &= \sqrt{R_2^2 \left(\increment \frac{R_3}{R_4}\right)^{\!\!2} + \left(\increment R_2 \right)^2 \left(\frac{R_3}{R_4}\right)^{\!\!2}} \\
+      &= \sqrt{R_2^2 \left(\frac{R_3}{R_4} \cdot \SI{0.5}{\percent}\right)^{\!\!2} + \left(R_2 \cdot \SI{0.2}{\percent}\right)^2 \left(\frac{R_3}{R_4}\right)^{\!\!2}} \:.
+      \label{eqn:fehler-r1}
+\end{align}
+Der Mittelwert und die Standardabweichung der jeweiligen Messreihe ergeben
+zusammen mit dem Gauß-Fehler
+\begin{align}
+      R_{12} &= \SI{393.6(7)}{\ohm} \pm \SI{2.1}{\ohm}
+      \label{eqn:r12} \\
+      R_{13} &= \SI{322(1)}{\ohm} \pm \SI{1.7}{\ohm}\,.
+      \label{eqn:r13}
+\end{align}
+\begin{table}
+      \centering
+      \caption{Werte für die Wheatstone-Brücke.}
+      \label{tab:widerstand-werte}
+      \begin{tabular}{S[table-format=4.1] |
+            S[table-format=3.0] S[table-format=3.0] @ {${}\pm{}$} S[table-format=1.1]
+            S[table-format=3.0] S[table-format=3.0] @ {${}\pm{}$} S[table-format=1.1]}
+            \toprule
+            {} & \multicolumn{3}{c}{Widerstand 12} & \multicolumn{3}{c}{Widerstand 13} \\
+            \hline
+            {$R_2 \:/\: \si{\ohm}$} & {$R_3 \:/\: \si{\ohm}$} & \multicolumn{2}{c}{$R_1 \:/\: \si{\ohm}$} & {$R_3 \:/\: \si{\ohm}$} & \multicolumn{2}{c}{$R_1 \:/\: \si{\ohm}$}\\
+            \midrule
+            1000.0 & 282 & 393 & 2.1 & 244 & 323 & 1.7 \\
+             664.0 & 373 & 395 & 2.1 & 328 & 324 & 1.7 \\
+             332.0 & 542 & 393 & 2.1 & 491 & 320 & 1.7 \\
+            \bottomrule
+      \end{tabular}
+\end{table}
+
+\newpage
+
+\subsection{ideale Kapazität}
+\label{sec:kapai}
+Für die hochwertigen Kondensatoren muss lediglich Gleichung \eqref{eqn:kapac} betrachtet werden.
+\begin{align}
+      \shortintertext{Der Gauß-Fehler beträgt}
+      \increment C_\text{x} &= \sqrt{\frac{C_2^2 \left(\increment \frac{R_3}{R_4}\right)^{\!\!2}}{\left(\frac{R_3}{R_4}\right)^{\!\!4}}
+            + \frac{\left(\increment C_2\right)^2}{\left(\frac{R_3}{R_4}\right)^{\!\!2}}} \\
+            &= \sqrt{\frac{C_2^2 \left(\frac{R_3}{R_4} \cdot \SI{0.5}{\percent}\right)^{\!\!2}}{\left(\frac{R_3}{R_4}\right)^{\!\!4}}
+            + \frac{\left(C_2 \cdot \SI{0.2}{\percent}\right)^2}{\left(\frac{R_3}{R_4}\right)^{\!\!2}}} \:.
+      \label{eqn:fehler-c1}
+\end{align}
+$R_4$ sowie
+\begin{align}
+      C_1 = \SI{658(3)}{\nano\farad} \pm \SI{3.5}{\nano\farad}
+      \label{eqn:c1} \\
+      C_3 = \SI{419(2)}{\nano\farad} \pm \SI{2.2}{\nano\farad}
+      \label{eqn:c3}
+\end{align}
+werden, wie in Abschnitt \ref{sec:wheatstone} beschrieben, bestimmt.
+\begin{table}
+      \centering
+      \caption{Werte für die Kapazitätsbrücke.}
+      \label{tab:kapa-werte}
+      \begin{tabular}{S[table-format=3.0] |
+            S[table-format=3.1] S[table-format=3.0] @ {${}\pm{}$} S[table-format=1.1]
+            S[table-format=3.1] S[table-format=3.0] @ {${}\pm{}$} S[table-format=1.1]}
+      \toprule
+      {} & \multicolumn{3}{c}{Kondensator 1} & \multicolumn{3}{c}{Kondensator 3} \\
+      \hline
+      {$C_2 \:/\: \si{\nano\farad}$} & {$R_3 \:/\: \si{\ohm}$} & \multicolumn{2}{c}{$C_1 \:/\: \si{\nano\farad}$} & {$R_3 \:/\: \si{\ohm}$} & \multicolumn{2}{c}{$C_1 \:/\: \si{\nano\farad}$} \\
+      \midrule
+      994 & 603   & 654 & 3.5 & 705   & 416 & 2.2 \\
+      750 & 530.5 & 664 & 3.5 & 639.5 & 423 & 2.3 \\
+      399 & 378   & 657 & 3.5 & 489   & 417 & 2.2 \\
+      \bottomrule
+      \end{tabular}
+\end{table}
+
+\subsection{reele Kapazität}
+\label{sec:kapar}
+Die Auswertung erfolgt wie in Abschnitt \ref{sec:kapai}, nur dass hier der Widerstand $R_\text{x}$
+ebenfalls betrachtet und nach Gleichung \ref{eqn:kapar} bestimmt wird.
+Der Gauß-Fehler für den Widerstand ist nach Gleichung \eqref{eqn:fehler-r1}
+und für den Kondensator nach Gleichung \eqref{eqn:fehler-c1} berechnet worden.
+Auffällig ist der sehr große Widerstand $R_2$ in der ersten Zeile.
+Mit kleineren Widerständen konnte die Amplitude nicht sichtbar verändert werden,
+somit wäre eine Bestimmung nicht möglich gewesen.
+Für den Mittelwert wurde deswegen die erste Zeile außen vorgelassen.
+\begin{align}
+      R_8 &= \SI{617(56)}{\ohm}
+      \label{eqn:r8} \\
+      C_8 &= \SI{633(341)}{\nano\farad}
+      \label{eqn:c8}
+\end{align}
+Der Gauß-Fehler wird bei den Mittelwerten nicht betrachtet, da dieser im Vergleich zur
+Standardabweichung sehr klein ist.
+\begin{table}
+      \centering
+      \caption{Werte für Kondensator 8.}
+      \label{tab:wert8}
+      \begin{tabular}{S[table-format=3.0] S[table-format=4.0] S[table-format=3.1]
+            S[table-format=1.3] @ {${}\pm{}$} S[table-format=1.3]
+            S[table-format=3.0] @ {${}\pm{}$} S[table-format=2.0]}
+      \toprule
+      {$C_2 \:/\: \si{\nano\farad}$} & {$R_2 \:/\: \si{\ohm}$} & {$R_3 \:/\: \si{\ohm}$} & \multicolumn{2}{c}{$C_1 \:/\: \si{\milli\farad}$} & \multicolumn{2}{c}{$R_1 \:/\: \si{\ohm}$} \\
+      \midrule
+      994 & 5000 & 117.5 & 7.47  & 0.4   & 666 & 20 \\
+      750 &  875 & 435   & 0.974 & 0.005 & 674 & 20 \\
+      399 &  410 & 578   & 0.291 & 0.002 & 562 & 17 \\
+      \bottomrule
+      \end{tabular}
+\end{table}
+
+\subsection{Induktionsbrücke}
+\label{sec:induktion}
+Der unbekannte Widerstand $R_1$, sowie die Spule $L_1$ werden nach
+Gleichung \ref{eqn:indur} und \ref{eqn:indul} berechnet.
+Der Gauß-Fehler des Widerstandes ist nach Gleichung \eqref{eqn:fehler-r1}
+und der für die Induktivität mit
+\begin{align}
+      \increment L_1 &= \sqrt{L_2^2 \left(\increment \frac{R_3}{R_4}\right)^{\!\!2} + \left(\increment L_2 \right)^2 \left(\frac{R_3}{R_4}\right)^{\!\!2}} \\
+      &= \sqrt{L_2^2 \left(\frac{R_3}{R_4} \cdot \SI{0.5}{\percent}\right)^{\!\!2} + \left(L_2 \cdot \SI{0.2}{\percent}\right)^2 \left(\frac{R_3}{R_4}\right)^{\!\!2}}
+      \label{eqn:fehler-l1}
+\end{align}
+gegeben. $R_4$, Mittelwert und Standardabweichung sind wie oben,
+vgl Abschnitt \ref{sec:wheatstone}, bestimmt:
+\begin{align}
+      R_{17,\text{i}} &= \SI{100(4)}{\ohm} \pm \SI{3}{\ohm}
+      \label{eqn:r17i} \\
+      L_{17,\text{i}} &= \SI{180(45)}{\milli\henry} \pm \SI{7}{\milli\henry} \:.
+      \label{eqn:l17i} \\
+      \intertext{Der Fehler des Mittelwertes bestimmt sich nach}
+      \increment L &= \sqrt{\frac{1}{N-1} \cdot \sum_{n=1}^N\left(\increment L_n\right)^{\!2}} \\
+      &= \frac{1}{\sqrt{2}} \sqrt{\left(\SI{7.9}{\milli\henry}\right)^{2} + \left(\SI{3.2}{\milli\henry}\right)^{2} + \left(\SI{5.5}{\milli\henry}\right)^{2}} \\
+      &= \SI{7.17}{\milli\henry} \:.
+\end{align}
+\begin{table}
+      \centering
+      \caption{Werte für Spule 17 mit der Induktionsbrücke.}
+      \label{tab:wert17i}
+      \begin{tabular}{S[table-format=2.1] S[table-format=4.0] S[table-format=3.1]
+            S[table-format=3.0] @ {${}\pm{}$} S[table-format=1.1]
+            S[table-format=3.0] @ {${}\pm{}$} S[table-format=1.0]}
+      \toprule
+      {$L_2 \:/\: \si{\milli\henry}$} & {$R_2 \:/\: \si{\ohm}$} & {$R_3 \:/\: \si{\ohm}$} & \multicolumn{2}{c}{$L_1 \:/\: \si{\milli\henry}$} & \multicolumn{2}{c}{$R_1 \:/\: \si{\ohm}$} \\
+      \midrule
+      27.5 &  980 &  86.5 & 260 & 7.9 &  93 & 3 \\
+      20.1 & 2034 &  50   & 106 & 3.2 & 107 & 3 \\
+      14.6 &  810 & 110   & 180 & 5.5 & 100 & 3 \\
+      \bottomrule
+      \end{tabular}
+\end{table}
+
+\subsection{Maxwellbrücke}
+\label{sec:maxwell}
+Während der Messung mit $C_4 = \SI{750}{\nano\farad}$
+konnte die Amplitude der Brückenspannung mit $R_4$ verändert werden.
+Bei den anderen Messungen hatte eine Veränderung des Widerstandes keinen auf dem
+Oszilloskop sichtbaren Einfluss auf die Amplitude.
+$L_1$ kann nach Gleichung \ref{eqn:maxl} für alle Messungen bestimmt werden,
+da es unabhängig von $R_4$ ist. $R_1$ wird für die erste Messung nach Gleichung \ref{eqn:maxr}
+berechnet.
+\begin{align}
+      R_{17,\text{m}} &= \SI{163(7)}{\ohm}
+      \label{eqn:r17m} \\
+      L_{17,\text{m}} &= \SI{68(7)}{\milli\henry} \pm \SI{2}{\milli\henry}
+      \label{eqn:l17m}
+\end{align}
+\begin{align}
+      \increment L &= \sqrt{R_3^2 C_4^2 \left(\increment R_2 \right)^{\!2} + R_2^2 C_4^2 \left(\increment R_3\right)^{\!2} + R_2^2 R_3^2 \left(\increment C_4\right)^{\!2}} \\
+                   &= \sqrt{R_3^2 C_4^2 \left(R_2 \cdot \SI{3}{\percent} \right)^{\!2} + R_2^2 C_4^2 \left(R_3 \cdot \SI{3}{\percent} \right)^{\!2} + R_2^2 R_3^2 \left(C_4 \cdot \SI{0.2}{\percent}\right)^{2}} \:.
+      \label{eqn:fehler-ml1}
+\end{align}
+\begin{table}
+      \centering
+      \caption{Werte für Spule 17 mit der Maxwellbrücke.}
+      \label{tab:wert17m}
+      \begin{tabular}{S[table-format=3.0] S[table-format=2.1] S[table-format=3.0]
+            S[table-format=2.0] @ {${}\pm{}$} S[table-format=1.0]
+            S[table-format=3.0] @ {${}\pm{}$} S[table-format=1.0]}
+      \toprule
+      {$C_4 \:/\: \si{\nano\farad}$} & {$R_3 \:/\: \si{\ohm}$} & {$R_4 \:/\: \si{\ohm}$} & \multicolumn{2}{c}{$L_1 \:/\: \si{\micro\henry}$} & \multicolumn{2}{c}{$R_1 \:/\: \si{\ohm}$} \\
+      \midrule
+      994 & 80.5  &  ?  & 80 & 2 &   ? & ? \\
+      750 & 89    & 545 & 66 & 2 & 163 & 7 \\
+      597 & 95    &  ?  & 56 & 2 &   ? & ? \\
+      \bottomrule
+      \end{tabular}
+\end{table}
+
+\subsection{Frequenz}
+Die Sperrfrequenz der Wien-Robinson-Brücke, nach Abbildung \ref{fig:wrbruecke}, berechnet sich nach
+\begin{equation}
+      ν_0 = \frac{1}{2 \symup{π} R C} =
+      \frac{1}{2 \symup{π} \cdot (\SI{1}{\kilo\ohm}\pm\SI{0.2}{\percent}) \cdot (\SI{993}{\nano\farad}\pm\SI{0.2}{\percent})} = \SI{483(1)}{\hertz}.
+\end{equation}
+In Abbildung \ref{fig:frequenz} sind die Messwerte aus Tabelle \ref{tab:frequenz} aufgetragen.
+Zum Vergleich ist eine Theoriekurve nach Gleichung \ref{eqn:wrfrequenz} eingezeichnet.
+In Abbildung \ref{fig:frequenz-klein} ist der interessante Bereich um $\sfrac{ν_0}{ν_0} = 1$
+dargestellt. Hier ist zu erkennen, dass die gemessenen Amplituden nicht 0 werden.
+Das liegt zum einen an der Wahlmöglichkeit der Frequenz, die $\SI{1}{\hertz}$ war,
+und dem Klirr-Faktor, vgl Abschnitt \ref{sec:klirr}.
+In der Elektronik spricht man bei dieser Schaltung von einem Sperrfilter,
+da er eine Frequenz blockiert.
+\begin{figure}
+      \includegraphics[width=\textwidth]{build/frequenz.pdf}
+      \centering
+      \caption{Frequenzabhängigkeit der Brückenspannung.}
+      \label{fig:frequenz}
+\end{figure}
+\begin{figure}
+      \includegraphics[width=\textwidth]{build/frequenz-klein.pdf}
+      \centering
+      \caption{Frequenzabhängigkeit der Brückenspannung um den Tiefpunkt.}
+      \label{fig:frequenz-klein}
+\end{figure}
+\begin{table}
+      \centering
+      \caption{Messwerte der Wien-Robinson-Brücke.}
+      \label{tab:frequenz}
+      \begin{tabular}{S[table-format=5.0] S[table-format=1.3] S[table-format=1.2] S[table-format=2.3] S[table-format=1.4]}
+      \toprule
+      {$ν \:/\: \si{\hertz}$} & {$U_\text{Br} \:/\: \si{\volt}$} & {$U_\text{S} \:/\: \si{\volt}$}  & {$\frac{ν}{ν_0}$} & {$\frac{U_\text{Br}}{U_\text{s}}$} \\
+      \midrule
+         20 & 1.300 & 3.97 &  0.041 & 0.3275 \\
+         50 & 1.340 & 4.16 &  0.104 & 0.3221 \\
+        100 & 1.200 & 4.24 &  0.207 & 0.2830 \\
+        200 & 0.776 & 4.08 &  0.414 & 0.1902 \\
+        400 & 0.160 & 4.00 &  0.829 & 0.0400 \\
+        410 & 0.140 & 4.00 &  0.849 & 0.0350 \\
+        420 & 0.122 & 4.00 &  0.870 & 0.0305 \\
+        430 & 0.102 & 4.00 &  0.891 & 0.0255 \\
+        440 & 0.094 & 4.00 &  0.911 & 0.0234 \\
+        450 & 0.082 & 4.00 &  0.932 & 0.0204 \\
+        460 & 0.063 & 4.00 &  0.953 & 0.0158 \\
+        470 & 0.039 & 4.00 &  0.974 & 0.0097 \\
+        480 & 0.019 & 4.00 &  0.994 & 0.0048 \\
+        490 & 0.024 & 4.00 &  1.015 & 0.0060 \\
+        500 & 0.052 & 3.96 &  1.036 & 0.0130 \\
+        510 & 0.060 & 3.96 &  1.056 & 0.0152 \\
+        520 & 0.074 & 3.96 &  1.077 & 0.0188 \\
+        530 & 0.088 & 3.96 &  1.098 & 0.0222 \\
+       1000 & 0.604 & 3.88 &  2.071 & 0.1557 \\
+       2000 & 1.000 & 3.76 &  4.143 & 0.2660 \\
+       5000 & 1.180 & 3.68 & 10.357 & 0.3207 \\
+      10000 & 1.200 & 3.68 & 20.714 & 0.3261 \\
+      15000 & 1.230 & 3.68 & 31.071 & 0.3342 \\
+      20000 & 1.250 & 3.68 & 41.428 & 0.3397 \\
+      \bottomrule
+      \end{tabular}
+\end{table}
+
+\newpage
+\subsection{Klirrfaktor}
+\label{sec:klirr}
+Um den Klirrfaktor des Systems zu berechnen, wird die Annahme getroffen, dass die Summe der
+Oberwellen nur aus der zweiten Oberwelle besteht.
+\begin{equation}
+  \symup{k} = \frac{\symup{U}_2}{\symup{U}_1}
+\label{eqn:klirr2}
+\end{equation}
+$\symup{U}_2$ muss zuerst noch berechnet werden.
+Dabei wird $\Omega = 2$ in Formel \eqref{eqn:UbrUs}
+eingesetzt. Damit ergeben sich $f(2)$ und $\symup{U}_2$ nach
+\begin{equation}
+  \symup{U}_2 = \frac{\symup{U}_\text{Br}}{f(2)}= \SI{0,2025}{\volt}.
+\end{equation}
+\begin{align*}
+  \symup{U}_\text{Br, mess} &= \SI{4.53e-3}{\milli\volt} \\
+  f(2) &= 0.02
+\end{align*}
+Damit ergibt sich k zu
+\begin{align*}
+  \symup{k} &= 0.050625 \\
+  \symup{k}_\text{prozentual} &= \SI{5.06}{\percent}.
+\end{align*}
+Der Klirrfaktors gibt an, wie groß der Oberwellenanteil
+eines Signals ist und ist frequenzabhängig.
+Umso kleiner der Klirrfaktor ist, desto weniger tragen die Oberwellen
+zum Signal bei.

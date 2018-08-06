@@ -1,0 +1,185 @@
+\section{Theorie}
+\label{sec:theorie}
+\subsection{Allgemeines}
+Brückenschaltungen werden im allgemeinen dafür verwendet,
+dass sie die Auflösung von Messungen erhöhen.
+Das wird mittels der Brückenspannung $\symup{U}_\text{Br}$
+verrichtet, welche im Folgenden Verwendung findet.
+Mit Hilfe von Brückenschaltungen können Größen, welche diskret als
+elektrische Widerstände fungieren, vermessen werden.
+\\
+\\
+Um nun zum Beispiel einen Widerstand zu vermessen, ist es das Ziel die
+Brückenspannung zu minimieren.
+Dies lässt sich mittels der \emph{Kirchhoff'schen Regeln} erreichen.
+\subsection{Kirchhoff'sche Regeln}
+Das erste Gesetz ist die \emph{Knotenregel},
+\begin{equation}
+  \sum_m \symbf{I}_\text{m} \: = \: 0
+\end{equation}
+welche besagt, dass die Summe der Ströme, die in einen Knoten hineinfließen
+gleich der Summe der hinausfließenden Ströme ist.
+Die zweite Regel, die \emph{Maschenregel}, besagt,
+\begin{equation}
+  \sum_n \symup{E}_\text{n} \: = \: \sum_n \symbf{I}_\text{n} \symup{R}_\text{n}
+\end{equation}
+dass die Summe der EMK\footnote{elektromotorischen Kräfte} innerhalb
+eines geschlossenen Kreises, einer Masche, gleich der Summe der Produkte aus
+$\symbf{I}$ und $\symup{R}$ ist.
+Wird nun die Maschenregeln für eine Brückenschaltung ausgeführt,
+folgt ein Ausdruck für die Spannung $\symup{U}$
+\begin{equation}
+      \symup{U} = \frac{\symup{R}_2 \symup{R}_3 - \symup{R}_1 \symup{R}_4}
+      {(\symup{R}_3 + \symup{R}_4)
+      (\symup{R}_1 + \symup{R}_2)} \symup{U}_\text{s} \,.
+      \label{eqn:quotient}
+\end{equation}
+Die Schaltskizzen der verschiedenen Brückenschaltungen sind im Anhang zu finden.
+Daraus kann durch geschicktes umformen ein Ausdruck für die
+Brückenspannung gefunden werden, welcher nur abhängig von den Bausteinen
+der Schaltung ist.
+\begin{equation}
+  \symup{R}_1 \symup{R}_4 = \symup{R}_2 \symup{R}_3
+\end{equation}
+wird auch Abgleichbedingung genannt, woraus nun der
+zu vermessende Widerstand bestimmt werden kann.
+Analog funktioniert die Abgleichbedingung auch für komplexe Widerstände,
+hier werden die zusammengesetzten Impedanzen Z verwendet.
+\begin{equation}
+  \symup{Z}_1 \symup{Z}_4 = \symup{Z}_2 \symup{Z}_3
+\end{equation}
+Dies liefert, mit Koeffizientenvergleich, zwei neue Gleichungen
+\begin{align}
+  \symup{X}_1\symup{X}_4 - \symup{Y}_1\symup{Y}_4 &=
+  \symup{X}_2\symup{X}_3 - \symup{Y}_2\symup{Y}_3
+  \label{eqn:abgleich1} \\
+  \symup{X}_1\symup{Y}_4 - \symup{X}_4\symup{Y}_1 &=
+  \symup{X}_2\symup{Y}_3 - \symup{X}_3\symup{Y}_2.
+  \label{eqn:abgleich2}
+\end{align}
+
+\subsection{Bestimmung der Unbekannten Größen}
+
+Für die Bestimmung des unbekannten Widerstandes der Wheatstonebrücke,
+wird die Abgleichbedingung nach $\symup{R}_\text{x} / \symup{R}_\text{1}$ umgestellt.
+Es folgt
+\begin{equation}
+    \symup{R}_\text{x} = \symup{R}_2\frac{\symup{R}_3}{\symup{R}_4}\,,
+    \label{eqn:wheat}
+\end{equation}
+Für die Genauigkeit ist vor allem der Quotient aus $\symup{R}_3/\symup{R}_4$ von
+Bedeutung, dass heißt wie genau das Potentiometer eingestellt ist.
+\\
+Bei der Kapazitätsmessbrücke besteht der reale Kondensator aus einem
+Kondensator und einem Widerstand welche in Reihe geschaltet sind.
+\begin{figure}
+      \begin{center}
+            \begin{circuitikz}
+                  \draw[thick] (0,0) to[resistor] node[midway, below] {$\symup{R}$} (2,0)
+                  to[capacitor] node[midway, below] {$\symup{C}$} (4,0);
+            \end{circuitikz}
+      \end{center}
+\end{figure}
+\\
+Die Summe der Impedanzen Z liefert
+\begin{equation}
+  \symup{Z}_\text{real} = \symup{R} - \frac{\symup{i}}{\omega \symup{C}}\,.
+\end{equation}
+Die Abgleichbedingung liefert dann:
+\begin{align}
+  \symup{R}_\text{x} &= \symup{R}_2 \frac{\symup{R}_3}{\symup{R}_4}
+  \label{eqn:kapar} \\
+  \symup{C}_\text{x} &= \symup{C}_2 \frac{\symup{R}_4}{\symup{R}_3} .
+  \label{eqn:kapac}
+\end{align}
+\\
+Analog gilt auch für die Induktivitätsmessbrücke,
+dass den verlustbehafteten Induktivitäten der Gestalt
+\begin{figure}
+      \begin{center}
+            \begin{circuitikz}
+                  \draw[thick] (0,0) to[resistor] node[midway, below] {$\symup{R}$} (2,0)
+                        to[cute inductor] node[midway, below] {$\symup{L}$} (4,0);
+                  \end{circuitikz}
+            \end{center}
+\end{figure}
+\\
+eine Impedanz
+\begin{equation}
+  \symup{Z}_\text{real} = \symup{R} + \symup{i} \omega \symup{L}
+\end{equation}
+zugeodnet wird.
+Damit berechnen sich die Induktivitäten und zugehörigen Widerstände zu
+\begin{align}
+  \symup{R}_\text{x} &= \symup{R}_2 \frac{\symup{R}_3}{\symup{R}_4}
+  \label{eqn:indur} \\
+  \symup{L}_\text{x} &= \symup{L}_2 \frac{\symup{R}_3}{\symup{R}_4} .
+  \label{eqn:indul}
+\end{align}
+Da solche Schaltungen im niedrigfrequenten Bereich schwierig realisierbar sind,
+werden häufig sogenannte Maxwell-Brücken verwendet.
+\\
+Bei der Maxwell-Brücke werden Potentiometer als regelbare Widerstände benutzt,
+$\symup{R}_2$ und $\symup{C}_4$ sind bekannt und konstant. Sie können, durch wechseln, variiert werden.
+Die zusammengesetzte Impedanz hat die Form
+\begin{align}
+  \symup{Z}_1 &= \symup{R}_\text{x} + \symup{i}\omega\symup{L}_\text{x} \\
+\shortintertext{und}
+  \frac{1}{\symup{Z}_4} &= \frac{1}{\symup{R}_4} + \symup{i}\omega\symup{C}_4 .
+\end{align}
+Aus den Abgleichbedingungen \eqref{eqn:abgleich1} und \eqref{eqn:abgleich2}
+resultiert für $\symup{R}_\text{x}$ und $\symup{L}_\text{x}$
+\begin{align}
+  \symup{R}_\text{x} &= \frac{\symup{R}_2 \symup{R}_3}{\symup{R}_4},
+  \label{eqn:maxr} \\
+\shortintertext{sowie}
+  \symup{L}_\text{x} &= \symup{R}_2 \symup{R}_3 \symup{C}_4.
+  \label{eqn:maxl}
+\end{align}
+\\
+All diese Brücken sind frequenzunabhängig.
+Für die frequenzabhängige Brückenspannung, der Wien-Robinson-Brücke,
+$\symup{U}_\text{Br}$ ergeben sich vier Widerstandoperatoren $\symup{Z}$
+\begin{align}
+  \symup{Z}_1 &= 2\symup{R'} & \symup{Z}_2 &= \symup{R'}\\
+  \symup{Z}_3 &= \symup{R} + \frac{1}{\symup{i}\omega\symup{C}}
+  & \symup{Z}_4 &= \frac{\symup{R}}{1 + \symup{i} \omega \symup{RC}} .
+\end{align}
+Darauf wird Gleichung \eqref{eqn:quotient} angewandt, wobei alle Widerstände
+$\symup{R}_\text{i}$ gegen Impedanzen $\symup{Z}_\text{i}$ ausgetauscht werden.
+Daraus erhält man einen Ausdruck für
+${\symup{U}_\text{Br}}/{\symup{U}_\text{s}}$. Das Betragsquadrat ergibt dann
+\begin{equation}
+  \left| \frac{\symup{U}_\text{Br}}{\symup{U}_\text{s}} \right|^2 =
+  \frac{\left(\omega^2 \symup{R}^2 \symup{C}^2 -1 \right)^2}
+      {9\left\{ \left(1 - {\omega}^2 \symup{R}^2 \symup{C}^2 \right)^2 +
+      9 {\omega}^2 \symup{R}^2 \symup{C}^2 \right\}} .
+      \label{eqn:wrfrequenz}
+\end{equation}
+Dies liefert den Zusammenhang für die Eigenkreisfrequenz,
+bei welcher die Brückenspannung verschwindet,
+\begin{equation}
+  ω_0 = 1/\symup{RC} .
+\end{equation}
+Durch eine Substitution mit $\Omega = ω\symup{RC}$ ergibt sich
+\begin{equation}
+\label{eqn:UbrUs}
+  \left| \frac{\symup{U}_\text{Br}}{\symup{U}_\text{s}} \right|^2 =
+  \frac{1}{9}
+  \frac{\left(\Omega^2 - 1 \right)^2}{\left( 1 - \Omega^2 \right)^2
+  +9\Omega^2} .
+\end{equation}
+\\
+Die Wien-Robinson-Brücken wird also als Filter benutzt, welcher Frequenzen um
+$\omega_0$ unterdrückt, also ein Sperrfilter ist.
+\\
+Der Klirrfaktor $\symup{k}$ wird auch Verzerrungsgehalt genannt und ist ein Maß dafür,
+wie stark die Oberwellen des anliegenden Sinussignals sind.
+Er berechnet sich nach
+\begin{equation}
+  \symup{k} = \frac{\sqrt{\sum_{i=2}^\text{n}
+  \symup{U}_\text{i}^2}}{\symup{U}_1} .
+  \label{eqn:klirr}
+\end{equation}
+Wobei $\symup{U}_1$ die Amplitude der Grundwelle ist und die
+$\symup{U}_\text{i}$ die Amplituden der i-ten Oberwelle bei $i\cdotν$.

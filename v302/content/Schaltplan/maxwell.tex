@@ -1,0 +1,25 @@
+\begin{figure}
+\begin{center}
+\begin{circuitikz}
+\draw
+  (0,2) to[resistor, l=$\symup{R}_2$] (0,0) -- (5,0)
+        to[capacitor,*-*, l=$\symup{C}_4$] (5,2)
+        to[vR, l=$\symup{R}_3$] (5,6) -- (0,6)
+        to[cute inductor, l=$\symup{L}_\text{x}$] (0,4)
+        to[resistor, l=$\symup{R}_\text{x}$] (0,2);
+
+\draw[*-*] (-0.1,2) -- (1.8,2);
+\draw (2.5,2.3) node{$\text{Nulldetektor}$};
+\draw[*-] (2.7,2) -- (5,2);
+\draw      (2.5,0) -- (2.5,-0.5)
+                   -- (-2,-0.5)
+         to[sinusoidal voltage source] (-2,6.5)
+                   --  (2.5,6.5)
+                   --  (2.5,6);
+\draw (5,2) -- (7,2)
+        to[resistor, l=$\symup{R}_4$] (7,0) -- (5,0);
+\end{circuitikz}
+\end{center}
+\caption{Schaltplan der Maxwell-Brücke}
+\label{fig:maxwellbruecke}
+\end{figure}

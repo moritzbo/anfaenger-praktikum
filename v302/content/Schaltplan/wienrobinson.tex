@@ -1,0 +1,31 @@
+\begin{figure}
+\begin{center}
+\begin{circuitikz}
+\draw %  main circuit
+  (0,2) to[resistor, l=$\symup{R'}$] (0,0) -- (5,0)
+        to[capacitor,*-*, l=$\symup{C}$] (5,2)
+        to[resistor, l=$\symup{R}$] (5,4)
+        to[capacitor, l=$\symup{C}$] (5,6) -- (0,6)
+        to[resistor, l=$2 \symup{R'}$] (0,2);
+
+\draw[*-*] (-0.1,2) -- (1.8,2); %  Brückenspannung linker teil
+\draw (2.3,2) node{$\symfrak{U}_\text{Br}$};
+\draw[*-] (2.7,2) -- (5,2); %  Brückenspannung rechter teil
+\draw      (2.5,0) -- (2.5,-0.5) %  Sinusspannungsquelle
+                   -- (-2,-0.5)
+                   -- (-2, 1.5)
+         to[sinusoidal voltage source,*-*] (-2,4.5)
+                   --  (-2,6.5)
+                   --  (2.5,6.5)
+                   --  (2.5,6);
+\draw (5,2) -- (7,2)
+        to[resistor, l=$\symup{R}$] (7,0) -- (5,0);
+
+\draw[thick] (-2.5,1.5) -- (-3,1.5);
+\draw[thick] (-2.5,4.5) -- (-3,4.5);
+\draw[thick] (-2.75,1.5) -- (-2.75,4.5) node[midway, left] {$\symfrak{U}_\text{S}$};
+\end{circuitikz}
+\end{center}
+\caption{Schaltplan der Wien-Robinson-Brücke}
+\label{fig:wrbruecke}
+\end{figure}
