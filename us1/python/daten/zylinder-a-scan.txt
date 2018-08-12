@@ -1,0 +1,7 @@
+1. Peak 30.1 μs 1.21V
+2. Peak 59.2 μs 0.15V
+Δt = 29.1 μs
+c_lit = 2670 m/s
+l = 3.97 cm
+c = 2728.52 m/s
+gemessen h = 41 mm

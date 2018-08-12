@@ -1,0 +1,96 @@
+\section{Theorie}
+\label{sec:theorie}
+Ultraschall liegt in der Frequenz über dem hörbaren Schall,
+folglich beginnt der Ultraschallbereich bei $ν = \SI{20}{\kilo\hertz}$.
+Er endet beim Übergang zum Hyperschall bei $ν = \SI{1}{\giga\hertz}$.
+
+\subsection{Ultraschall}
+Die Ultraschallwellen breiten sich, wie Schallwellen, in Luft und Gasen
+longitudinal aus.
+Die Amplituden sind Druckschwankungen, sodass die Ultraschalltechnik in der
+Werkstoffprüfung als Methode der zerstörungsfreien Prüfung verwendet werden kann.
+
+Ultraschallwellen können mit Piezokristallen erzeugt werden.
+Diese werden in einem elektrischen Feld zu Schwingungen angeregt,
+sodass Ultraschallwellen abgestrahlt werden.
+Dieser piezo-elektrische Effekt kann auch zum detektieren von Ultraschallwellen
+verwendet werden.
+
+\subsection{Beschreibung durch Wellenfunktionen}
+Die Wellenfunktion, nach \cite{Anleitung},
+\begin{align}
+    p(x,t) &= p_0 + v_0\:Z\:\cos(ω\:t-k\:x)
+    \intertext{beschreibt die Ausbreitung der longitudinalen Schallwelle.}
+    Z&=c\cdotρ
+    \intertext{ist die akustische Impedanz des jeweiligen Materials.
+    Dabei ist $c$ die Schallgeschwindigkeit im Medium:}
+    c_\text{Fl} &= \sqrt{\frac{1}{κ\cdotρ}}\:,
+    \intertext{mit der Kompressibilität $κ$ des Stoffes und der Dichte $ρ$.
+    In Festkörpern ist die Schallausbreitung nicht rein longitudinal, sondern
+    durch Schubspannungen auch transversal. Für die Schallgeschwindigkeit wird
+    daher nicht die Kompressibilität, sondern das Elastizitätsmodul verwendet}
+    c_\text{Fest} &= \sqrt{\frac{E}{ρ}}\:.
+    \intertext{Durch die Streuungen und Absorptionen im Festkörper nimmt die
+    Intensität der Welle exponentiell mit}
+    I(x) &= I_0 \cdot \symup{e}^{-α\:x}
+    \label{eqn:alpha}
+\end{align}
+ab.
+
+\subsection{Reflexion und Transmission}
+Die durch eine Grenzschicht transmitierte Welle hat den Anteil
+\begin{align}
+    T &= 1 - R
+    \intertext{an der einfallenden Welle. $R$ ist der Reflexionskoeffizient}
+    R &= \left(\frac{Z_1-Z_2}{Z_1+Z_2}\right)^{\!\!2}\:.
+    \intertext{Mit den jewiligen akustischen Impedanzen}
+    Z_i &= c_i \cdot ρ_i\:.
+\end{align}
+
+\subsection{Messverfahren}
+Beim messen mit Ultraschall gibt es verschieden Methoden wie die Messwerte genommen
+werden, sowie welche Messwerte beim quasi gleichen Messaufbau genommen werden.
+
+\subsubsection{Durchschallungsverfahren}
+Beim Durchschallungsverfahren wird der Ultraschall in eine Probe geleitet und
+auf der gegenüberliegenden Seite vom Sender aufgefangen. Wenn die Probe inhomogen
+ist, kann dies durch die abgeschwächte Intensität erkannt werden. Weitere
+Ausssagen, wie die Position der Inhomogenität sind nicht möglich.
+
+\subsubsection{Impuls-Echo-Verfahren}
+Wie der Name des Verfahrens sagt, wird eine Ultraschallwelle als Impuls in
+das Probestück geschickt, durch die Reflexion an den Grenzflächen von Inhomogenitäten
+entstehen zurücklaufende Wellen. Diese werden von der Ultraschallsonde detektiert.
+
+Durch die Laufzeit $t$ kann bei bekannter Schallgeschwindigkeit im Material die
+Strecke bis zur Verunreinigung nach
+\begin{align}
+    s &= \frac{1}{2}\cdot c \cdot t
+    \intertext{berechnet werden. Ist die Länge der Probe bekannt,
+    kann alternativ auch die Schallgeschwindigkeit in dem Medium bestimmt werden:}
+    c &= 2\cdot\frac{s}{t}\:.
+    \label{eqn:velocity}
+\end{align}
+
+\subsection{Scanmethoden}
+Für das Impuls-Echo-Verfahren gibt es verschiedene Auswertungsmethoden.
+
+A-Scan steht für Amplitudenscan, hierbei werden die Amplituden betrachtet,
+um auch die Abschwächung bestimmen zu können.
+
+Bei einem B-Scan wird ein zweidimensionales Graustufenbild aufgenommen.
+Der Grauton steht dann für die Intensität der zurücklaufenden Welle.
+
+Beim TM-Scan wird ein Ultraschallsignal mit hoher Wiederholungsfrequenz verwendet.
+Durch die schnelle Abfolge an Signalen kann ein Videoähnliches Signal
+aufgenommen werden.
+
+\subsection{Herzvolumen}
+Um das Herzvolumen des Modells zu bestimmen, wird das Herz als Zylinder angenommen.
+Das Volumen ist demnach
+\begin{equation}
+  V = \symup{\pi} \cdot r^2 \cdot h\:.
+  \label{eqn:herzvol}
+\end{equation}
+Durch das Pumpen wird das Modell aufgeblasen. Mit dem A-Scan kann die
+Amplitude bestimmt werden und damit das Volumen des Herzens.

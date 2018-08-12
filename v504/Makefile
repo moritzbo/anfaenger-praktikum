@@ -1,11 +1,15 @@
 ifeq (,$(shell sh -c 'cygpath --version 2> /dev/null'))
-  pwd := $$(pwd)
-  translate = $1
+	# Unix
+	pwd := $$(pwd)
+	translate = $1
+else
+	# Windows mit MSys2/Cygwin
+	pwd := $$(cygpath -m "$$(pwd)")
+	translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
 all: build/main.pdf
 
-# hier Python-Skripte:
 build/kennlinie.pdf: python/kennlinie.py python/2a.txt python/21a.txt python/22-23-24a.txt header-matplotlib.tex matplotlibrc | build
 	TEXINPUTS="$(pwd):" python python/kennlinie.py
 
@@ -17,7 +21,6 @@ build/25a.pdf: python/raumladung.py python/25a.txt python/nano.txt header-matplo
 	TEXINPUTS="$(pwd):" python python/raumladung.py
 
 build/nano.txt: build/25a.pdf
-# hier alle txt und pdf abhängigkeiten rein
 
 build/main.pdf: build/kennlinie.pdf \
 	build/kennlinientemperatur.txt \
@@ -26,7 +29,7 @@ build/main.pdf: build/kennlinie.pdf \
 	build/nano.txt
 
 build/main.pdf: FORCE | build
-	  TEXINPUTS=build: \
+	  TEXINPUTS=build"$(call translate,build:)" \
 	  BIBINPUTS=build: \
 	  max_print_line=1048576 \
 	latexmk \
@@ -35,7 +38,6 @@ build/main.pdf: FORCE | build
 	  --interaction=nonstopmode \
 	  --halt-on-error \
 	main.tex
-
 
 build:
 	mkdir -p build

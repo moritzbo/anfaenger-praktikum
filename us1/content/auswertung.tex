@@ -1,0 +1,253 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+\subsection{Messung der Schallgeschwindigkeit}
+\label{subsec:schall1}
+Mit Formel \eqref{eqn:velocity} wird die Schallgeschwindigkeit aus der ersten
+Messung in Acryl bestimmt. Die Werte stehen in Tabelle \ref{tab:schallmess}.
+Nachdem die berechnete Geschwindigkeit im Programm eingetragen wurde,
+wird eine Tiefenmessung durchgeführt.
+\begin{table}
+    \centering
+    \caption{Werte der Schallgeschwindigkeitsmessung. $c_\text{lit}$ aus \cite{SchallLit}.}
+    \label{tab:schallmess}
+    \begin{tabular}{S[table-format=2.1] S[table-format=2.0]
+        |S[table-format=1.2] S[table-format=2.1]
+        |S[table-format=1.2] S[table-format=2.1]
+        |S[table-format=1.2]
+        |S[table-format=4.1] S[table-format=4.0] }
+        \toprule
+        {Schieblehre}
+        & {Tiefenmessung}
+        & \multicolumn{2}{c|}{Puls 1}
+        & \multicolumn{2}{c|}{Puls 2} &
+        & \multicolumn{2}{c}{Schallgeschwindigkeit} \\
+        {$l\:/\:\si{\milli\meter}$} & {$h\:/\:\si{\milli\meter}$}
+        & {$U\:/\:\si{\volt}$} & {$t\:/\:\si{\micro\second}$}
+        & {$U\:/\:\si{\volt}$} & {$t\:/\:\si{\micro\second}$}
+        & {$\increment t\:/\:\si{\micro\second}$}
+        & {$c_l\:/\:\si{\meter\per\second}$}
+        & {$c_\text{lit}\:/\:\si{\meter\per\second}$} \\
+        \midrule
+        39.7 & 41 & 1.21 & 30.1 & 0.15 & 59.2 & 29.1 & 2728.5 & 2730 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Es ergibt sich eine prozentuale Abweichung der beiden bestimmten Längen zueinander von
+\begin{align}
+    \increment s_{\%}
+    &= \frac{|\text{Soll} \: - \: \text{Ist}|}{\text{Soll}} \cdot \SI{100}{\percent}
+    = \frac{(41-39,7)\si{\milli\meter}}{\SI{39.7}{\milli\meter}}\cdot\SI{100}{\percent}
+    = \SI{3.275}{\percent}\:.
+    \label{eqn:prozfehler}
+    \intertext{Für die Schallgeschwindigkeit ergibt sich}
+    \increment c_{\%}
+    &= \frac{\num{2730}-\num{2728.5}}{\num{2730}}\cdot\SI{100}{\percent} = \SI{0.05}{\percent}\:.
+\end{align}
+
+Mit einer eingestellten Verstärkung verschiebt sich das Bild zu dem in Abbildung
+\ref{fig:acrylschall}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/acrylschall.pdf}
+    \caption{Messwerte der ersten Tiefenmessung, mit Verstärkung.}
+    \label{fig:acrylschall}
+\end{figure}
+
+\newpage
+\subsection{Bestimmung der Dämpfung}
+Um die Dämpfung zu bestimmen wird ein Fit der Form
+\begin{align}
+    f(x) &= \exp(α\cdot x+b)
+    \intertext{angesetzt. Die Paramter folgen mit Scipy zu}
+    α &= \frac{\num{-0.023(4)}}{\si{\milli\meter}}\\
+    b &= \num{1.10(18)}\:.
+\end{align}
+Der Graph mit Fit ist in Abbildung \ref{fig:linfit} dargestellt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/daempfefit.pdf}
+    \caption{Messwerte und Fit für die Dämpfung.}
+    \label{fig:linfit}
+\end{figure}
+
+Für die Regression wurden nur die Zylinder benutzt, welche einzeln gemessen
+wurden, da bei den zusammengesetzten Zylinder nicht ganz klar war, welcher Peak
+nun die Reflektion an der hintersten Wand darstellt.
+
+\begin{table}
+    \centering
+    \caption{Messwerte und Ergebnisse der Absorptions- und \\Schallgeschwindigkeitsmessung mit dem Puls-Echo-Verfahren.}
+    \label{tab:absorption}
+    \begin{tabular}{
+        S[table-format=3.2] S[table-format=1.3]
+        |S[table-format=3.1] S[table-format=2.1] S[table-format=4.2]
+        }
+        \toprule
+        {$h_\text{schieb}\;/\;\si{\centi\meter}$}
+        & {$U_2\;/\;\si{\volt}$}
+        & {$h_\text{tief}\;/\;\si{\centi\meter}$}
+        & {$t\;/\;\si{\micro\second}$}
+        & {$c\;/\;\si{\meter\per\second}$}
+        \\
+        \midrule
+         31.0  & 1.349 &  32.6 & 23.9 & 2728.03 \\
+         39.8  & 1.237 &  41.3 & 30.3 & 2726.07 \\
+         61.5  & 0.924 &  63.4 & 46.4 & 2732.76 \\
+         71.5  & 0.569 &  41.8 & 30.7 & 2723.13 \\
+         80.5  & 0.465 &  81.8 & 60.0 & 2726.67 \\
+         92.7  & 0.038 &  95.1 & 69.7 & 2728.84 \\
+        102.45 & 0.067 & 104.6 & 76.8 & 2723.96 \\
+        126.0  & 0.056 & 121.7 & 89.0 & 2734.83 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Schallgeschwindigkeit mit Puls-Echo Verfahren}
+Mit den Werten aus Tabelle \ref{tab:absorption} wird
+die Schallgeschwindigkeit nach Gleichung \eqref{eqn:velocity} bestimmt.
+Der Mittelwert
+\begin{align}
+    \overline{x} &= \frac{1}{N} \sum_{i=0}^{N} x_i \label{eqn:mittelwert}
+    \intertext{mit dem Fehler}
+    \increment\overline{x} &= \sqrt{\frac{1}{N(N-1)}\sum_{k=0}^{N}\left( x_k - \overline{x} \right)^2} \label{eqn:mittelwertfehler}
+    \shortintertext{ist}
+    c &= \SI{2728(1)}{\meter\per\second}\:.
+\end{align}
+Eine lineare Ausgleichsrechnung nach
+\begin{align}
+    2\cdot h &= m\cdot t+b
+    \label{eqn:linreg}
+    \shortintertext{ergibt}
+    m &= \SI{2732(4)}{\meter\per\second}\\
+    b &= \SI{-0.0002(3)}{\meter}\:.
+\end{align}
+Dieses ist in Abbildung \ref{fig:echopuls} zu sehen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/echopuls.pdf}
+    \caption{Messwerte und Ausgleichsgerade zur Schallgeschwinsigkeitsmessung mit dem Puls-Echo-Verfahren.}
+    \label{fig:echopuls}
+\end{figure}
+
+\subsection{Schallgeschwindigkeitsmessung mit dem Durchschallungsverfahren}
+Mit den Messwerten aus Tabelle \ref{tab:durchschalltab} berechnet sich der
+Mittelwert der Schallgeschwindigkeit nach Gleichung \eqref{eqn:mittelwert},
+mit dem Fehler nach Gleichung \eqref{eqn:mittelwertfehler}, zu
+\begin{align}
+    c &= \SI{2584(24)}{\meter\per\second}\:.
+    \intertext{Eine lineare Ausgleichsrechnung nach Formel \eqref{eqn:linreg} ergibt}
+    m &= \SI{2705(23)}{\meter\per\second}\\
+    b &= \SI{-0.0030(7)}{\meter}\:.
+    \intertext{Die Steigung $m$ ist gerade die Schallgeschwindigkeit mit dem
+    prozentualen Fehler \eqref{eqn:prozfehler}}
+    \increment c_\% &= \frac{\num{2730}-\num{2705}}{\num{2730}}\cdot\SI{100}{\percent} = \SI{0.9}{\percent}\:.
+\end{align}
+Die Ausgleichsgerade ist in Abbildung \ref{fig:durchschallC} abgebildet.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{build/durchschall.pdf}
+  \caption{Messwerte und Ergebnisse des Durchschallungsverfahrens.}
+  \label{fig:durchschallC}
+\end{figure}
+
+\begin{table}
+    \centering
+    \caption{Messwerte und Ergebnisse des Durchschallungsverfahrens.}
+    \label{tab:durchschalltab}
+    \begin{tabular}{S[table-format=3.1] S[table-format=2.1] S[table-format=4.2]}
+        \toprule
+        {$s\:/\:\si{\centi\meter}$}
+        & {$t\:/\:\si{\micro\second}$}
+        & {$c\:/\:\si{\meter\per\second}$}\\
+        \midrule
+         31.0 & 35.8 & 2597.77 \\
+         40.2 & 45.7 & 2638.95 \\
+         31.0 & 12.7 & 2440.94 \\
+         40.2 & 15.8 & 2544.30 \\
+         61.6 & 23.8 & 2588.24 \\
+         80.4 & 30.9 & 2601.94 \\
+        102.1 & 39.2 & 2604.59 \\
+        120.5 & 45.4 & 2654.19 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\newpage
+\subsection{Bestimmung der Plattendicke}
+Die Messwerte aus Tabelle \ref{tab:platten} sind aus der Abbildung
+\ref{fig:platten} genommen. Die Höhe $h$ bestimmt sich nach
+\begin{align}
+    h &= c\cdot t\:,
+    \intertext{die Differenzen der Höhen mit}
+    h_{\text{diff},i} &= |h_i-h_{i+1}|\:.
+    \intertext{Als Schallgeschwindigkeit wird der Wert}
+    c_\text{lit} &= \SI{2730}{\meter\per\second}
+\end{align}
+aus \cite{SchallLit} verwendet.
+
+\begin{table}
+    \centering
+    \caption{Höhen der Platten und des Zylinders.}
+    \label{tab:platten}
+    \begin{tabular}{c S[table-format=2.1] S[table-format=3.3] S[table-format=2.1] S[table-format=2.2]}
+        \toprule
+        {Objekt}
+        & {$t\:/\:\si{\micro\second}$}
+        & {$h\:/\:\si{\centi\meter}$}
+        & {$h_\text{diff}\:/\:\si{\centi\meter}$}
+        & {$h_\text{schieb}\:/\:\si{\centi\meter}$} \\
+        \midrule
+        Wasserschicht &  0.4 &  0.546 &  0.546 & \\
+        Zylinder      & 30.6 & 41.769 & 41.223 & 41,17 \\
+        Platte 1      & 43.8 & 59.787 & 18.018 & 19,7 \\
+        Platte 2      & 57.1 & 77.941 & 18.155 & 19,4 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{build/doppelblatt.pdf}
+  \caption{Messwerte der Mehrfachreflexionsmessung.}
+  \label{fig:platten}
+\end{figure}
+
+\newpage
+
+\subsection{Bestimmung der Abstände in einem Augenmodell}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{build/auge1.pdf}
+  \caption{Echo-Puls Verfahren für ein gegebenes Augenmodell.}
+  \label{fig:auge1}
+\end{figure}
+
+Um die Abstände in einem Augenmodell zu bestimmen wurde zunächst mit einem
+A-Scan die Iris, die Linse und die Retina gescannt. In Abbildung
+\ref{fig:auge1} ist die Tiefenmessung aufgetragen.
+Als Iris wurde das erste Maximum identifiziert, das zweite Maximum wird die
+Position der Linse darstellen. Das dritte Maximum ist vermutlich ein Messfehler
+und wird daher ignoriert. Das letzte Maximum wird bei der Retina liegen.
+Die Abstände des Auges sind im folgenden dargestellt und können aus dem
+Diagramm entnommen werden.
+
+\begin{table}
+  \centering
+  \caption{Abstände des Augenmodells.}
+  \label{fig:augwerte}
+  \begin{tabular}{S S}
+    \toprule
+    {$\text{Abstände}$}
+    & {$\text{Messwert} \:/\: \si{\centi\meter}$} \\
+    \midrule
+    $\text{Sonde-Iris}$   & 0.125 \\
+    $\text{Sonde-Linse}$  & 1.14  \\
+    $\text{Sonde-Retina}$ & 4.495 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

@@ -8,16 +8,8 @@ else
   translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
+all: build/main.pdf
 
-# unter all kommen alle Dateien die durch das Makefile erstellt werden
-all: build/main.pdf build/fehler.txt \
-	build/wert12.txt build/wert13.txt \
-	build/wert1.txt build/wert3.txt build/wert8.txt \
-	build/wert17a.txt build/wert17b.txt \
-	build/frequenz.pdf build/frequenz.txt
-
-#  hier Python-Skripte: falls 2 Dateien in einem Script erstellt werden:
-# build/linreg_a.txt: build/linreg_a.pdf | build
 build/fehler.txt: python/fehler.py  | build
 	TEXINPUTS="$(call translate,$(pwd):)" python python/fehler.py
 
@@ -38,12 +30,17 @@ build/frequenz.pdf: python/frequenz.py python/werte-e.txt header-matplotlib.tex 
 	TEXINPUTS="$(call translate,$(pwd):)" python python/frequenz.py
 build/frequenz.txt: build/frequenz.pdf
 build/frequenz-klein.pdf: build/frequenz.pdf
-# hier alle build/dateien.endung die für main.tex gebraucht werden
-build/main.pdf: build/wert12.txt build/wert13.txt \
-			build/wert1.txt build/wert3.txt build/wert8.txt \
-			build/wert17a.txt build/wert17b.txt \
-			build/frequenz.pdf build/frequenz.txt
 
+build/main.pdf:	build/fehler.txt \
+	build/wert12.txt \
+	build/wert13.txt \
+	build/wert1.txt \
+	build/wert3.txt build/wert8.txt \
+	build/wert17a.txt \
+	build/wert17b.txt \
+	build/frequenz.pdf \
+	build/frequenz.txt \
+	build/frequenz-klein.txt
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \

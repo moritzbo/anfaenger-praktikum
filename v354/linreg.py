@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+
 t, U = np.genfromtxt('werte.txt', unpack=True)
 t *= 1e-6  # die X-Achse
 U *= 1e-3
@@ -36,8 +37,7 @@ print('fm', fm)
 print('b', b)
 plt.plot(t, lnu, 'gx')
 plt.plot(t, m*t+b, 'b-')
-# plt.show()
-plt.savefig('ausleichsgerade.pdf')
-np.savetxt('rechnung.txt', np.column_stack([mt, mU, mlnu, mtlnu, mdt]), header="mt, mU, mlnu, mtlnu, mdt")
-np.savetxt('berechnet.txt', np.column_stack([t, U, lnu, tlnu, dt]), header="t, U, lnu, tlnu, dt")
+plt.savefig('build/ausleichsgerade.pdf')
+np.savetxt('build/rechnung.txt', np.column_stack([mt, mU, mlnu, mtlnu, mdt]), header="mt, mU, mlnu, mtlnu, mdt")
+np.savetxt('build/berechnet.txt', np.column_stack([t, U, lnu, tlnu, dt]), header="t, U, lnu, tlnu, dt")
 plt.clf()

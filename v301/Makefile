@@ -1,18 +1,14 @@
 ifeq (,$(shell sh -c 'cygpath --version 2> /dev/null'))
-  # Unix
-  pwd := $$(pwd)
-  translate = $1
+	# Unix
+	pwd := $$(pwd)
+	translate = $1
 else
-  # Windows mit MSys2/Cygwin
-  pwd := $$(cygpath -m "$$(pwd)")
-  translate = $(shell echo '$1' | sed 's/:/;/g')
+	# Windows mit MSys2/Cygwin
+	pwd := $$(cygpath -m "$$(pwd)")
+	translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
-all: build/main.pdf \
-	build/leistung.pdf build/leistung.txt \
-	build/mono.pdf\
-	build/rechteck.pdf build/rechteck1.txt build/rechteck2.txt \
-	build/sinus.pdf build/sinus1.txt build/sinus2.txt
+all: build/main.pdf
 
 build/mono.pdf: python/b.py python/daten/werte_b.txt header-matplotlib.tex matplotlibrc | build
 	TEXINPUTS="$(call translate,$(pwd):)" python python/b.py
@@ -29,10 +25,15 @@ build/sinus.pdf: build/rechteck.pdf
 build/sinus1.txt: build/rechteck.pdf
 build/sinus2.txt: build/rechteck.pdf
 
-build/main.pdf: build/leistung.pdf build/leistung.txt \
-			build/mono.pdf \
-			build/rechteck.pdf build/rechteck1.txt build/rechteck2.txt \
-			build/sinus.pdf build/sinus1.txt build/sinus2.txt
+build/main.pdf: build/mono.pdf \
+	build/leistung.pdf \
+	build/leistung.txt \
+	build/rechteck.pdf \
+	build/rechteck1.txt \
+	build/rechteck2.txt \
+	build/sinus.pdf \
+	build/sinus1.txt \
+	build/sinus2.txt
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \

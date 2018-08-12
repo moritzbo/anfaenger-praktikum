@@ -1,15 +1,14 @@
 ifeq (,$(shell sh -c 'cygpath --version 2> /dev/null'))
-  pwd := $$(pwd)
-  translate = $1
+	# Unix
+	pwd := $$(pwd)
+	translate = $1
+else
+	# Windows mit MSys2/Cygwin
+	pwd := $$(cygpath -m "$$(pwd)")
+	translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
-all: build/main.pdf \
-	build/zzz.txt
-
-# hier Python-Skripte:
-# build/25a.pdf: python/raumladung.py python/25a.txt python/nano.txt header-matplotlib.tex matplotlibrc | build
-# 	TEXINPUTS="$(pwd):" python python/raumladung.py
-# hier alle txt und pdf abhängigkeiten rein
+all: build/main.pdf
 
 build/impulse.pdf: python/impulse.py python/daten/impulse.txt header-matplotlib.tex matplotlibrc | build
 	TEXINPUTS="$(pwd):" python python/impulse.py
@@ -29,10 +28,11 @@ build/main.pdf: build/impulse.pdf \
 	build/impulse.txt \
 	build/ladung.pdf \
 	build/nachentladung.txt \
-	build/totzeit.txt
+	build/totzeit.txt \
+	build/zzz.txt
 
 build/main.pdf: FORCE | build
-	  TEXINPUTS=build: \
+	  TEXINPUTS="$(call translate,build:)" \
 	  BIBINPUTS=build: \
 	  max_print_line=1048576 \
 	latexmk \
@@ -41,7 +41,6 @@ build/main.pdf: FORCE | build
 	  --interaction=nonstopmode \
 	  --halt-on-error \
 	main.tex
-
 
 build:
 	mkdir -p build

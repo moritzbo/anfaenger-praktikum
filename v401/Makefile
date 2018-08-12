@@ -1,12 +1,22 @@
+ifeq (,$(shell sh -c 'cygpath --version 2> /dev/null'))
+	# Unix
+	pwd := $$(pwd)
+	translate = $1
+else
+	# Windows mit MSys2/Cygwin
+	pwd := $$(cygpath -m "$$(pwd)")
+	translate = $(shell echo '$1' | sed 's/:/;/g')
+endif
+
 all: build/main.pdf
 
-# hier Python-Skripte:
 build/vakuum.txt: python/rechnung.py python/vakuum.txt python/wellenlaenge.txt | build
 	python python/rechnung.py
 build/wellenlaenge.txt: build/vakuum.txt
 
-#	hier alle txt und pdf abhängigkeiten rein
-build/main.pdf: build/vakuum.txt build/wellenlaenge.txt
+build/main.pdf: build/vakuum.txt \
+	build/wellenlaenge.txt
+
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
 	  BIBINPUTS=build: \

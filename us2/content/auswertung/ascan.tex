@@ -1,0 +1,16 @@
+\subsection{A-Scan}
+\label{sec:ascana}
+
+Berechnet werden die Durchmesser für die Schieblehren-Messung mit
+\begin{align}
+    d &= h - s_\text{oben} - s_\text{unten}\:.
+    \intertext{Bei der A-Scan-Messung muss die Koppelschicht und Sondenschicht
+    berücksichtigt werden, dafür wird die Größe}
+    \increment h &= \left|h_\text{schieb}-h_\text{A-Scan}\right|
+    \intertext{eingeführt. Der Durchmesser der Störstellen ist somit}
+    d &= h + \increment h - s_\text{oben} - s_\text{unten}\:.
+    \intertext{In Tabelle \ref{tab:scana}, Kapitel \ref{sec:tabellen}, stehen die Messwerte und die Ergebnisse,
+    sowie der prozentuale Fehler nach}
+    \increment d_{\%} &= \frac{|\text{Soll} \: - \: \text{Ist}|}{\text{Soll}} \cdot \SI{100}{\percent}\:.
+    \label{eqn:prozfehler}
+\end{align}

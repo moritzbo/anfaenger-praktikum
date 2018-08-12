@@ -1,24 +1,15 @@
 ifeq (,$(shell sh -c 'cygpath --version 2> /dev/null'))
-  # Unix
-  pwd := $$(pwd)
-  translate = $1
+	# Unix
+	pwd := $$(pwd)
+	translate = $1
 else
-  # Windows mit MSys2/Cygwin
-  pwd := $$(cygpath -m "$$(pwd)")
-  translate = $(shell echo '$1' | sed 's/:/;/g')
+	# Windows mit MSys2/Cygwin
+	pwd := $$(cygpath -m "$$(pwd)")
+	translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
+all: build/main.pdf
 
-all: build/main.pdf \
-	build/hysterese.pdf \
-	build/helmkombi2.pdf \
-	build/helmkombi4.pdf \
-	build/4AiZOOM.pdf \
-	build/2AiZOOM.pdf \
-	build/spulen.pdf \
-	build/spule_kurz.pdf
-
-# hier Python-Skripte:
 build/hysterese.pdf: python/hysterese.py header-matplotlib.tex matplotlibrc python/hysterese.txt| build
 	TEXINPUTS="$(call translate,$(pwd):)" python python/hysterese.py
 
@@ -35,15 +26,13 @@ build/spulen.pdf: python/spulen.py python/spuleL.txt python/spuleK.txt header-ma
 build/spule_kurz.pdf: build/spulen.pdf
 
 build/main.pdf: build/hysterese.pdf \
-	python/hysterese.txt build/2AiZOOM.pdf \
-	build/4AiZOOM.pdf python/helm2a.txt \
-	python/helm2i.txt python/helm4a.txt \
-	python/helm4i.txt build/helmkombi2.pdf \
-	build/helmkombi4.pdf build/spulen.pdf \
-	build/spule_kurz.pdf python/spuleL.txt \
-	python/spuleK.txt
+	build/helmkombi2.pdf \
+	build/2AiZOOM.pdf \
+	build/helmkombi4.pdf \
+	build/4AiZOOM.pdf \
+	build/spulen.pdf \
+	build/spule_kurz.pdf
 
-#	hier alle txt und pdf abhängigkeiten rein
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
 	  BIBINPUTS=build: \
