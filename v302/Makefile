@@ -40,7 +40,7 @@ build/main.pdf:	build/fehler.txt \
 	build/wert17b.txt \
 	build/frequenz.pdf \
 	build/frequenz.txt \
-	build/frequenz-klein.txt
+	build/frequenz-klein.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
