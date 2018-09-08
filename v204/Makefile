@@ -46,6 +46,7 @@ build/main.pdf: FORCE | build
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
+	  --time \
 	main.tex
 
 build:
