@@ -1,3 +1,3 @@
 # anfaenger-praktikum
 Protokolle des Anfängerpraktikums der Physik an der TU-Dortmund.
-Einige Makefiles funktionieren nicht unter Windows.
+Basierend auf dem Toolboxworkshop von Pep et Al.
