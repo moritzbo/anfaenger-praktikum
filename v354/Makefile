@@ -8,11 +8,11 @@ else
 	translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
-all: build/ausleichsgerade.pdf \
+all: build/ausgleichsgerade.pdf \
 	build/rechnung.txt \
 	build/berechnet.txt
 
-build/ausleichsgerade.pdf: linreg.py werte.txt header-matplotlib.tex matplotlibrc | build
+build/ausgleichsgerade.pdf: linreg.py werte.txt header-matplotlib.tex matplotlibrc | build
 	TEXINPUTS="$(call translate,$(pwd):)" python linreg.py
 build/rechnung.txt: build/ausgleichsgerade.pdf
 build/berechnet.txt: build/ausgleichsgerade.pdf
